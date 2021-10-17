@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0497B908-E8F6-4812-95C6-0DE7B640801D}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>UILayer</RootNamespace>
+    <AssemblyName>UILayer</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="frmCashPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCashPayment.Designer.cs">
+      <DependentUpon>frmCashPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCCManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCCManagement.Designer.cs">
+      <DependentUpon>frmCCManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCinemaMngmt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCinemaMngmt.Designer.cs">
+      <DependentUpon>frmCinemaMngmt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmConfirmation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConfirmation.Designer.cs">
+      <DependentUpon>frmConfirmation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMemberConfirmation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMemberConfirmation.Designer.cs">
+      <DependentUpon>frmMemberConfirmation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMemberRegist.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMemberRegist.Designer.cs">
+      <DependentUpon>frmMemberRegist.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMembership.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMembership.Designer.cs">
+      <DependentUpon>frmMembership.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPaymentOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPaymentOptions.Designer.cs">
+      <DependentUpon>frmPaymentOptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPurchaseOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPurchaseOptions.Designer.cs">
+      <DependentUpon>frmPurchaseOptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRemoveMember.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRemoveMember.Designer.cs">
+      <DependentUpon>frmRemoveMember.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSnacksDrinks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSnacksDrinks.Designer.cs">
+      <DependentUpon>frmSnacksDrinks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTickets.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTickets.Designer.cs">
+      <DependentUpon>frmTickets.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="frmCashPayment.resx">
+      <DependentUpon>frmCashPayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCCManagement.resx">
+      <DependentUpon>frmCCManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCinemaMngmt.resx">
+      <DependentUpon>frmCinemaMngmt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmConfirmation.resx">
+      <DependentUpon>frmConfirmation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMemberConfirmation.resx">
+      <DependentUpon>frmMemberConfirmation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMemberRegist.resx">
+      <DependentUpon>frmMemberRegist.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMembership.resx">
+      <DependentUpon>frmMembership.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPaymentOptions.resx">
+      <DependentUpon>frmPaymentOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPurchaseOptions.resx">
+      <DependentUpon>frmPurchaseOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRemoveMember.resx">
+      <DependentUpon>frmRemoveMember.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSnacksDrinks.resx">
+      <DependentUpon>frmSnacksDrinks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTickets.resx">
+      <DependentUpon>frmTickets.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BOLayer\BOLayer.csproj">
+      <Project>{fbf2f0d7-d9d0-4c82-ab6e-d76e22ee0bc1}</Project>
+      <Name>BOLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,6 @@
+C:\Users\Horacio\coding\C#Projects\CinemaPOS\DALayer\bin\Debug\DALayer.dll
+C:\Users\Horacio\coding\C#Projects\CinemaPOS\DALayer\bin\Debug\DALayer.pdb
+C:\Users\Horacio\coding\C#Projects\CinemaPOS\DALayer\obj\Debug\DALayer.csproj.AssemblyReference.cache
+C:\Users\Horacio\coding\C#Projects\CinemaPOS\DALayer\obj\Debug\DALayer.csproj.CoreCompileInputs.cache
+C:\Users\Horacio\coding\C#Projects\CinemaPOS\DALayer\obj\Debug\DALayer.dll
+C:\Users\Horacio\coding\C#Projects\CinemaPOS\DALayer\obj\Debug\DALayer.pdb

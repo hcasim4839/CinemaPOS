@@ -1,0 +1,2 @@
+C:\Users\Horacio\coding\C#Projects\CinemaPOS\Test\obj\Debug\Test.csproj.AssemblyReference.cache
+C:\Users\Horacio\coding\C#Projects\CinemaPOS\Test\obj\Debug\Test.csproj.CoreCompileInputs.cache
