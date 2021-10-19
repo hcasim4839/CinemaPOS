@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DALayer
+namespace BOLayer
 {
-    public abstract class CustomerDTOBasics
+    public interface IDAOCRUDCommands<T>
     {
-        public string CustID;
-        public string Name;
+        bool Insert(T objDTO);
+        bool Delete(T objDTO);
 
     }
 }

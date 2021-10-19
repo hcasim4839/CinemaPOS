@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DALayer
+namespace BOLayer
 {
-    public class MemberDTO: CustomerDTOBasics
+    class NonMemberDTO: CustomerDTOBasics
     {
-        public string PhoneNumber;
-        public string Points;
     }
 }

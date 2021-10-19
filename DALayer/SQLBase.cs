@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using BOLayer;
 
 namespace DALayer
 {
     public abstract class SQLBase
     {
+        public string connString { set { this.connString = value; } }
+        public string ConnectionString = "";
         
-       
         
 
         public abstract void Insert(string command);

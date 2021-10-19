@@ -4,12 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DALayer
+namespace BOLayer
 {
-    public interface IDAOCRUDCommands<T>
+    public class NonMemberCreditCardDTO : CreditCardsDTOBasics
     {
-        bool Insert(T objDTO);
-        bool Delete(T objDTO);
-
+        public string CustomerID;
     }
 }

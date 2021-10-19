@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DALayer
+namespace BOLayer
 {
-    public class CustomerOrderDTO
+    public abstract class CustomerDTOBasics
     {
+        public string CustID;
+        public string Name;
+
     }
 }

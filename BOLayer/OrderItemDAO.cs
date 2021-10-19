@@ -4,16 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DALayer
+namespace BOLayer
 {
-    public class NonMemberCreditCardDAO : IDAOCRUDCommands<NonMemberCreditCardDTO>
+    public class OrderItemDAO : IDAOCRUDCommands<OrderItemDAO>
     {
-        public bool Delete(NonMemberCreditCardDTO objDTO)
+        public bool Delete(OrderItemDAO item)
         {
             throw new NotImplementedException();
         }
 
-        public bool Insert(NonMemberCreditCardDTO objDTO)
+        public bool Insert(OrderItemDAO item)
         {
             throw new NotImplementedException();
         }
