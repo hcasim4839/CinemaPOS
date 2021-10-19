@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BOLayer
+namespace DALayer
 {
     public class MemberCreditCardDAO : IDAOCRUDCommands<MemberCreditCardDAO>
     {

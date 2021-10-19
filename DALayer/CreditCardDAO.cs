@@ -1,13 +1,9 @@
 ﻿using System;
-using MySql.Data;
 using MySql.Data.MySqlClient;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data;
 
-namespace BOLayer
+
+namespace DALayer
 {
     public class CreditCardDAO : IDAOCRUDCommands<CreditCardDTO>
     {
@@ -18,8 +14,9 @@ namespace BOLayer
 
         public bool Insert(CreditCardDTO objDTO)
         {
-            string conn = "Server=rdb-mysql-cinema.ckummbvzo7mk.us-east-1.rds.amazonaws.com;" +"Port=3306;"
-                + " Database=mysqlCinema;" + "Uid=hcasim4839;" + "Pwd=Teachflynn12!";
+            AWSMySQL db = (AWSMySQL)SQLFactory.GetSQLInstance(SQLFactory.AwsMySQL);
+            string conn = db.connString;
+
             MySqlConnection objConn = new MySqlConnection(
                 conn);
 

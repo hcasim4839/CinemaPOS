@@ -88,7 +88,7 @@ namespace UILayer
 
             cmbState.SelectedIndex = -1;
             cmbCity.SelectedIndex = -1;
-            cmbCreditCardComp.SelectedIndex = -1;
+            cmbCreditCardComp.SelectedIndex = -1;  
         }
     }
 }

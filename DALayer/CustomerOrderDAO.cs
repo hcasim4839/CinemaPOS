@@ -4,16 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BOLayer
+namespace DALayer
 {
-    public class NonMemberDAO : IDAOCRUDCommands<NonMemberDAO>
+    public class CustomerOrderDAO : IDAOCRUDCommands<CustomerOrderDTO>
     {
-        public bool Delete(NonMemberDAO item)
+        public bool Delete(CustomerOrderDTO objDTO)
         {
             throw new NotImplementedException();
         }
 
-        public bool Insert(NonMemberDAO item)
+        public bool Insert(CustomerOrderDTO objDTO)
         {
             throw new NotImplementedException();
         }

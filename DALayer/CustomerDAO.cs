@@ -1,21 +1,20 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BOLayer
+namespace DALayer
 {
-    public class ProductDAO : IDAOCRUDCommands<ProductDAO>
+    public class CustomerDAO : IDAOCRUDCommands<CustomerDTO>
     {
-
-
-        public bool Delete(ProductDAO item)
+        public bool Delete(CustomerDTO objDTO)
         {
             throw new NotImplementedException();
         }
 
-        public bool Insert(ProductDAO item)
+        public bool Insert(CustomerDTO objDTO)
         {
             throw new NotImplementedException();
         }
