@@ -32,12 +32,22 @@ namespace BOLayer
             throw new NotImplementedException();
         }
 
+        public override bool Select()
+        {
+            throw new NotImplementedException();
+        }
+
         protected override bool DALayer_Delete()
         {
             throw new NotImplementedException();
         }
 
         protected override bool DALayer_Insert()
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override bool DALayer_Select()
         {
             throw new NotImplementedException();
         }

@@ -8,12 +8,13 @@ namespace BOLayer
 {
     class Member: Customer
     {
+        
         private string _phoneNum;
         private string _points;
 
-        public Member(string custID, string name, string phoneNum )
+        public Member(string name, string phoneNum )
         {
-            base.CustID = custID;
+           
             base.Name = name;
             _phoneNum = phoneNum;
         }
@@ -43,6 +44,16 @@ namespace BOLayer
         }
 
         protected override bool DALayer_Insert()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override bool Select()
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override bool DALayer_Select()
         {
             throw new NotImplementedException();
         }

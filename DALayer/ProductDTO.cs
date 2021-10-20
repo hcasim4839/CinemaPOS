@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BOLayer
+namespace DALayer
 {
-    public abstract class CustomerDTOBasics
+    public class ProductDTO
     {
-        public string CustID;
         public string Name;
-
+        public string IsLimited;
+        public string Category;
     }
 }

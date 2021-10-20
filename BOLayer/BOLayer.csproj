@@ -85,27 +85,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CreditCard.cs" />
-    <Compile Include="CreditCardDAO.cs" />
-    <Compile Include="CreditCardDTO.cs" />
-    <Compile Include="CreditCardsDTOBasics.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="CustomerCreditCard.cs" />
-    <Compile Include="CustomerDAO.cs" />
-    <Compile Include="CustomerDTOBasics.cs" />
     <Compile Include="CustomerOrder.cs" />
-    <Compile Include="CustomerOrderDAO.cs" />
-    <Compile Include="IDAOCRUDCommands.cs" />
     <Compile Include="MemberCreditCard.cs" />
-    <Compile Include="MemberCreditCardDAO.cs" />
-    <Compile Include="MemberCreditCardDTO.cs" />
-    <Compile Include="MemberDAO.cs" />
-    <Compile Include="MemberDTO.cs" />
-    <Compile Include="NonMemberCreditCardDAO.cs" />
-    <Compile Include="NonMemberCreditCardDTO.cs" />
-    <Compile Include="NonMemberDAO.cs" />
-    <Compile Include="NonMemberDTO.cs" />
-    <Compile Include="OrderItemDAO.cs" />
-    <Compile Include="ProductDAO.cs" />
     <Compile Include="SQLCRUDCommands.cs" />
     <Compile Include="Member.cs" />
     <Compile Include="NonMember.cs" />
@@ -117,6 +100,12 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DALayer\DALayer.csproj">
+      <Project>{1e967b6a-cc91-40ff-9139-17f8be85525b}</Project>
+      <Name>DALayer</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

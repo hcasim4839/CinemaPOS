@@ -28,3 +28,6 @@ C:\Users\Horacio\coding\C#Projects\CinemaPOS\BOLayer\bin\Debug\System.Memory.xml
 C:\Users\Horacio\coding\C#Projects\CinemaPOS\BOLayer\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\Horacio\coding\C#Projects\CinemaPOS\BOLayer\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\Horacio\coding\C#Projects\CinemaPOS\BOLayer\obj\Debug\BOLayer.csproj.CopyComplete
+C:\Users\Horacio\coding\C#Projects\CinemaPOS\BOLayer\bin\Debug\DALayer.dll
+C:\Users\Horacio\coding\C#Projects\CinemaPOS\BOLayer\bin\Debug\DALayer.pdb
+C:\Users\Horacio\coding\C#Projects\CinemaPOS\BOLayer\bin\Debug\DALayer.dll.config

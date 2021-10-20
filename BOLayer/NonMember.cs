@@ -8,9 +8,10 @@ namespace BOLayer
 {
     public class NonMember:Customer
     {
+        private string _custID;
         public NonMember(string custID, string name)
         {
-            base.CustID = custID;
+            _custID = custID;
             base.Name = name;
             
         }
@@ -39,6 +40,16 @@ namespace BOLayer
         }
 
         protected override bool DALayer_Delete()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override bool Select()
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override bool DALayer_Select()
         {
             throw new NotImplementedException();
         }

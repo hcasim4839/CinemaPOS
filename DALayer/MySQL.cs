@@ -11,16 +11,5 @@ namespace DALayer
        
      
 
-        public override void Delete(string command)
-        {
-            throw new NotImplementedException();
-        }
-
-  
-
-        public override void Insert(string command)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

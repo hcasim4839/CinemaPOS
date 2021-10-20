@@ -8,10 +8,6 @@ namespace BOLayer
 {
     public abstract class Customer : SQLCRUDCommands
     {
-        protected string CustID;
         protected string Name;
-
-
-
     }
 }

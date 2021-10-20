@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BOLayer
+namespace DALayer
 {
-    public abstract class MemberCreditCardDTO : CreditCardsDTOBasics
+    public class MemberDTO : CustomerDTOBasics
     {
+        public string CustID;
         public string PhoneNumber;
-
+        public string Points;
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DALayer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,15 +18,23 @@ namespace BOLayer
             _phoneNum = phoneNum;
 
         }
-
+        public MemberCreditCard(string phoneNum)
+        {
+            _phoneNum = phoneNum;
+        }
         public override bool Delete()
         {
-            throw new NotImplementedException();
+            return DALayer_Delete();
         }
 
         public override bool Insert()
         {
             throw new NotImplementedException();
+        }
+
+        public override bool Select()
+        {
+            return DALayer_Select();
         }
 
         protected override bool DALayer_Delete()
@@ -36,6 +45,16 @@ namespace BOLayer
         protected override bool DALayer_Insert()
         {
             throw new NotImplementedException();
+        }
+
+        protected override bool DALayer_Select()
+        {
+            MemberCreditCardDTO mCCDTO = new MemberCreditCardDTO();
+            MemberCreditCardDAO mCCDAO = new MemberCreditCardDAO();
+
+            mCCDTO.PhoneNumber = _phoneNum;
+
+            return mCCDAO.Select(mCCDTO);
         }
     }
 }

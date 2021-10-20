@@ -4,12 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BOLayer
+namespace DALayer
 {
-    public interface IDAOCRUDCommands<T>
+    public class NonMemberDTO:CustomerDTOBasics
     {
-        bool Insert(T objDTO);
-        bool Delete(T objDTO);
-
     }
 }

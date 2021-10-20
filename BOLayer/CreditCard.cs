@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using DALayer;
 namespace BOLayer
 {
     public class CreditCard: SQLCRUDCommands
@@ -124,6 +124,16 @@ namespace BOLayer
         }
 
         protected override bool DALayer_Delete()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override bool Select()
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override bool DALayer_Select()
         {
             throw new NotImplementedException();
         }

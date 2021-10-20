@@ -90,5 +90,20 @@ namespace UILayer
             cmbCity.SelectedIndex = -1;
             cmbCreditCardComp.SelectedIndex = -1;
         }
+
+        private void btnConfirm_Click(object sender, EventArgs e)
+        {
+            MemberCreditCard mcc = new MemberCreditCard(txtPhoneNum.Text);
+
+            bool isSelected = mcc.Select();
+            if (isSelected)
+            {
+                MessageBox.Show("Success!");
+            }
+            else
+            {
+                MessageBox.Show("Credit Cards not found");
+            }
+        }
     }
 }

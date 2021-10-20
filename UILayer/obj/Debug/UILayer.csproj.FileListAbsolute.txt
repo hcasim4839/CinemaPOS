@@ -44,3 +44,6 @@ C:\Users\Horacio\coding\C#Projects\CinemaPOS\UILayer\bin\Debug\System.Buffers.xm
 C:\Users\Horacio\coding\C#Projects\CinemaPOS\UILayer\bin\Debug\K4os.Compression.LZ4.xml
 C:\Users\Horacio\coding\C#Projects\CinemaPOS\UILayer\bin\Debug\K4os.Hash.xxHash.xml
 C:\Users\Horacio\coding\C#Projects\CinemaPOS\UILayer\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\Horacio\coding\C#Projects\CinemaPOS\UILayer\bin\Debug\DALayer.dll
+C:\Users\Horacio\coding\C#Projects\CinemaPOS\UILayer\bin\Debug\DALayer.pdb
+C:\Users\Horacio\coding\C#Projects\CinemaPOS\UILayer\bin\Debug\DALayer.dll.config

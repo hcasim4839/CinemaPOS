@@ -8,10 +8,10 @@ namespace DALayer
 {
     public class SQLFactory
     {
-        public int MySQL = 0;
-        public int AwsMySQL = 1;
+        public static int MySQL = 0;
+        public static int AwsMySQL = 1;
 
-        public SQLBase GetSQLInstance(int SQLDB, string connectionString)
+        public static SQLBase GetSQLInstance(int SQLDB)
         {
             SQLBase dbInstance;
             switch (SQLDB)
@@ -19,11 +19,11 @@ namespace DALayer
                 case 0:
 
                     dbInstance = new MySQL();
-                    dbInstance.connString = connectionString;
+                    
                     return dbInstance;
                 case 1:
                     dbInstance = new AWSMySQL();
-                    dbInstance.connString = connectionString;
+                    
                     return dbInstance;
             
                 default:
