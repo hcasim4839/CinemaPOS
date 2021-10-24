@@ -166,6 +166,10 @@
       <Project>{fbf2f0d7-d9d0-4c82-ab6e-d76e22ee0bc1}</Project>
       <Name>BOLayer</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DALayer\DALayer.csproj">
+      <Project>{1E967B6A-CC91-40FF-9139-17F8BE85525B}</Project>
+      <Name>DALayer</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

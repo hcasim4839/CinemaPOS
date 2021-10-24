@@ -36,6 +36,19 @@ namespace BOLayer
         {
             return DALayer_Select();
         }
+        public List<CreditCardDTO> SelectAll()
+        {
+            return DALayer_SelectAll();
+        }
+
+        private List<CreditCardDTO> DALayer_SelectAll()
+        {
+            MemberCreditCardDAO mCreditCardDAO = new MemberCreditCardDAO();
+            MemberCreditCardDTO mCreditCardDTO = new MemberCreditCardDTO();
+            mCreditCardDTO.PhoneNumber = _phoneNum;
+
+            return mCreditCardDAO.SelectAll(mCreditCardDTO);
+        }
 
         protected override bool DALayer_Delete()
         {

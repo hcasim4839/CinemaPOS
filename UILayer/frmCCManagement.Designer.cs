@@ -57,9 +57,9 @@ namespace UILayer
             this.btnExit = new System.Windows.Forms.Button();
             this.lstViewCC = new System.Windows.Forms.ListView();
             this.grpMember = new System.Windows.Forms.GroupBox();
-            this.lblMemberPhone = new System.Windows.Forms.Label();
-            this.txtPhoneNum = new System.Windows.Forms.TextBox();
             this.btnConfirm = new System.Windows.Forms.Button();
+            this.txtPhoneNum = new System.Windows.Forms.TextBox();
+            this.lblMemberPhone = new System.Windows.Forms.Label();
             this.grpAddCC.SuspendLayout();
             this.grpRemoveCC.SuspendLayout();
             this.grpMember.SuspendLayout();
@@ -312,9 +312,10 @@ namespace UILayer
             this.lstViewCC.HideSelection = false;
             this.lstViewCC.Location = new System.Drawing.Point(398, 144);
             this.lstViewCC.Name = "lstViewCC";
-            this.lstViewCC.Size = new System.Drawing.Size(277, 307);
+            this.lstViewCC.Size = new System.Drawing.Size(380, 307);
             this.lstViewCC.TabIndex = 14;
             this.lstViewCC.UseCompatibleStateImageBehavior = false;
+            this.lstViewCC.SelectedIndexChanged += new System.EventHandler(this.lstViewCC_SelectedIndexChanged);
             // 
             // grpMember
             // 
@@ -328,22 +329,6 @@ namespace UILayer
             this.grpMember.TabStop = false;
             this.grpMember.Text = "Member Info";
             // 
-            // lblMemberPhone
-            // 
-            this.lblMemberPhone.AutoSize = true;
-            this.lblMemberPhone.Location = new System.Drawing.Point(19, 30);
-            this.lblMemberPhone.Name = "lblMemberPhone";
-            this.lblMemberPhone.Size = new System.Drawing.Size(79, 13);
-            this.lblMemberPhone.TabIndex = 0;
-            this.lblMemberPhone.Text = "Member Phone";
-            // 
-            // txtPhoneNum
-            // 
-            this.txtPhoneNum.Location = new System.Drawing.Point(114, 26);
-            this.txtPhoneNum.Name = "txtPhoneNum";
-            this.txtPhoneNum.Size = new System.Drawing.Size(171, 20);
-            this.txtPhoneNum.TabIndex = 1;
-            // 
             // btnConfirm
             // 
             this.btnConfirm.Location = new System.Drawing.Point(305, 25);
@@ -355,11 +340,27 @@ namespace UILayer
             this.btnConfirm.UseVisualStyleBackColor = true;
             this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
+            // txtPhoneNum
+            // 
+            this.txtPhoneNum.Location = new System.Drawing.Point(114, 26);
+            this.txtPhoneNum.Name = "txtPhoneNum";
+            this.txtPhoneNum.Size = new System.Drawing.Size(171, 20);
+            this.txtPhoneNum.TabIndex = 1;
+            // 
+            // lblMemberPhone
+            // 
+            this.lblMemberPhone.AutoSize = true;
+            this.lblMemberPhone.Location = new System.Drawing.Point(19, 30);
+            this.lblMemberPhone.Name = "lblMemberPhone";
+            this.lblMemberPhone.Size = new System.Drawing.Size(79, 13);
+            this.lblMemberPhone.TabIndex = 0;
+            this.lblMemberPhone.Text = "Member Phone";
+            // 
             // frmCCManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(712, 628);
+            this.ClientSize = new System.Drawing.Size(824, 628);
             this.Controls.Add(this.grpMember);
             this.Controls.Add(this.lstViewCC);
             this.Controls.Add(this.btnExit);

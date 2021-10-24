@@ -1,4 +1,5 @@
 ﻿using BOLayer;
+using DALayer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -43,6 +44,20 @@ namespace UILayer
                 cmbState.Items.Add(company);
             }
             cmbState.DropDownStyle = ComboBoxStyle.DropDownList;
+
+
+
+
+            //initialize list view
+            List<string> headings = new List<string>();
+            headings.Add("Issuer");
+            headings.Add("Card Holder Name");
+            headings.Add("Expiration Date");
+            headings.Add("Card Number");
+
+            
+            headings.ForEach(heading => lstViewCC.Columns.Add(heading));
+            lstViewCC.View = View.Details;
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -69,6 +84,7 @@ namespace UILayer
             if (isInserted)
             {
                 MessageBox.Show("The credit card was inserted successfully");
+
             }
             else
             {
@@ -77,7 +93,25 @@ namespace UILayer
 
             clearForm();
         }
+        private void grabMemberCC()
+        {
+            lstViewCC.Items.Clear();
+            MemberCreditCard mCreditCard = new MemberCreditCard(txtPhoneNum.Text);
 
+            List<CreditCardDTO> listDTO = mCreditCard.SelectAll();
+
+            if (listDTO.Count > 0)
+            {
+                MessageBox.Show("Success!");
+
+                listDTO.ForEach(dtoEntry => lstViewCC.Items.Add(new ListViewItem(new[] { dtoEntry.CreditCardCompany, dtoEntry.CardHolderName, dtoEntry.ExpDate, dtoEntry.CreditCardNumber })));
+            }
+            else
+            {
+                MessageBox.Show("Credit Cards not found");
+            }
+           
+        }
         private void clearForm()
         {
             txtCCNum.Clear();
@@ -93,17 +127,12 @@ namespace UILayer
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-            MemberCreditCard mcc = new MemberCreditCard(txtPhoneNum.Text);
+            grabMemberCC();
+        }
 
-            bool isSelected = mcc.Select();
-            if (isSelected)
-            {
-                MessageBox.Show("Success!");
-            }
-            else
-            {
-                MessageBox.Show("Credit Cards not found");
-            }
+        private void lstViewCC_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
