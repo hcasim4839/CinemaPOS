@@ -22,6 +22,11 @@ namespace BOLayer
         {
             _phoneNum = phoneNum;
         }
+        public MemberCreditCard(string phoneNum, string creditCardNumber)
+        {
+            _phoneNum = phoneNum;
+            base.CreditCardNumber = creditCardNumber;
+        }
         public override bool Delete()
         {
             return DALayer_Delete();
@@ -29,7 +34,7 @@ namespace BOLayer
 
         public override bool Insert()
         {
-            throw new NotImplementedException();
+            return DALayer_Insert();
         }
 
         public override bool Select()
@@ -52,12 +57,26 @@ namespace BOLayer
 
         protected override bool DALayer_Delete()
         {
-            throw new NotImplementedException();
+
+            MemberCreditCardDTO mCCDTO = new MemberCreditCardDTO();
+            MemberCreditCardDAO mCCDAO = new MemberCreditCardDAO();
+
+            mCCDTO.PhoneNumber = _phoneNum;
+            mCCDTO.CreditCardNumber = base.CreditCardNumber;
+
+            return mCCDAO.Delete(mCCDTO);
         }
 
         protected override bool DALayer_Insert()
         {
-            throw new NotImplementedException();
+            MemberCreditCardDTO mCreditCardDTO = new MemberCreditCardDTO();
+            MemberCreditCardDAO mCreditCardDAO = new MemberCreditCardDAO();
+
+            mCreditCardDTO.CreditCardIssuerName = base.CreditCardCompany;
+            mCreditCardDTO.CreditCardNumber = base.CreditCardCompany;
+            mCreditCardDTO.PhoneNumber = _phoneNum;
+
+            return mCreditCardDAO.Insert(mCreditCardDTO);
         }
 
         protected override bool DALayer_Select()
@@ -65,7 +84,9 @@ namespace BOLayer
             MemberCreditCardDTO mCCDTO = new MemberCreditCardDTO();
             MemberCreditCardDAO mCCDAO = new MemberCreditCardDAO();
 
-            mCCDTO.PhoneNumber = _phoneNum;
+            mCCDTO.CreditCardIssuerName = base.CreditCardCompany;
+            mCCDTO.CreditCardNumber = base.CreditCardNumber;
+            
 
             return mCCDAO.Select(mCCDTO);
         }

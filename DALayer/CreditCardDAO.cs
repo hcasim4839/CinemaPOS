@@ -65,7 +65,6 @@ namespace DALayer
                 MySqlCommand objCmd = new MySqlCommand(sqlQuery, objConn);
                 objCmd.CommandType = CommandType.Text;
 
-                string ccCompany = objDTO.CreditCardCompany;
                 objCmd.Parameters.AddWithValue("@CreditCardIssuerName", objDTO.CreditCardCompany);
                 objCmd.Parameters.AddWithValue("@CreditCardNumber", objDTO.CreditCardNumber);
                 objCmd.Parameters.AddWithValue("@CardHolderName", objDTO.CardHolderName);

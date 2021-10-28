@@ -12,12 +12,83 @@ namespace DALayer
     {
         public bool Delete(MemberCreditCardDTO objDTO)
         {
-            throw new NotImplementedException();
+            AWSMySQL db = (AWSMySQL)SQLFactory.GetSQLInstance(SQLFactory.AwsMySQL);
+            string conn = db.ConnString;
+
+            MySqlConnection objConn = new MySqlConnection(conn);
+
+            try
+            {
+                objConn.Open();
+                string sqlQuery = "DELETE FROM MemberCreditCard WHERE PhoneNumber=@PhoneNum";
+                sqlQuery = sqlQuery + " AND CreditCardNumber=@CreditCardNum;";
+
+                MySqlCommand objCmd = new MySqlCommand(sqlQuery, objConn);
+                objCmd.CommandType = CommandType.Text;
+
+                objCmd.Parameters.AddWithValue("@PhoneNum", objDTO.PhoneNumber);
+                objCmd.Parameters.AddWithValue("@CreditCardNum", objDTO.CreditCardNumber);
+
+                int recordsAffected = objCmd.ExecuteNonQuery();
+                if (recordsAffected > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }catch(Exception e)
+            {
+                throw new Exception("Error on Delete method from MemberCreditCardDAO class: " + e.Message);
+            }
+            finally
+            {
+                objConn.Close();
+                objConn.Dispose(); 
+            }
         }
 
         public bool Insert(MemberCreditCardDTO objDTO)
         {
-            throw new NotImplementedException();
+            AWSMySQL db = (AWSMySQL)SQLFactory.GetSQLInstance(SQLFactory.AwsMySQL);
+            string connString = db.ConnString;
+
+            MySqlConnection objConn = new MySqlConnection(connString);
+            try
+            {
+                objConn.Open();
+                string sqlQuery = "INSERT INTO MemberCreditCard(CreditCardIssuerName,CreditCardNumber, PhoneNumber)";
+                sqlQuery = sqlQuery + " VALUES(@CreditCardIssuerName, @CreditCardNumber, @PhoneNumber);";
+
+                MySqlCommand objCmd = new MySqlCommand(sqlQuery, objConn);
+                objCmd.CommandType = CommandType.Text;
+
+                objCmd.Parameters.AddWithValue("@CreditCardIssuerName", objDTO.CreditCardIssuerName);
+                objCmd.Parameters.AddWithValue("@CreditCardNumber", objDTO.CreditCardNumber);
+                objCmd.Parameters.AddWithValue("@PhoneNumber", objDTO.PhoneNumber);
+
+                int recordsAffected = objCmd.ExecuteNonQuery();
+
+                if (recordsAffected > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }catch(Exception e)
+            {
+                throw new Exception("Error in method Insert() from MemberCreditCardDAO class: " + e.Message);
+            }
+            finally
+            {
+                objConn.Close();
+                objConn.Dispose();
+            }
+
         }
 
         public bool Select(MemberCreditCardDTO objDTO)

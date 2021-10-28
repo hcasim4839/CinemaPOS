@@ -60,6 +60,7 @@ namespace UILayer
             this.btnConfirm = new System.Windows.Forms.Button();
             this.txtPhoneNum = new System.Windows.Forms.TextBox();
             this.lblMemberPhone = new System.Windows.Forms.Label();
+            this.btnReset = new System.Windows.Forms.Button();
             this.grpAddCC.SuspendLayout();
             this.grpRemoveCC.SuspendLayout();
             this.grpMember.SuspendLayout();
@@ -287,6 +288,7 @@ namespace UILayer
             this.btnRemove.TabIndex = 2;
             this.btnRemove.Text = "Remove";
             this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // lblCardNum
             // 
@@ -319,12 +321,13 @@ namespace UILayer
             // 
             // grpMember
             // 
+            this.grpMember.Controls.Add(this.btnReset);
             this.grpMember.Controls.Add(this.btnConfirm);
             this.grpMember.Controls.Add(this.txtPhoneNum);
             this.grpMember.Controls.Add(this.lblMemberPhone);
             this.grpMember.Location = new System.Drawing.Point(164, 41);
             this.grpMember.Name = "grpMember";
-            this.grpMember.Size = new System.Drawing.Size(412, 64);
+            this.grpMember.Size = new System.Drawing.Size(490, 64);
             this.grpMember.TabIndex = 15;
             this.grpMember.TabStop = false;
             this.grpMember.Text = "Member Info";
@@ -356,6 +359,16 @@ namespace UILayer
             this.lblMemberPhone.TabIndex = 0;
             this.lblMemberPhone.Text = "Member Phone";
             // 
+            // btnReset
+            // 
+            this.btnReset.Location = new System.Drawing.Point(399, 25);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(75, 23);
+            this.btnReset.TabIndex = 3;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
             // frmCCManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -370,6 +383,7 @@ namespace UILayer
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "frmCCManagement";
             this.Text = "Credit Card Info";
+            this.Shown += new System.EventHandler(this.frmCCManagement_Shown);
             this.grpAddCC.ResumeLayout(false);
             this.grpAddCC.PerformLayout();
             this.grpRemoveCC.ResumeLayout(false);
@@ -414,5 +428,6 @@ namespace UILayer
         private System.Windows.Forms.Button btnConfirm;
         private System.Windows.Forms.TextBox txtPhoneNum;
         private System.Windows.Forms.Label lblMemberPhone;
+        private System.Windows.Forms.Button btnReset;
     }
 }

@@ -58,6 +58,7 @@ namespace UILayer
             
             headings.ForEach(heading => lstViewCC.Columns.Add(heading));
             lstViewCC.View = View.Details;
+            
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -79,9 +80,12 @@ namespace UILayer
             cc.State = cmbState.Text.Trim();
             cc.ZipCode = txtZipCode.Text.Trim();
 
-            bool isInserted = cc.Insert();
+            bool isCreditCardInserted = cc.Insert();
 
-            if (isInserted)
+            MemberCreditCard mCreditCard = new MemberCreditCard(cmbCreditCardComp.GetItemText(cmbCreditCardComp.SelectedItem),txtCCNum.Text,txtPhoneNum.Text);
+
+            bool isMCreditCardInserted = mCreditCard.Insert();
+            if (isCreditCardInserted && isMCreditCardInserted)
             {
                 MessageBox.Show("The credit card was inserted successfully");
 
@@ -93,7 +97,7 @@ namespace UILayer
 
             clearForm();
         }
-        private void grabMemberCC()
+        private bool grabbedMemberCC()
         {
             lstViewCC.Items.Clear();
             MemberCreditCard mCreditCard = new MemberCreditCard(txtPhoneNum.Text);
@@ -102,13 +106,15 @@ namespace UILayer
 
             if (listDTO.Count > 0)
             {
-                MessageBox.Show("Success!");
 
+                listDTO.ForEach(dtoEntry => cmbCCNum.Items.Add(dtoEntry.CreditCardNumber));
                 listDTO.ForEach(dtoEntry => lstViewCC.Items.Add(new ListViewItem(new[] { dtoEntry.CreditCardCompany, dtoEntry.CardHolderName, dtoEntry.ExpDate, dtoEntry.CreditCardNumber })));
+                return true;
             }
             else
             {
-                MessageBox.Show("Credit Cards not found");
+                
+                return false;
             }
            
         }
@@ -127,12 +133,56 @@ namespace UILayer
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-            grabMemberCC();
+            bool hasCreditCards = grabbedMemberCC();
+            txtPhoneNum.ReadOnly = true;
+
+            if (hasCreditCards)
+            {
+                MessageBox.Show("Success!");
+            }
+            else
+            {
+                MessageBox.Show("User does not have any credit cards");
+                
+            }
+            
         }
 
         private void lstViewCC_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            txtPhoneNum.Text = "";
+            txtPhoneNum.ReadOnly = false;
+        }
+
+        private void frmCCManagement_Shown(object sender, EventArgs e)
+        {
+            //focus on phonetext control
+            txtPhoneNum.Focus();
+        }
+
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+            
+            MemberCreditCard mCreditCard = new MemberCreditCard(txtPhoneNum.Text, cmbCCNum.GetItemText(cmbCCNum.SelectedItem));
+            
+
+            bool successful = mCreditCard.Delete();
+            if (successful)
+            {
+                MessageBox.Show("Credit Card was deleted");
+                grabbedMemberCC();
+            }
+            else
+            {
+                MessageBox.Show("Error Credit Card was not deleted");
+            }
+        }
+
+        
     }
 }
