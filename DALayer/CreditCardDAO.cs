@@ -68,7 +68,7 @@ namespace DALayer
                 objCmd.Parameters.AddWithValue("@CreditCardIssuerName", objDTO.CreditCardCompany);
                 objCmd.Parameters.AddWithValue("@CreditCardNumber", objDTO.CreditCardNumber);
                 objCmd.Parameters.AddWithValue("@CardHolderName", objDTO.CardHolderName);
-                objCmd.Parameters.AddWithValue("@ExpDate", "04/34");
+                objCmd.Parameters.AddWithValue("@ExpDate", objDTO.ExpDate);
                 objCmd.Parameters.AddWithValue("@AddressLine1", objDTO.AddressLine1);
                 objCmd.Parameters.AddWithValue("@AddressLine2", objDTO.AddressLine2);
                 objCmd.Parameters.AddWithValue("@City", objDTO.City);

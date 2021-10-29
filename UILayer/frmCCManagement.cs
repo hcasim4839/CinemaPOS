@@ -22,6 +22,7 @@ namespace UILayer
             cmbCCCompany.Add("Visa");
             cmbCCCompany.Add("Discover");
             cmbCCCompany.Add("Mastercard");
+            cmbCCCompany.Add("AmericanExpress");
             
             List<string> listCity = new List<string>();
             listCity.Add("Elmhurst");
@@ -58,6 +59,10 @@ namespace UILayer
             
             headings.ForEach(heading => lstViewCC.Columns.Add(heading));
             lstViewCC.View = View.Details;
+            //initialize calendar control
+            dateTimePicker1.Format = DateTimePickerFormat.Custom;
+            dateTimePicker1.CustomFormat = "MM/yyyy";
+
             
         }
 
@@ -68,25 +73,28 @@ namespace UILayer
 
         private void btnApply_Click(object sender, EventArgs e)
         {
-            CreditCard cc = new CreditCard();
+            CreditCardDTO ccDTO = new CreditCardDTO();
 
-            cc.CreditCardCompany = cmbCreditCardComp.Text.Trim();
-            cc.CreditCardNumber = txtCCNum.Text.Trim();
-            cc.CardHolderName = txtCardHolder.Text.Trim();
-            cc.ExpDate = lblExpDate.Text.Trim();
-            cc.AddressLine1 = txtAddress1.Text.Trim();
-            cc.AddressLine2 = txtAddress2.Text.Trim();
-            cc.City = cmbCity.Text.Trim();
-            cc.State = cmbState.Text.Trim();
-            cc.ZipCode = txtZipCode.Text.Trim();
+            ccDTO.CreditCardCompany = cmbCreditCardComp.Text.Trim();
+            ccDTO.CreditCardNumber = txtCCNum.Text.Trim();
+            ccDTO.CardHolderName = txtCardHolder.Text.Trim();
+            ccDTO.ExpDate = dateTimePicker1.Text.Trim();
+            ccDTO.AddressLine1 = txtAddress1.Text.Trim();
+            ccDTO.AddressLine2 = txtAddress2.Text.Trim();
+            ccDTO.City = cmbCity.Text.Trim();
+            ccDTO.State = cmbState.Text.Trim();
+            ccDTO.ZipCode = txtZipCode.Text.Trim();
 
-            bool isCreditCardInserted = cc.Insert();
+            
 
-            MemberCreditCard mCreditCard = new MemberCreditCard(cmbCreditCardComp.GetItemText(cmbCreditCardComp.SelectedItem),txtCCNum.Text,txtPhoneNum.Text);
+            MemberCreditCard mCreditCard = new MemberCreditCard(cmbCreditCardComp.GetItemText(cmbCreditCardComp.SelectedItem),txtCCNum.Text.Trim(),txtPhoneNum.Text.Trim());
 
-            bool isMCreditCardInserted = mCreditCard.Insert();
-            if (isCreditCardInserted && isMCreditCardInserted)
+            
+          
+            bool isMCreditCardInserted = mCreditCard.Insert(ccDTO);
+            if (isMCreditCardInserted)
             {
+                
                 MessageBox.Show("The credit card was inserted successfully");
 
             }
@@ -96,6 +104,7 @@ namespace UILayer
             }
 
             clearForm();
+            grabbedMemberCC();
         }
         private bool grabbedMemberCC()
         {
@@ -125,6 +134,8 @@ namespace UILayer
             txtAddress1.Clear();
             txtAddress2.Clear();
             txtZipCode.Clear();
+
+            lstViewCC.Items.Clear();
 
             cmbState.SelectedIndex = -1;
             cmbCity.SelectedIndex = -1;
@@ -157,6 +168,7 @@ namespace UILayer
         {
             txtPhoneNum.Text = "";
             txtPhoneNum.ReadOnly = false;
+            clearForm();
         }
 
         private void frmCCManagement_Shown(object sender, EventArgs e)

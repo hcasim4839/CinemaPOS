@@ -32,9 +32,9 @@ namespace BOLayer
             return DALayer_Delete();
         }
 
-        public override bool Insert()
+        public bool Insert(CreditCardDTO ccDTO)
         {
-            return DALayer_Insert();
+            return DALayer_Insert(ccDTO);
         }
 
         public override bool Select()
@@ -67,7 +67,7 @@ namespace BOLayer
             return mCCDAO.Delete(mCCDTO);
         }
 
-        protected override bool DALayer_Insert()
+        protected  bool DALayer_Insert(CreditCardDTO ccDTO)
         {
             MemberCreditCardDTO mCreditCardDTO = new MemberCreditCardDTO();
             MemberCreditCardDAO mCreditCardDAO = new MemberCreditCardDAO();
@@ -76,7 +76,7 @@ namespace BOLayer
             mCreditCardDTO.CreditCardNumber = base.CreditCardCompany;
             mCreditCardDTO.PhoneNumber = _phoneNum;
 
-            return mCreditCardDAO.Insert(mCreditCardDTO);
+            return mCreditCardDAO.Insert(mCreditCardDTO, ccDTO);
         }
 
         protected override bool DALayer_Select()
@@ -89,6 +89,16 @@ namespace BOLayer
             
 
             return mCCDAO.Select(mCCDTO);
+        }
+
+        public override bool Insert()
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override bool DALayer_Insert()
+        {
+            throw new NotImplementedException();
         }
     }
 }

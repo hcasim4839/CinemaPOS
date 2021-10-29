@@ -49,7 +49,7 @@ namespace DALayer
             }
         }
 
-        public bool Insert(MemberCreditCardDTO objDTO)
+        public bool Insert(MemberCreditCardDTO mCreditCardDTO, CreditCardDTO ccDTO)
         {
             AWSMySQL db = (AWSMySQL)SQLFactory.GetSQLInstance(SQLFactory.AwsMySQL);
             string connString = db.ConnString;
@@ -58,19 +58,39 @@ namespace DALayer
             try
             {
                 objConn.Open();
-                string sqlQuery = "INSERT INTO MemberCreditCard(CreditCardIssuerName,CreditCardNumber, PhoneNumber)";
-                sqlQuery = sqlQuery + " VALUES(@CreditCardIssuerName, @CreditCardNumber, @PhoneNumber);";
+
+                string sqlQuery = "INSERT INTO CreditCard (CreditCardIssuerName, CreditCardNumber, CardHolderName, ExpDate, AddressLine1, AddressLine2, City, State, ZipCode)";
+                sqlQuery = sqlQuery + "VALUES(@CreditCardIssuerName, @CreditCardNumber, @CardHolderName, @ExpDate, @AddressLine1, @AddressLine2, @City, @State, @ZipCode);";
 
                 MySqlCommand objCmd = new MySqlCommand(sqlQuery, objConn);
                 objCmd.CommandType = CommandType.Text;
 
-                objCmd.Parameters.AddWithValue("@CreditCardIssuerName", objDTO.CreditCardIssuerName);
-                objCmd.Parameters.AddWithValue("@CreditCardNumber", objDTO.CreditCardNumber);
-                objCmd.Parameters.AddWithValue("@PhoneNumber", objDTO.PhoneNumber);
+                objCmd.Parameters.AddWithValue("@CreditCardIssuerName", ccDTO.CreditCardCompany);
+                objCmd.Parameters.AddWithValue("@CreditCardNumber", ccDTO.CreditCardNumber);
+                objCmd.Parameters.AddWithValue("@CardHolderName", ccDTO.CardHolderName);
+                objCmd.Parameters.AddWithValue("@ExpDate", ccDTO.ExpDate);
+                objCmd.Parameters.AddWithValue("@AddressLine1", ccDTO.AddressLine1);
+                objCmd.Parameters.AddWithValue("@AddressLine2", ccDTO.AddressLine2);
+                objCmd.Parameters.AddWithValue("@City", ccDTO.City);
+                objCmd.Parameters.AddWithValue("@State", ccDTO.State);
+                objCmd.Parameters.AddWithValue("@ZipCode", ccDTO.ZipCode);
 
                 int recordsAffected = objCmd.ExecuteNonQuery();
+                bool isCreditCardInserted = recordsAffected > 0 ? true : false;
+                
+                sqlQuery = "INSERT INTO MemberCreditCard(CreditCardIssuerName,CreditCardNumber, PhoneNumber)";
+                sqlQuery = sqlQuery + " VALUES(@CreditCardIssuerName, @CreditCardNumber, @PhoneNumber);";
 
-                if (recordsAffected > 0)
+                objCmd = new MySqlCommand(sqlQuery, objConn);
+                objCmd.CommandType = CommandType.Text;
+
+                objCmd.Parameters.AddWithValue("@CreditCardIssuerName", ccDTO.CreditCardCompany);
+                objCmd.Parameters.AddWithValue("@CreditCardNumber", ccDTO.CreditCardNumber);
+                objCmd.Parameters.AddWithValue("@PhoneNumber", mCreditCardDTO.PhoneNumber);
+
+                recordsAffected = objCmd.ExecuteNonQuery();
+
+                if (recordsAffected > 0 && isCreditCardInserted)
                 {
                     return true;
                 }
@@ -89,6 +109,11 @@ namespace DALayer
                 objConn.Dispose();
             }
 
+        }
+
+        public bool Insert(MemberCreditCardDTO objDTO)
+        {
+            throw new NotImplementedException();
         }
 
         public bool Select(MemberCreditCardDTO objDTO)

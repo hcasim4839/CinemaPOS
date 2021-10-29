@@ -57,10 +57,10 @@ namespace UILayer
             this.btnExit = new System.Windows.Forms.Button();
             this.lstViewCC = new System.Windows.Forms.ListView();
             this.grpMember = new System.Windows.Forms.GroupBox();
+            this.btnReset = new System.Windows.Forms.Button();
             this.btnConfirm = new System.Windows.Forms.Button();
             this.txtPhoneNum = new System.Windows.Forms.TextBox();
             this.lblMemberPhone = new System.Windows.Forms.Label();
-            this.btnReset = new System.Windows.Forms.Button();
             this.grpAddCC.SuspendLayout();
             this.grpRemoveCC.SuspendLayout();
             this.grpMember.SuspendLayout();
@@ -196,9 +196,10 @@ namespace UILayer
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(101, 118);
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(159, 118);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.Size = new System.Drawing.Size(121, 20);
             this.dateTimePicker1.TabIndex = 19;
             // 
             // txtZipCode
@@ -332,6 +333,16 @@ namespace UILayer
             this.grpMember.TabStop = false;
             this.grpMember.Text = "Member Info";
             // 
+            // btnReset
+            // 
+            this.btnReset.Location = new System.Drawing.Point(399, 25);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(75, 23);
+            this.btnReset.TabIndex = 3;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
             // btnConfirm
             // 
             this.btnConfirm.Location = new System.Drawing.Point(305, 25);
@@ -358,16 +369,6 @@ namespace UILayer
             this.lblMemberPhone.Size = new System.Drawing.Size(79, 13);
             this.lblMemberPhone.TabIndex = 0;
             this.lblMemberPhone.Text = "Member Phone";
-            // 
-            // btnReset
-            // 
-            this.btnReset.Location = new System.Drawing.Point(399, 25);
-            this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(75, 23);
-            this.btnReset.TabIndex = 3;
-            this.btnReset.Text = "Reset";
-            this.btnReset.UseVisualStyleBackColor = true;
-            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // frmCCManagement
             // 
