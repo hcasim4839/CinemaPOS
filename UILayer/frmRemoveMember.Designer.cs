@@ -31,10 +31,10 @@ namespace UILayer
         {
             this.btnRemove = new System.Windows.Forms.Button();
             this.grpRemoval = new System.Windows.Forms.GroupBox();
+            this.txtPhoneNum = new System.Windows.Forms.TextBox();
+            this.lblPhoneNum = new System.Windows.Forms.Label();
             this.grpExit = new System.Windows.Forms.GroupBox();
             this.btnExit = new System.Windows.Forms.Button();
-            this.lblPhoneNum = new System.Windows.Forms.Label();
-            this.txtPhoneNum = new System.Windows.Forms.TextBox();
             this.grpRemoval.SuspendLayout();
             this.grpExit.SuspendLayout();
             this.SuspendLayout();
@@ -47,6 +47,7 @@ namespace UILayer
             this.btnRemove.TabIndex = 4;
             this.btnRemove.Text = "Remove";
             this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // grpRemoval
             // 
@@ -59,6 +60,22 @@ namespace UILayer
             this.grpRemoval.TabIndex = 5;
             this.grpRemoval.TabStop = false;
             this.grpRemoval.Text = "Member to Remove";
+            // 
+            // txtPhoneNum
+            // 
+            this.txtPhoneNum.Location = new System.Drawing.Point(148, 38);
+            this.txtPhoneNum.Name = "txtPhoneNum";
+            this.txtPhoneNum.Size = new System.Drawing.Size(100, 20);
+            this.txtPhoneNum.TabIndex = 6;
+            // 
+            // lblPhoneNum
+            // 
+            this.lblPhoneNum.AutoSize = true;
+            this.lblPhoneNum.Location = new System.Drawing.Point(41, 41);
+            this.lblPhoneNum.Name = "lblPhoneNum";
+            this.lblPhoneNum.Size = new System.Drawing.Size(78, 13);
+            this.lblPhoneNum.TabIndex = 5;
+            this.lblPhoneNum.Text = "Phone Number";
             // 
             // grpExit
             // 
@@ -78,22 +95,6 @@ namespace UILayer
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
-            // lblPhoneNum
-            // 
-            this.lblPhoneNum.AutoSize = true;
-            this.lblPhoneNum.Location = new System.Drawing.Point(41, 41);
-            this.lblPhoneNum.Name = "lblPhoneNum";
-            this.lblPhoneNum.Size = new System.Drawing.Size(78, 13);
-            this.lblPhoneNum.TabIndex = 5;
-            this.lblPhoneNum.Text = "Phone Number";
-            // 
-            // txtPhoneNum
-            // 
-            this.txtPhoneNum.Location = new System.Drawing.Point(148, 38);
-            this.txtPhoneNum.Name = "txtPhoneNum";
-            this.txtPhoneNum.Size = new System.Drawing.Size(100, 20);
-            this.txtPhoneNum.TabIndex = 6;
             // 
             // frmRemoveMember
             // 

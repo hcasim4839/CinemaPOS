@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BOLayer;
 
 namespace UILayer
 {
@@ -45,6 +46,25 @@ namespace UILayer
         private void btnAddCC_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnEnter_Click(object sender, EventArgs e)
+        {
+            Member member = new Member(txtFirstName.Text.Trim() + " " + txtLastName.Text.Trim(), txtPhoneNum.Text.Trim());
+            bool isInserted = member.Insert();
+
+            string message = isInserted == true ? "Member was inserted" : "Member was not inserted";
+
+            MessageBox.Show(message);
+
+            resetForm();
+        }
+
+        private void resetForm()
+        {
+            txtFirstName.Text = "";
+            txtLastName.Text = "";
+            txtPhoneNum.Text = "";
         }
     }
 }

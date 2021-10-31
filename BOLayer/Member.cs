@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DALayer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BOLayer
 {
-    class Member: Customer
+    public class Member: Customer
     {
         
         private string _phoneNum;
@@ -16,6 +17,10 @@ namespace BOLayer
         {
            
             base.Name = name;
+            _phoneNum = phoneNum;
+        }
+        public Member(string phoneNum)
+        {
             _phoneNum = phoneNum;
         }
         public bool AddPoints()
@@ -30,22 +35,36 @@ namespace BOLayer
 
         public override bool Delete()
         {
-            throw new NotImplementedException();
+            return DALayer_Delete();
         }
 
         public override bool Insert()
         {
-            throw new NotImplementedException();
+            return DALayer_Insert();
         }
 
         protected override bool DALayer_Delete()
         {
-            throw new NotImplementedException();
+            MemberDAO mDAO = new MemberDAO();
+            MemberDTO mDTO = new MemberDTO();
+
+            mDTO.PhoneNumber = _phoneNum;
+            bool isDeleted = mDAO.Delete(mDTO);
+
+            return isDeleted;
         }
 
         protected override bool DALayer_Insert()
         {
-            throw new NotImplementedException();
+            MemberDAO mDAO = new MemberDAO();
+            MemberDTO mDTO = new MemberDTO();
+
+            mDTO.PhoneNumber = _phoneNum;
+            mDTO.Name = base.Name;
+            mDTO.Points = "0";
+            bool isInserted = mDAO.Insert(mDTO);
+
+            return isInserted;
         }
 
         public override bool Select()

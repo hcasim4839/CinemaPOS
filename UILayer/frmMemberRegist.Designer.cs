@@ -34,10 +34,10 @@ namespace UILayer
             this.txtFirstName = new System.Windows.Forms.TextBox();
             this.txtLastName = new System.Windows.Forms.TextBox();
             this.grpMemberName = new System.Windows.Forms.GroupBox();
+            this.btnEnter = new System.Windows.Forms.Button();
             this.txtPhoneNum = new System.Windows.Forms.TextBox();
             this.lblPhoneNum = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
-            this.btnEnter = new System.Windows.Forms.Button();
             this.grpMemberName.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -94,6 +94,16 @@ namespace UILayer
             this.grpMemberName.TabStop = false;
             this.grpMemberName.Text = "New Member Name";
             // 
+            // btnEnter
+            // 
+            this.btnEnter.Location = new System.Drawing.Point(346, 155);
+            this.btnEnter.Name = "btnEnter";
+            this.btnEnter.Size = new System.Drawing.Size(75, 23);
+            this.btnEnter.TabIndex = 7;
+            this.btnEnter.Text = "Enter";
+            this.btnEnter.UseVisualStyleBackColor = true;
+            this.btnEnter.Click += new System.EventHandler(this.btnEnter_Click);
+            // 
             // txtPhoneNum
             // 
             this.txtPhoneNum.Location = new System.Drawing.Point(246, 111);
@@ -119,15 +129,6 @@ namespace UILayer
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
-            // btnEnter
-            // 
-            this.btnEnter.Location = new System.Drawing.Point(346, 155);
-            this.btnEnter.Name = "btnEnter";
-            this.btnEnter.Size = new System.Drawing.Size(75, 23);
-            this.btnEnter.TabIndex = 7;
-            this.btnEnter.Text = "Enter";
-            this.btnEnter.UseVisualStyleBackColor = true;
             // 
             // frmMemberRegist
             // 

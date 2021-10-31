@@ -8,7 +8,7 @@ namespace DALayer
 {
     public class MemberDTO : CustomerDTOBasics
     {
-        public string CustID;
+       
         public string PhoneNumber;
         public string Points;
     }
