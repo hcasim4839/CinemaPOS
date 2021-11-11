@@ -27,9 +27,11 @@ namespace UILayer
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            frmCinemaMngmt frmObj = new frmCinemaMngmt();
-            this.Hide();
-            frmObj.Show();
+            
+            this.Close();
+            
+            
+           
         }
     }
 }

@@ -64,7 +64,7 @@ namespace UILayer
         {
             txtFirstName.Text = "";
             txtLastName.Text = "";
-            txtPhoneNum.Text = "";
+            txtPhoneNum .Text = "";
         }
     }
 }

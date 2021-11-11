@@ -40,8 +40,8 @@ namespace UILayer
 
         private void btnPurchases_Click(object sender, EventArgs e)
         {
-            frmMemberConfirmation frmObj = new frmMemberConfirmation();
             this.Hide();
+            frmMemberConfirmation frmObj = new frmMemberConfirmation();
             frmObj.ShowDialog();
             this.Show();
         }

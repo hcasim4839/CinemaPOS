@@ -19,26 +19,27 @@ namespace UILayer
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            frmPurchaseOptions frmObj = new frmPurchaseOptions();
             this.Hide();
+            frmPurchaseOptions frmObj = new frmPurchaseOptions();
             frmObj.ShowDialog();
-            this.Show();
+            
         }
 
         private void btnEnter_Click(object sender, EventArgs e)
         {
-            frmPurchaseOptions frmObj = new frmPurchaseOptions();
             this.Hide();
+            frmPurchaseOptions frmObj = new frmPurchaseOptions();
             frmObj.ShowDialog();
-            this.Show();
+            
         }
 
         private void btnRegist_Click(object sender, EventArgs e)
         {
-            frmMemberRegist frmObj = new frmMemberRegist();
             this.Hide();
+            frmMemberRegist frmObj = new frmMemberRegist();
+            
             frmObj.ShowDialog();
-            this.Show();
+          
         }
     }
 }
