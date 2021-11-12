@@ -12,6 +12,10 @@ namespace BOLayer
         private bool _isLimited;
         private string _category;
 
+        public Product()
+        {
+        }
+
         public Product(string name, bool isLimited, string category)
         {
             _name = name;
@@ -29,9 +33,9 @@ namespace BOLayer
             throw new NotImplementedException();
         }
 
-        public  bool Select()
+        public  List<Product> Select(string productType)
         {
-            throw new NotImplementedException();
+            return DALayer_Select(productType);
         }
 
         protected override bool DALayer_Delete()
@@ -44,9 +48,9 @@ namespace BOLayer
             throw new NotImplementedException();
         }
 
-        protected  bool DALayer_Select()
+        protected  bool DALayer_Select(string productType)
         {
-            throw new NotImplementedException();
+           Product
         }
     }
 }

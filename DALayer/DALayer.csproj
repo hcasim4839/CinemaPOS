@@ -91,11 +91,15 @@
     <Compile Include="CustomerDTOBasics.cs" />
     <Compile Include="CustomerOrderDAO.cs" />
     <Compile Include="CustomerOrderDTO.cs" />
+    <Compile Include="FoodDAO.cs" />
+    <Compile Include="FoodDTO.cs" />
     <Compile Include="IDAOCRUDCommands.cs" />
     <Compile Include="MemberCreditCardDAO.cs" />
     <Compile Include="MemberCreditCardDTO.cs" />
     <Compile Include="MemberDAO.cs" />
     <Compile Include="MemberDTO.cs" />
+    <Compile Include="MovieTicketDAO.cs" />
+    <Compile Include="MovieTicketDTO.cs" />
     <Compile Include="MySQL.cs" />
     <Compile Include="NonMemberCreditCardDAO.cs" />
     <Compile Include="NonMemberCreditCardDTO.cs" />

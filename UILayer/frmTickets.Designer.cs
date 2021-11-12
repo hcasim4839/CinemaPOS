@@ -148,6 +148,7 @@ namespace UILayer
             this.cmbMovieGenre.Name = "cmbMovieGenre";
             this.cmbMovieGenre.Size = new System.Drawing.Size(121, 21);
             this.cmbMovieGenre.TabIndex = 0;
+            this.cmbMovieGenre.SelectedIndexChanged += new System.EventHandler(this.cmbMovieGenre_SelectedIndexChanged);
             // 
             // btnExit
             // 
@@ -200,6 +201,7 @@ namespace UILayer
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "frmTickets";
             this.Text = "Movie Ticket Sales";
+            this.Load += new System.EventHandler(this.frmTickets_Load);
             this.grpPaymentNeeded.ResumeLayout(false);
             this.grpPaymentNeeded.PerformLayout();
             this.grpMovies.ResumeLayout(false);

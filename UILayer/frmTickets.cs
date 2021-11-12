@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BOLayer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -41,6 +42,18 @@ namespace UILayer
             this.Hide();
             frmObj.ShowDialog();
             this.Show();
+        }
+
+        private void cmbMovieGenre_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmTickets_Load(object sender, EventArgs e)
+        {
+            Product products = new Product();
+            products.Select()
+            lstViewMovies.Items.Add();
         }
     }
 }
