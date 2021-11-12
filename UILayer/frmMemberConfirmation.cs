@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BOLayer;
+using DALayer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -28,7 +30,14 @@ namespace UILayer
         private void btnEnter_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmPurchaseOptions frmObj = new frmPurchaseOptions();
+            string phoneNum = txtPhoneNum.Text;
+
+            Member member = new Member(phoneNum);
+            MemberDTO memberDTO =   member.Select();
+
+            frmPurchaseOptions frmObj = new frmPurchaseOptions(memberDTO.Name, memberDTO.Points);
+
+            
             frmObj.ShowDialog();
             
         }

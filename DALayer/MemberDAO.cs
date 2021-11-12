@@ -76,9 +76,40 @@ namespace DALayer
 
        
 
-        public bool Select(MemberDTO objDTO)
+        public MemberDTO Select(MemberDTO objDTO)
         {
-            throw new NotImplementedException();
+            AWSMySQL db = (AWSMySQL)SQLFactory.GetSQLInstance(SQLFactory.AwsMySQL);
+            MySqlConnection objConn = new MySqlConnection(db.ConnString);
+
+            try
+            {
+                objConn.Open();
+                string query = "select * from Member WHERE PhoneNumber = @PhoneNumber";
+                MySqlCommand objCmd = new MySqlCommand(query, objConn);
+                objCmd.CommandType = CommandType.Text;
+
+                Console.WriteLine("the phone num is " + objDTO.PhoneNumber);
+                objCmd.Parameters.AddWithValue("@PhoneNumber", objDTO.PhoneNumber);
+
+                MySqlDataReader reader = objCmd.ExecuteReader();
+                
+                while (reader.Read())
+                {
+                    objDTO.Name = reader.GetString("Name"); ;
+                    objDTO.Points = reader.GetString("Points");
+                }
+                return objDTO;
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Error in the MemberDAO method Select: " + e.Message);
+            }
+            finally
+            {
+                objConn.Close();
+                objConn.Dispose();
+            }
+
         }
     }
 }

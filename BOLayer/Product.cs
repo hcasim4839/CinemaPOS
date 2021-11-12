@@ -29,7 +29,7 @@ namespace BOLayer
             throw new NotImplementedException();
         }
 
-        public override bool Select()
+        public  bool Select()
         {
             throw new NotImplementedException();
         }
@@ -44,7 +44,7 @@ namespace BOLayer
             throw new NotImplementedException();
         }
 
-        protected override bool DALayer_Select()
+        protected  bool DALayer_Select()
         {
             throw new NotImplementedException();
         }

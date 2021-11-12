@@ -18,7 +18,7 @@ namespace DALayer
             throw new NotImplementedException();
         }
 
-        public bool Select(NonMemberCreditCardDTO objDTO)
+        public NonMemberCreditCardDTO Select(NonMemberCreditCardDTO objDTO)
         {
             throw new NotImplementedException();
         }

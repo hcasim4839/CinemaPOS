@@ -30,8 +30,7 @@ namespace UILayer
         private void InitializeComponent()
         {
             this.lblMember = new System.Windows.Forms.Label();
-            this.lblFirstName = new System.Windows.Forms.Label();
-            this.lblLastName = new System.Windows.Forms.Label();
+            this.lblName = new System.Windows.Forms.Label();
             this.lblPoints = new System.Windows.Forms.Label();
             this.btnTickets = new System.Windows.Forms.Button();
             this.btnSnacksDrinks = new System.Windows.Forms.Button();
@@ -47,23 +46,14 @@ namespace UILayer
             this.lblMember.TabIndex = 0;
             this.lblMember.Text = "Member:";
             // 
-            // lblFirstName
+            // lblName
             // 
-            this.lblFirstName.AutoSize = true;
-            this.lblFirstName.Location = new System.Drawing.Point(146, 33);
-            this.lblFirstName.Name = "lblFirstName";
-            this.lblFirstName.Size = new System.Drawing.Size(57, 13);
-            this.lblFirstName.TabIndex = 1;
-            this.lblFirstName.Text = "First Name";
-            // 
-            // lblLastName
-            // 
-            this.lblLastName.AutoSize = true;
-            this.lblLastName.Location = new System.Drawing.Point(241, 33);
-            this.lblLastName.Name = "lblLastName";
-            this.lblLastName.Size = new System.Drawing.Size(58, 13);
-            this.lblLastName.TabIndex = 2;
-            this.lblLastName.Text = "Last Name";
+            this.lblName.AutoSize = true;
+            this.lblName.Location = new System.Drawing.Point(146, 33);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(35, 13);
+            this.lblName.TabIndex = 1;
+            this.lblName.Text = "Name";
             // 
             // lblPoints
             // 
@@ -112,8 +102,7 @@ namespace UILayer
             this.Controls.Add(this.btnSnacksDrinks);
             this.Controls.Add(this.btnTickets);
             this.Controls.Add(this.lblPoints);
-            this.Controls.Add(this.lblLastName);
-            this.Controls.Add(this.lblFirstName);
+            this.Controls.Add(this.lblName);
             this.Controls.Add(this.lblMember);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "frmPurchaseOptions";
@@ -126,8 +115,7 @@ namespace UILayer
         #endregion
 
         private System.Windows.Forms.Label lblMember;
-        private System.Windows.Forms.Label lblFirstName;
-        private System.Windows.Forms.Label lblLastName;
+        private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblPoints;
         private System.Windows.Forms.Button btnTickets;
         private System.Windows.Forms.Button btnSnacksDrinks;

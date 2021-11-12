@@ -67,14 +67,18 @@ namespace BOLayer
             return isInserted;
         }
 
-        public override bool Select()
+        public MemberDTO Select()
         {
-            throw new NotImplementedException();
+            return DALayer_Select();
         }
 
-        protected override bool DALayer_Select()
+        private  MemberDTO DALayer_Select()
         {
-            throw new NotImplementedException();
+            MemberDAO mDAO = new MemberDAO();
+            MemberDTO mDTO = new MemberDTO();
+            mDTO.PhoneNumber = _phoneNum;
+
+            return mDAO.Select(mDTO);
         }
     }
 }

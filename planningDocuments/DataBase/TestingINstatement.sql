@@ -41,4 +41,4 @@ Values("MasterCard" ,"2", 'Julia','03/21','benham st','none',
  select * from Member;
  select * from CreditCard;
  select * from MemberCreditCard;
- DELETE FROM CreditCard WHERE CreditCardIssuerName="MasterCard";
+ DELETE FROM CreditCard;

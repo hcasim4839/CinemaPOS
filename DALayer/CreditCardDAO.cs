@@ -96,8 +96,9 @@ namespace DALayer
             }
         }
 
-        public bool Select(CreditCardDTO objDTO)
+        public CreditCardDTO Select(CreditCardDTO objDTO)
         {
+            /*
             AWSMySQL db = (AWSMySQL)SQLFactory.GetSQLInstance(SQLFactory.AwsMySQL);
             string conn = db.ConnString;
 
@@ -132,6 +133,8 @@ namespace DALayer
                 objConn.Dispose();
 
             }
+            */
+            throw new NotImplementedException();
         }
     }
 

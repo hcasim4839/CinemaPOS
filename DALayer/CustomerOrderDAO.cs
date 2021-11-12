@@ -18,7 +18,7 @@ namespace DALayer
             throw new NotImplementedException();
         }
 
-        public bool Select(CustomerOrderDTO objDTO)
+        public CustomerOrderDTO Select(CustomerOrderDTO objDTO)
         {
             throw new NotImplementedException();
         }

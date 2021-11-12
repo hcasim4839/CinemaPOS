@@ -23,7 +23,7 @@ namespace DALayer
             throw new NotImplementedException();
         }
 
-        public bool Select(NonMemberDTO objDTO)
+        public NonMemberDTO Select(NonMemberDTO objDTO)
         {
             throw new NotImplementedException();
         }

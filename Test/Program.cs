@@ -12,9 +12,16 @@ namespace Test
     {
         static void Main(string[] args)
         {
-            MySQL sql = new MySQL();
-            sql.connString = "ewrewrewr";
+
+            Member member = new Member("2");
+            MemberDTO memberDTO = member.Select();
+
             
+            
+
+
+            Console.WriteLine("dfs");
+            Console.WriteLine("The member info: " +memberDTO.Name + memberDTO.Points);
 
         }
     }

@@ -37,7 +37,7 @@ namespace BOLayer
             return DALayer_Insert(ccDTO);
         }
 
-        public override bool Select()
+        public MemberCreditCardDTO Select()
         {
             return DALayer_Select();
         }
@@ -79,7 +79,7 @@ namespace BOLayer
             return mCreditCardDAO.Insert(mCreditCardDTO, ccDTO);
         }
 
-        protected override bool DALayer_Select()
+        protected MemberCreditCardDTO DALayer_Select()
         {
             MemberCreditCardDTO mCCDTO = new MemberCreditCardDTO();
             MemberCreditCardDAO mCCDAO = new MemberCreditCardDAO();

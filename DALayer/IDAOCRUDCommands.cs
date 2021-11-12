@@ -8,7 +8,7 @@ namespace DALayer
 {
     public interface IDAOCRUDCommands<T>
     {
-        bool Select(T objDTO);
+        T Select(T objDTO);
         bool Insert(T objDTO);
         bool Delete(T objDTO);
     }

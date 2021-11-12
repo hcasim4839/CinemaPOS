@@ -12,9 +12,18 @@ namespace UILayer
 {
     public partial class frmPurchaseOptions : Form
     {
+        
+
         public frmPurchaseOptions()
         {
             InitializeComponent();
+        }
+
+        public frmPurchaseOptions(string name, string points)
+        {
+            InitializeComponent();
+            lblName.Text = name;
+            lblPoints.Text = "Points: " + points;
         }
 
         private void btnTickets_Click(object sender, EventArgs e)
