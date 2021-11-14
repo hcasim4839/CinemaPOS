@@ -12,3 +12,8 @@ VALUES('Joanna Casimiro', '347432274','94');
 
 
 
+INSERT INTO MovieTicket
+VALUES('Scary Movie', 'Comedy', '10.00');
+
+INSERT INTO MovieTicket
+VALUES('Avengers', 'Heroes', '12.00');

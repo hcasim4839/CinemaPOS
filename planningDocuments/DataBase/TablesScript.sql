@@ -136,14 +136,7 @@ CREATE TABLE CustomerOrder
   PRIMARY KEY (ID)
 );
 
-CREATE TABLE Product
-(
-  isLimitied CHAR(1) NOT NULL,
-  Category VARCHAR(10) NOT NULL,
-  Price VARCHAR(5) NOT NULL,
-  Name VARCHAR(30) NOT NULL,
-  PRIMARY KEY (Name)
-);
+
 
 CREATE TABLE MemberCreditCard
 (
@@ -172,15 +165,6 @@ CREATE TABLE NonMemberCreditCard
   FOREIGN KEY (CustomerID) REFERENCES NonMember(CustomerID)  ON DELETE CASCADE
 );
 
-CREATE TABLE MovieTicket
-(
-  Category VARCHAR(21) NOT NULL,
-  Price VARCHAR(5) NOT NULL,
-  Name VARCHAR(30) NOT NULL,
-  PRIMARY KEY (Name),
-  FOREIGN KEY (Name) REFERENCES Product(Name) ON DELETE CASCADE
-);
-
 CREATE TABLE Food
 (
   Category VARCHAR(21) NOT NULL,
@@ -189,6 +173,31 @@ CREATE TABLE Food
   Name VARCHAR(30) NOT NULL,
   PRIMARY KEY (Name),
   FOREIGN KEY (Name) REFERENCES Product(Name) ON DELETE CASCADE
+);
+
+CREATE TABLE Product
+(
+  isLimitied CHAR(1) NOT NULL,
+  Category VARCHAR(10) NOT NULL,
+  Price VARCHAR(5) NOT NULL,
+  Name VARCHAR(30) NOT NULL,
+  PRIMARY KEY (Name)
+);
+
+CREATE TABLE Genre
+(
+  Category VARCHAR(15) NOT NULL,
+  PRIMARY KEY (Category)
+);
+
+CREATE TABLE MovieTicket
+(
+  Price VARCHAR(5) NOT NULL,
+  Name VARCHAR(30) NOT NULL,
+  Category VARCHAR(15) NOT NULL,
+  PRIMARY KEY (Name),
+  FOREIGN KEY (Name) REFERENCES Product(Name) ON DELETE CASCADE,
+  FOREIGN KEY (Category) REFERENCES Genre(Category) ON DELETE CASCADE
 );
 
 CREATE TABLE Order_Item

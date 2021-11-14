@@ -35,7 +35,7 @@ namespace BOLayer
 
         public  List<Product> Select(string productType)
         {
-            return DALayer_Select(productType);
+            throw new NotImplementedException();
         }
 
         protected override bool DALayer_Delete()
@@ -50,7 +50,7 @@ namespace BOLayer
 
         protected  bool DALayer_Select(string productType)
         {
-           Product
+            throw new NotImplementedException();
         }
     }
 }

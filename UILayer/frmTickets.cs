@@ -1,4 +1,5 @@
 ﻿using BOLayer;
+using DALayer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,11 +14,21 @@ namespace UILayer
 {
     public partial class frmTickets : Form
     {
-        public string[] list = { "pokemon", "digimon", "scooby", "teen titan" };
+        public string[] list = { "Horror", "Comedy", "Action", "Heroes" };
         public frmTickets()
         {
             
             InitializeComponent();
+            
+            MovieTicket movieTicketObj = new MovieTicket();
+            List<MovieTicketDTO> listOfMovies = new List<MovieTicketDTO>();
+
+            listOfMovies = movieTicketObj.SelectAll();
+            listOfMovies.ForEach(entry => lstViewMovies.Items.Add(entry.Name));
+            for (int i = 0; i < list.Length; i++)
+            {
+                cmbMovieGenre.Items.Add(list[i]);
+            }
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -27,13 +38,13 @@ namespace UILayer
 
         private void btnEnter_Click(object sender, EventArgs e)
         {
-            foreach (string item in list)
-            {
-                ListViewItem viewItem = new ListViewItem(item);
+            string genre = cmbMovieGenre.SelectedItem.ToString();
 
-                lstViewMovies.Items.Add(viewItem);
+            MovieTicket movieTicket = new MovieTicket();
+            List<MovieTicketDTO> listOfMovies = new List<MovieTicketDTO>();
 
-            }
+            listOfMovies = movieTicket.Select(genre);
+            listOfMovies.ForEach(entry => lstViewMovies.Items.Add("Category: " + entry.Category + "\nTitle: " + entry.Name + "\nPrice: " + entry.Price));
         }
 
         private void btnPayCash_Click(object sender, EventArgs e)
@@ -51,9 +62,8 @@ namespace UILayer
 
         private void frmTickets_Load(object sender, EventArgs e)
         {
-            Product products = new Product();
-            products.Select()
-            lstViewMovies.Items.Add();
+            
+            
         }
     }
 }
