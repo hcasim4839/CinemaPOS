@@ -14,10 +14,8 @@ namespace UILayer
 {
     public partial class frmTickets : Form
     {
-        public string[] list = { "Horror", "Comedy", "Action", "Heroes" };
         public frmTickets(string phoneNum)
         {
-            
             InitializeComponent();
             fillListView(false);
             Member member = new Member(phoneNum);
@@ -25,6 +23,13 @@ namespace UILayer
 
             lblName.Text = memberDTO.Name;
             lblPoints.Text = memberDTO.Points;
+
+            //fill the genre in the combobox
+            Genre genreObj = new Genre();
+            List<GenreDTO> listOfGenre = genreObj.SelectAll();
+
+            listOfGenre.ForEach(entry => cmbMovieGenre.Items.Add(entry.Category));
+
 
         }
 
@@ -35,13 +40,7 @@ namespace UILayer
 
         private void btnEnter_Click(object sender, EventArgs e)
         {
-            /*
-            string genre = cmbMovieGenre.SelectedItem.ToString();
-            MovieTicket movieTicket = new MovieTicket();
-            List<MovieTicketDTO> listOfMovies = new List<MovieTicketDTO>();
-            listOfMovies = movieTicket.Select(genre);
-            listOfMovies.ForEach(entry => lstViewMovies.Items.Add("Category: " + entry.Category + " Title: " + entry.Name + " Price: " + entry.Price));
-            */
+            lstViewMovies.Items.Clear();
             fillListView(true);
         }
         private void fillListView(bool hasSpecificGenre)
@@ -61,7 +60,22 @@ namespace UILayer
         }
         private void btnPayCash_Click(object sender, EventArgs e)
         {
-            frmCashPayment frmObj = new frmCashPayment();
+            decimal totalCost = 0.00m;
+
+            foreach(var currentItem in lstBoxPaymentNeeded.Items)
+            {
+
+                string currentItemString = currentItem.ToString();
+                int newEntryIndex = currentItemString.LastIndexOf("Price: ");
+                newEntryIndex += 7;
+                decimal ticketCost = Convert.ToDecimal(currentItemString.Substring(newEntryIndex));
+
+                totalCost += ticketCost;
+            }
+
+            
+
+            frmCashPayment frmObj = new frmCashPayment(totalCost);
             this.Hide();
             frmObj.ShowDialog();
             this.Show();
@@ -108,6 +122,12 @@ namespace UILayer
         private void btnPayPoints_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void lstBoxPaymentNeeded_Click(object sender, EventArgs e)
+        {
+            int itemToRemoveIndex = lstBoxPaymentNeeded.SelectedIndex;
+            lstBoxPaymentNeeded.Items.RemoveAt(itemToRemoveIndex);
         }
     }
 }

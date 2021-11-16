@@ -34,7 +34,6 @@ namespace UILayer
             this.btnPayCreditCard = new System.Windows.Forms.Button();
             this.btnPayCash = new System.Windows.Forms.Button();
             this.lstBoxPaymentNeeded = new System.Windows.Forms.ListBox();
-            this.lblTotal = new System.Windows.Forms.Label();
             this.grpMovies = new System.Windows.Forms.GroupBox();
             this.btnEnter = new System.Windows.Forms.Button();
             this.lstViewMovies = new System.Windows.Forms.ListView();
@@ -52,18 +51,17 @@ namespace UILayer
             this.grpPaymentNeeded.Controls.Add(this.btnPayCreditCard);
             this.grpPaymentNeeded.Controls.Add(this.btnPayCash);
             this.grpPaymentNeeded.Controls.Add(this.lstBoxPaymentNeeded);
-            this.grpPaymentNeeded.Controls.Add(this.lblTotal);
             this.grpPaymentNeeded.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpPaymentNeeded.Location = new System.Drawing.Point(11, 77);
             this.grpPaymentNeeded.Name = "grpPaymentNeeded";
-            this.grpPaymentNeeded.Size = new System.Drawing.Size(250, 356);
+            this.grpPaymentNeeded.Size = new System.Drawing.Size(250, 382);
             this.grpPaymentNeeded.TabIndex = 0;
             this.grpPaymentNeeded.TabStop = false;
-            this.grpPaymentNeeded.Text = "Total Cost";
+            this.grpPaymentNeeded.Text = "  ";
             // 
             // btnPayPoints
             // 
-            this.btnPayPoints.Location = new System.Drawing.Point(171, 326);
+            this.btnPayPoints.Location = new System.Drawing.Point(168, 333);
             this.btnPayPoints.Name = "btnPayPoints";
             this.btnPayPoints.Size = new System.Drawing.Size(75, 23);
             this.btnPayPoints.TabIndex = 4;
@@ -73,7 +71,7 @@ namespace UILayer
             // 
             // btnPayCreditCard
             // 
-            this.btnPayCreditCard.Location = new System.Drawing.Point(90, 326);
+            this.btnPayCreditCard.Location = new System.Drawing.Point(87, 333);
             this.btnPayCreditCard.Name = "btnPayCreditCard";
             this.btnPayCreditCard.Size = new System.Drawing.Size(75, 23);
             this.btnPayCreditCard.TabIndex = 3;
@@ -82,7 +80,7 @@ namespace UILayer
             // 
             // btnPayCash
             // 
-            this.btnPayCash.Location = new System.Drawing.Point(9, 326);
+            this.btnPayCash.Location = new System.Drawing.Point(6, 333);
             this.btnPayCash.Name = "btnPayCash";
             this.btnPayCash.Size = new System.Drawing.Size(75, 23);
             this.btnPayCash.TabIndex = 2;
@@ -97,17 +95,7 @@ namespace UILayer
             this.lstBoxPaymentNeeded.Name = "lstBoxPaymentNeeded";
             this.lstBoxPaymentNeeded.Size = new System.Drawing.Size(144, 264);
             this.lstBoxPaymentNeeded.TabIndex = 1;
-            // 
-            // lblTotal
-            // 
-            this.lblTotal.AutoSize = true;
-            this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal.ForeColor = System.Drawing.Color.DarkRed;
-            this.lblTotal.Location = new System.Drawing.Point(6, 308);
-            this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(34, 13);
-            this.lblTotal.TabIndex = 0;
-            this.lblTotal.Text = "Total:";
+            this.lstBoxPaymentNeeded.Click += new System.EventHandler(this.lstBoxPaymentNeeded_Click);
             // 
             // grpMovies
             // 
@@ -197,7 +185,6 @@ namespace UILayer
             this.Text = "Movie Ticket Sales";
             this.Load += new System.EventHandler(this.frmTickets_Load);
             this.grpPaymentNeeded.ResumeLayout(false);
-            this.grpPaymentNeeded.PerformLayout();
             this.grpMovies.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -207,7 +194,6 @@ namespace UILayer
         #endregion
 
         private System.Windows.Forms.GroupBox grpPaymentNeeded;
-        private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.GroupBox grpMovies;
         private System.Windows.Forms.ComboBox cmbMovieGenre;
         private System.Windows.Forms.ListBox lstBoxPaymentNeeded;

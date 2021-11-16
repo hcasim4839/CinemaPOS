@@ -12,6 +12,12 @@ namespace UILayer
 {
     public partial class frmCashPayment : Form
     {
+        public frmCashPayment(decimal ticketsCost)
+        {
+            InitializeComponent();
+            lblTotal.Text += ticketsCost;
+        }
+
         public frmCashPayment()
         {
             InitializeComponent();

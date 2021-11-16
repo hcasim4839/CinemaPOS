@@ -89,6 +89,7 @@
     <Compile Include="CustomerCreditCard.cs" />
     <Compile Include="CustomerOrder.cs" />
     <Compile Include="Food.cs" />
+    <Compile Include="Genre.cs" />
     <Compile Include="MemberCreditCard.cs" />
     <Compile Include="MovieTicket.cs" />
     <Compile Include="SQLCRUDCommands.cs" />
