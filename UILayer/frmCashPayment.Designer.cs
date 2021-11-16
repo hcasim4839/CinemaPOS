@@ -50,6 +50,7 @@ namespace UILayer
             this.buttonDecimal = new System.Windows.Forms.Button();
             this.btnZero = new System.Windows.Forms.Button();
             this.grpCustom = new System.Windows.Forms.GroupBox();
+            this.btnExit = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.grpCustom.SuspendLayout();
             this.SuspendLayout();
@@ -277,11 +278,22 @@ namespace UILayer
             this.grpCustom.TabStop = false;
             this.grpCustom.Text = "Custom";
             // 
+            // btnExit
+            // 
+            this.btnExit.Location = new System.Drawing.Point(573, 491);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(75, 23);
+            this.btnExit.TabIndex = 10;
+            this.btnExit.Text = "Exit";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
             // frmCashPayment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(660, 526);
+            this.Controls.Add(this.btnExit);
             this.Controls.Add(this.grpCustom);
             this.Controls.Add(this.grpTotal);
             this.Controls.Add(this.lblTotal);
@@ -321,5 +333,6 @@ namespace UILayer
         private System.Windows.Forms.Button buttonDecimal;
         private System.Windows.Forms.Button btnZero;
         private System.Windows.Forms.GroupBox grpCustom;
+        private System.Windows.Forms.Button btnExit;
     }
 }

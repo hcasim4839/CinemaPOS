@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BOLayer;
+using DALayer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +14,14 @@ namespace UILayer
 {
     public partial class frmSnacksDrinks : Form
     {
-        public frmSnacksDrinks()
+        public frmSnacksDrinks(string phoneNum)
         {
             InitializeComponent();
+            Member member = new Member(phoneNum);
+            MemberDTO memberDTO = member.Select();
+
+            lblName.Text = memberDTO.Name;
+            lblPoints.Text = memberDTO.Points;
         }
 
         private void lblPoints_Click(object sender, EventArgs e)
@@ -38,6 +45,11 @@ namespace UILayer
             this.Hide();
             frmObj.ShowDialog();
             this.Show();
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

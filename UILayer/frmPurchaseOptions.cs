@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BOLayer;
+using DALayer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,13 +14,24 @@ namespace UILayer
 {
     public partial class frmPurchaseOptions : Form
     {
-        
+        private string _phoneNum = "";
 
+        public frmPurchaseOptions(string phoneNum)
+        {
+            InitializeComponent();
+            _phoneNum = phoneNum;
+
+            Member member = new Member(phoneNum);
+            MemberDTO memberDTO = member.Select();
+
+            lblName.Text = memberDTO.Name;
+            lblPoints.Text = memberDTO.Points;
+        }
         public frmPurchaseOptions()
         {
             InitializeComponent();
+            
         }
-
         public frmPurchaseOptions(string name, string points)
         {
             InitializeComponent();
@@ -28,7 +41,7 @@ namespace UILayer
 
         private void btnTickets_Click(object sender, EventArgs e)
         {
-            frmTickets frmObj = new frmTickets();
+            frmTickets frmObj = new frmTickets(_phoneNum);
             this.Hide();
             frmObj.ShowDialog();
             this.Show();
@@ -41,6 +54,15 @@ namespace UILayer
             
             
            
+        }
+
+        private void btnSnacksDrinks_Click(object sender, EventArgs e)
+        {
+            frmSnacksDrinks frmObj = new frmSnacksDrinks(_phoneNum);
+            this.Hide();
+            frmObj.ShowDialog();
+            this.Show();
+            
         }
     }
 }

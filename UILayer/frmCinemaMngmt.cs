@@ -24,10 +24,7 @@ namespace UILayer
 
         private void btnTickets_Click(object sender, EventArgs e)
         {
-            frmTickets formObj = new frmTickets();
-            this.Hide();
-            formObj.ShowDialog();
-            this.Show();
+            throw new NotImplementedException();
         }
 
         private void btnMembership_Click(object sender, EventArgs e)

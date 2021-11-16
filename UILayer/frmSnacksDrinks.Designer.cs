@@ -29,8 +29,7 @@ namespace UILayer
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblFirstName = new System.Windows.Forms.Label();
-            this.lblLastName = new System.Windows.Forms.Label();
+            this.lblName = new System.Windows.Forms.Label();
             this.lblPoints = new System.Windows.Forms.Label();
             this.grpPaymentNeeded = new System.Windows.Forms.GroupBox();
             this.btnPoints = new System.Windows.Forms.Button();
@@ -45,35 +44,26 @@ namespace UILayer
             this.btnDrinksEnter = new System.Windows.Forms.Button();
             this.lstViewDrinks = new System.Windows.Forms.ListView();
             this.cmbDrinks = new System.Windows.Forms.ComboBox();
+            this.btnExit = new System.Windows.Forms.Button();
             this.grpPaymentNeeded.SuspendLayout();
             this.grpSnacks.SuspendLayout();
             this.grpDrinks.SuspendLayout();
             this.SuspendLayout();
             // 
-            // lblFirstName
+            // lblName
             // 
-            this.lblFirstName.AutoSize = true;
-            this.lblFirstName.Location = new System.Drawing.Point(40, 39);
-            this.lblFirstName.Name = "lblFirstName";
-            this.lblFirstName.Size = new System.Drawing.Size(57, 13);
-            this.lblFirstName.TabIndex = 0;
-            this.lblFirstName.Text = "First Name";
-            this.lblFirstName.Click += new System.EventHandler(this.lblFirstName_Click);
-            // 
-            // lblLastName
-            // 
-            this.lblLastName.AutoSize = true;
-            this.lblLastName.Location = new System.Drawing.Point(137, 39);
-            this.lblLastName.Name = "lblLastName";
-            this.lblLastName.Size = new System.Drawing.Size(58, 13);
-            this.lblLastName.TabIndex = 1;
-            this.lblLastName.Text = "Last Name";
-            this.lblLastName.Click += new System.EventHandler(this.lblLastName_Click);
+            this.lblName.AutoSize = true;
+            this.lblName.Location = new System.Drawing.Point(40, 39);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(35, 13);
+            this.lblName.TabIndex = 0;
+            this.lblName.Text = "Name";
+            this.lblName.Click += new System.EventHandler(this.lblFirstName_Click);
             // 
             // lblPoints
             // 
             this.lblPoints.AutoSize = true;
-            this.lblPoints.Location = new System.Drawing.Point(285, 39);
+            this.lblPoints.Location = new System.Drawing.Point(139, 39);
             this.lblPoints.Name = "lblPoints";
             this.lblPoints.Size = new System.Drawing.Size(36, 13);
             this.lblPoints.TabIndex = 2;
@@ -207,17 +197,27 @@ namespace UILayer
             this.cmbDrinks.Size = new System.Drawing.Size(121, 21);
             this.cmbDrinks.TabIndex = 0;
             // 
+            // btnExit
+            // 
+            this.btnExit.Location = new System.Drawing.Point(602, 436);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(75, 23);
+            this.btnExit.TabIndex = 6;
+            this.btnExit.Text = "Exit";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
             // frmSnacksDrinks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(689, 471);
+            this.Controls.Add(this.btnExit);
             this.Controls.Add(this.grpDrinks);
             this.Controls.Add(this.grpSnacks);
             this.Controls.Add(this.grpPaymentNeeded);
             this.Controls.Add(this.lblPoints);
-            this.Controls.Add(this.lblLastName);
-            this.Controls.Add(this.lblFirstName);
+            this.Controls.Add(this.lblName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "frmSnacksDrinks";
             this.Text = "Snacks & Drinks";
@@ -231,8 +231,7 @@ namespace UILayer
 
         #endregion
 
-        private System.Windows.Forms.Label lblFirstName;
-        private System.Windows.Forms.Label lblLastName;
+        private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblPoints;
         private System.Windows.Forms.GroupBox grpPaymentNeeded;
         private System.Windows.Forms.GroupBox grpSnacks;
@@ -247,5 +246,6 @@ namespace UILayer
         private System.Windows.Forms.Button btnPayCash;
         private System.Windows.Forms.Button btnSnacksEnter;
         private System.Windows.Forms.Button btnDrinksEnter;
+        private System.Windows.Forms.Button btnExit;
     }
 }

@@ -82,6 +82,7 @@ namespace UILayer
             this.btnSnacksDrinks.TabIndex = 5;
             this.btnSnacksDrinks.Text = "Snacks && Drinks";
             this.btnSnacksDrinks.UseVisualStyleBackColor = true;
+            this.btnSnacksDrinks.Click += new System.EventHandler(this.btnSnacksDrinks_Click);
             // 
             // btnExit
             // 

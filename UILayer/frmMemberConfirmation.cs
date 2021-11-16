@@ -32,10 +32,8 @@ namespace UILayer
             this.Hide();
             string phoneNum = txtPhoneNum.Text;
 
-            Member member = new Member(phoneNum);
-            MemberDTO memberDTO =   member.Select();
 
-            frmPurchaseOptions frmObj = new frmPurchaseOptions(memberDTO.Name, memberDTO.Points);
+            frmPurchaseOptions frmObj = new frmPurchaseOptions(phoneNum);
 
             
             frmObj.ShowDialog();

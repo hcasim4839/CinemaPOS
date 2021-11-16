@@ -40,8 +40,7 @@ namespace UILayer
             this.lstViewMovies = new System.Windows.Forms.ListView();
             this.cmbMovieGenre = new System.Windows.Forms.ComboBox();
             this.btnExit = new System.Windows.Forms.Button();
-            this.lblFirstName = new System.Windows.Forms.Label();
-            this.lblLastName = new System.Windows.Forms.Label();
+            this.lblName = new System.Windows.Forms.Label();
             this.lblPoints = new System.Windows.Forms.Label();
             this.grpPaymentNeeded.SuspendLayout();
             this.grpMovies.SuspendLayout();
@@ -70,6 +69,7 @@ namespace UILayer
             this.btnPayPoints.TabIndex = 4;
             this.btnPayPoints.Text = "Points Payment";
             this.btnPayPoints.UseVisualStyleBackColor = true;
+            this.btnPayPoints.Click += new System.EventHandler(this.btnPayPoints_Click);
             // 
             // btnPayCreditCard
             // 
@@ -137,9 +137,13 @@ namespace UILayer
             this.lstViewMovies.HideSelection = false;
             this.lstViewMovies.Location = new System.Drawing.Point(21, 62);
             this.lstViewMovies.Name = "lstViewMovies";
+            this.lstViewMovies.OwnerDraw = true;
             this.lstViewMovies.Size = new System.Drawing.Size(423, 234);
             this.lstViewMovies.TabIndex = 1;
             this.lstViewMovies.UseCompatibleStateImageBehavior = false;
+            this.lstViewMovies.View = System.Windows.Forms.View.List;
+            this.lstViewMovies.DrawItem += new System.Windows.Forms.DrawListViewItemEventHandler(this.lstViewMovies_DrawItem);
+            this.lstViewMovies.Click += new System.EventHandler(this.lstViewMovies_Click);
             // 
             // cmbMovieGenre
             // 
@@ -160,28 +164,19 @@ namespace UILayer
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // lblFirstName
+            // lblName
             // 
-            this.lblFirstName.AutoSize = true;
-            this.lblFirstName.Location = new System.Drawing.Point(30, 28);
-            this.lblFirstName.Name = "lblFirstName";
-            this.lblFirstName.Size = new System.Drawing.Size(57, 13);
-            this.lblFirstName.TabIndex = 3;
-            this.lblFirstName.Text = "First Name";
-            // 
-            // lblLastName
-            // 
-            this.lblLastName.AutoSize = true;
-            this.lblLastName.Location = new System.Drawing.Point(111, 28);
-            this.lblLastName.Name = "lblLastName";
-            this.lblLastName.Size = new System.Drawing.Size(58, 13);
-            this.lblLastName.TabIndex = 4;
-            this.lblLastName.Text = "Last Name";
+            this.lblName.AutoSize = true;
+            this.lblName.Location = new System.Drawing.Point(30, 28);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(35, 13);
+            this.lblName.TabIndex = 3;
+            this.lblName.Text = "Name";
             // 
             // lblPoints
             // 
             this.lblPoints.AutoSize = true;
-            this.lblPoints.Location = new System.Drawing.Point(196, 28);
+            this.lblPoints.Location = new System.Drawing.Point(123, 28);
             this.lblPoints.Name = "lblPoints";
             this.lblPoints.Size = new System.Drawing.Size(36, 13);
             this.lblPoints.TabIndex = 5;
@@ -193,8 +188,7 @@ namespace UILayer
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(755, 471);
             this.Controls.Add(this.lblPoints);
-            this.Controls.Add(this.lblLastName);
-            this.Controls.Add(this.lblFirstName);
+            this.Controls.Add(this.lblName);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.grpMovies);
             this.Controls.Add(this.grpPaymentNeeded);
@@ -223,8 +217,7 @@ namespace UILayer
         private System.Windows.Forms.Button btnPayPoints;
         private System.Windows.Forms.Button btnPayCreditCard;
         private System.Windows.Forms.Button btnPayCash;
-        private System.Windows.Forms.Label lblFirstName;
-        private System.Windows.Forms.Label lblLastName;
+        private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblPoints;
     }
 }
