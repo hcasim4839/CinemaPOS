@@ -29,6 +29,8 @@ namespace UILayer
             List<GenreDTO> listOfGenre = genreObj.SelectAll();
 
             listOfGenre.ForEach(entry => cmbMovieGenre.Items.Add(entry.Category));
+            //Default for comboBox control
+            
 
 
         }

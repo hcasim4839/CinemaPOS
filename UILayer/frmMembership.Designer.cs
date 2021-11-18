@@ -57,12 +57,13 @@ namespace UILayer
             // 
             // btnExit
             // 
+            this.btnExit.BackColor = System.Drawing.SystemColors.Control;
             this.btnExit.Location = new System.Drawing.Point(240, 196);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(83, 23);
             this.btnExit.TabIndex = 2;
             this.btnExit.Text = "Exit";
-            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnCCManagement
@@ -79,6 +80,7 @@ namespace UILayer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(549, 305);
             this.Controls.Add(this.btnCCManagement);
             this.Controls.Add(this.btnExit);

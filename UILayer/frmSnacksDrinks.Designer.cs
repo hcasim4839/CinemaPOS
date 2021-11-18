@@ -141,6 +141,7 @@ namespace UILayer
             this.btnSnacksEnter.TabIndex = 2;
             this.btnSnacksEnter.Text = "Enter";
             this.btnSnacksEnter.UseVisualStyleBackColor = true;
+            this.btnSnacksEnter.Click += new System.EventHandler(this.btnSnacksEnter_Click);
             // 
             // lstViewSnacks
             // 

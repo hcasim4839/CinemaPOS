@@ -14,6 +14,7 @@ namespace UILayer
 {
     public partial class frmSnacksDrinks : Form
     {
+        string[] categories = new string[] { "Limited", "Non-limited"};
         public frmSnacksDrinks(string phoneNum)
         {
             InitializeComponent();
@@ -22,6 +23,11 @@ namespace UILayer
 
             lblName.Text = memberDTO.Name;
             lblPoints.Text = memberDTO.Points;
+
+            cmbDrinks.Items.AddRange(categories);
+            cmbSnacks.Items.AddRange(categories);
+            cmbDrinks.SelectedItem = categories[1];
+            cmbSnacks.SelectedItem = categories[1];
         }
 
         private void lblPoints_Click(object sender, EventArgs e)
@@ -41,7 +47,20 @@ namespace UILayer
 
         private void btnPayCash_Click(object sender, EventArgs e)
         {
-            frmCashPayment frmObj = new frmCashPayment();
+            decimal totalCost = 0.00m;
+
+            foreach (var currentItem in lstViewPaymentNeeded.Items)
+            {
+
+                string currentItemString = currentItem.ToString();
+                int newEntryIndex = currentItemString.LastIndexOf("Price: ");
+                newEntryIndex += 7;
+                decimal ticketCost = Convert.ToDecimal(currentItemString.Substring(newEntryIndex));
+
+                totalCost += ticketCost;
+            }
+
+            frmCashPayment frmObj = new frmCashPayment(totalCost);
             this.Hide();
             frmObj.ShowDialog();
             this.Show();
@@ -50,6 +69,11 @@ namespace UILayer
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnSnacksEnter_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
