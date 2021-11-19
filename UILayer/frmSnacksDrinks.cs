@@ -28,6 +28,12 @@ namespace UILayer
             cmbSnacks.Items.AddRange(categories);
             cmbDrinks.SelectedItem = categories[1];
             cmbSnacks.SelectedItem = categories[1];
+
+            cmbDrinks.SelectedItem = categories[1];
+            cmbSnacks.SelectedItem = categories[1];
+
+            fillLstViewFood("Snacks", false);
+            fillLstViewFood("Drinks", false);
         }
 
         private void lblPoints_Click(object sender, EventArgs e)
@@ -73,7 +79,23 @@ namespace UILayer
 
         private void btnSnacksEnter_Click(object sender, EventArgs e)
         {
+            bool isLimited = cmbSnacks.SelectedIndex.Equals("Limited") ? true : false;
+            fillLstViewFood("Snacks", isLimited);
+        }
+        private List<FoodDTO> fillLstViewFood(string category, bool isLimited)
+        {
 
+            Food foodObj = new Food(category, isLimited);
+            List<FoodDTO> listOfFood = new List<FoodDTO>();
+
+            listOfFood = foodObj.SelectAll();
+            return listOfFood;
+        }
+
+        private void btnDrinksEnter_Click(object sender, EventArgs e)
+        {
+            bool isLimited = cmbSnacks.SelectedIndex.Equals("Limited") ? true : false;
+            fillLstViewFood("Drinks", isLimited);
         }
     }
 }

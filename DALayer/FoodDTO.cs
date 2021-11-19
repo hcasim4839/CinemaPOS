@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace DALayer
 {
-    class FoodDTO
+    public class FoodDTO
     {
         public string Name;
         public string Category;
         public string Price;
-        public string IsLimited;
+        public bool IsLimited;
     }
 }

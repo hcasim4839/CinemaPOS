@@ -180,6 +180,7 @@ namespace UILayer
             this.btnDrinksEnter.TabIndex = 2;
             this.btnDrinksEnter.Text = "Enter";
             this.btnDrinksEnter.UseVisualStyleBackColor = true;
+            this.btnDrinksEnter.Click += new System.EventHandler(this.btnDrinksEnter_Click);
             // 
             // lstViewDrinks
             // 
