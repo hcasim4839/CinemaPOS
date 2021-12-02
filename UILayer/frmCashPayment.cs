@@ -16,6 +16,8 @@ namespace UILayer
         {
             InitializeComponent();
             lblTotal.Text += ticketsCost;
+            lblTotalCost.Text += ticketsCost;
+
         }
 
         public frmCashPayment()
@@ -26,6 +28,12 @@ namespace UILayer
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnTender_Click(object sender, EventArgs e)
+        {
+            int ChangeNumIndex = lblChange.Text.IndexOf("Change:");
+            MessageBox.Show("Change: " + lblChange.Text.Substring(ChangeNumIndex));
         }
     }
 }

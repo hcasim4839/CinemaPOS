@@ -51,6 +51,10 @@ namespace UILayer
             this.btnZero = new System.Windows.Forms.Button();
             this.grpCustom = new System.Windows.Forms.GroupBox();
             this.btnExit = new System.Windows.Forms.Button();
+            this.lblTotalCost = new System.Windows.Forms.Label();
+            this.lblUserCashPayment = new System.Windows.Forms.Label();
+            this.lblChange = new System.Windows.Forms.Label();
+            this.grpTotal.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.grpCustom.SuspendLayout();
             this.SuspendLayout();
@@ -93,6 +97,9 @@ namespace UILayer
             // 
             // grpTotal
             // 
+            this.grpTotal.Controls.Add(this.lblChange);
+            this.grpTotal.Controls.Add(this.lblUserCashPayment);
+            this.grpTotal.Controls.Add(this.lblTotalCost);
             this.grpTotal.Location = new System.Drawing.Point(12, 122);
             this.grpTotal.Name = "grpTotal";
             this.grpTotal.Size = new System.Drawing.Size(172, 346);
@@ -127,6 +134,7 @@ namespace UILayer
             this.btnTender.TabIndex = 5;
             this.btnTender.Text = "Tender";
             this.btnTender.UseVisualStyleBackColor = true;
+            this.btnTender.Click += new System.EventHandler(this.btnTender_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -288,6 +296,33 @@ namespace UILayer
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // lblTotalCost
+            // 
+            this.lblTotalCost.AutoSize = true;
+            this.lblTotalCost.Location = new System.Drawing.Point(6, 57);
+            this.lblTotalCost.Name = "lblTotalCost";
+            this.lblTotalCost.Size = new System.Drawing.Size(58, 13);
+            this.lblTotalCost.TabIndex = 9;
+            this.lblTotalCost.Text = "Total Cost:";
+            // 
+            // lblUserCashPayment
+            // 
+            this.lblUserCashPayment.AutoSize = true;
+            this.lblUserCashPayment.Location = new System.Drawing.Point(6, 108);
+            this.lblUserCashPayment.Name = "lblUserCashPayment";
+            this.lblUserCashPayment.Size = new System.Drawing.Size(78, 13);
+            this.lblUserCashPayment.TabIndex = 10;
+            this.lblUserCashPayment.Text = "Cash Payment:";
+            // 
+            // lblChange
+            // 
+            this.lblChange.AutoSize = true;
+            this.lblChange.Location = new System.Drawing.Point(6, 162);
+            this.lblChange.Name = "lblChange";
+            this.lblChange.Size = new System.Drawing.Size(47, 13);
+            this.lblChange.TabIndex = 11;
+            this.lblChange.Text = "Change:";
+            // 
             // frmCashPayment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -303,6 +338,8 @@ namespace UILayer
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "frmCashPayment";
             this.Text = "Cash Payment";
+            this.grpTotal.ResumeLayout(false);
+            this.grpTotal.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.grpCustom.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -334,5 +371,8 @@ namespace UILayer
         private System.Windows.Forms.Button btnZero;
         private System.Windows.Forms.GroupBox grpCustom;
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Label lblChange;
+        private System.Windows.Forms.Label lblUserCashPayment;
+        private System.Windows.Forms.Label lblTotalCost;
     }
 }
