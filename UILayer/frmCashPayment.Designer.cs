@@ -34,6 +34,8 @@ namespace UILayer
             this.lblPoints = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
             this.grpTotal = new System.Windows.Forms.GroupBox();
+            this.lblUserCashPayment = new System.Windows.Forms.Label();
+            this.lblTotalCost = new System.Windows.Forms.Label();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnTender = new System.Windows.Forms.Button();
@@ -51,9 +53,8 @@ namespace UILayer
             this.btnZero = new System.Windows.Forms.Button();
             this.grpCustom = new System.Windows.Forms.GroupBox();
             this.btnExit = new System.Windows.Forms.Button();
-            this.lblTotalCost = new System.Windows.Forms.Label();
-            this.lblUserCashPayment = new System.Windows.Forms.Label();
-            this.lblChange = new System.Windows.Forms.Label();
+            this.txtTotalCostValue = new System.Windows.Forms.TextBox();
+            this.txtUserCashPaymentValue = new System.Windows.Forms.TextBox();
             this.grpTotal.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.grpCustom.SuspendLayout();
@@ -97,15 +98,35 @@ namespace UILayer
             // 
             // grpTotal
             // 
-            this.grpTotal.Controls.Add(this.lblChange);
+            this.grpTotal.Controls.Add(this.txtUserCashPaymentValue);
+            this.grpTotal.Controls.Add(this.txtTotalCostValue);
             this.grpTotal.Controls.Add(this.lblUserCashPayment);
             this.grpTotal.Controls.Add(this.lblTotalCost);
             this.grpTotal.Location = new System.Drawing.Point(12, 122);
             this.grpTotal.Name = "grpTotal";
-            this.grpTotal.Size = new System.Drawing.Size(172, 346);
+            this.grpTotal.Size = new System.Drawing.Size(192, 346);
             this.grpTotal.TabIndex = 6;
             this.grpTotal.TabStop = false;
-            this.grpTotal.Text = "Total Cost";
+            this.grpTotal.Text = "fc rvcrgvrg";
+            // 
+            // lblUserCashPayment
+            // 
+            this.lblUserCashPayment.AutoSize = true;
+            this.lblUserCashPayment.Location = new System.Drawing.Point(6, 108);
+            this.lblUserCashPayment.Name = "lblUserCashPayment";
+            this.lblUserCashPayment.Size = new System.Drawing.Size(78, 13);
+            this.lblUserCashPayment.TabIndex = 10;
+            this.lblUserCashPayment.Text = "Cash Payment:";
+            this.lblUserCashPayment.TextChanged += new System.EventHandler(this.lblUserCashPayment_TextChanged);
+            // 
+            // lblTotalCost
+            // 
+            this.lblTotalCost.AutoSize = true;
+            this.lblTotalCost.Location = new System.Drawing.Point(6, 57);
+            this.lblTotalCost.Name = "lblTotalCost";
+            this.lblTotalCost.Size = new System.Drawing.Size(58, 13);
+            this.lblTotalCost.TabIndex = 9;
+            this.lblTotalCost.Text = "Total Cost:";
             // 
             // btnDelete
             // 
@@ -116,6 +137,7 @@ namespace UILayer
             this.btnDelete.TabIndex = 7;
             this.btnDelete.Text = "DELETE";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnCancel
             // 
@@ -173,6 +195,7 @@ namespace UILayer
             this.btnOne.TabIndex = 0;
             this.btnOne.Text = "1";
             this.btnOne.UseVisualStyleBackColor = true;
+            this.btnOne.Click += new System.EventHandler(this.btnOne_Click);
             // 
             // btnTwo
             // 
@@ -183,6 +206,7 @@ namespace UILayer
             this.btnTwo.TabIndex = 8;
             this.btnTwo.Text = "2";
             this.btnTwo.UseVisualStyleBackColor = true;
+            this.btnTwo.Click += new System.EventHandler(this.btnTwo_Click);
             // 
             // btnThree
             // 
@@ -193,6 +217,7 @@ namespace UILayer
             this.btnThree.TabIndex = 9;
             this.btnThree.Text = "3";
             this.btnThree.UseVisualStyleBackColor = true;
+            this.btnThree.Click += new System.EventHandler(this.btnThree_Click);
             // 
             // btnFour
             // 
@@ -203,6 +228,7 @@ namespace UILayer
             this.btnFour.TabIndex = 10;
             this.btnFour.Text = "4";
             this.btnFour.UseVisualStyleBackColor = true;
+            this.btnFour.Click += new System.EventHandler(this.btnFour_Click);
             // 
             // btnFive
             // 
@@ -213,6 +239,7 @@ namespace UILayer
             this.btnFive.TabIndex = 11;
             this.btnFive.Text = "5";
             this.btnFive.UseVisualStyleBackColor = true;
+            this.btnFive.Click += new System.EventHandler(this.btnFive_Click);
             // 
             // btnSix
             // 
@@ -223,6 +250,7 @@ namespace UILayer
             this.btnSix.TabIndex = 12;
             this.btnSix.Text = "6";
             this.btnSix.UseVisualStyleBackColor = true;
+            this.btnSix.Click += new System.EventHandler(this.btnSix_Click);
             // 
             // btnSeven
             // 
@@ -233,6 +261,7 @@ namespace UILayer
             this.btnSeven.TabIndex = 13;
             this.btnSeven.Text = "7";
             this.btnSeven.UseVisualStyleBackColor = true;
+            this.btnSeven.Click += new System.EventHandler(this.btnSeven_Click);
             // 
             // btnEight
             // 
@@ -243,6 +272,7 @@ namespace UILayer
             this.btnEight.TabIndex = 14;
             this.btnEight.Text = "8";
             this.btnEight.UseVisualStyleBackColor = true;
+            this.btnEight.Click += new System.EventHandler(this.btnEight_Click);
             // 
             // btnNine
             // 
@@ -253,6 +283,7 @@ namespace UILayer
             this.btnNine.TabIndex = 15;
             this.btnNine.Text = "9";
             this.btnNine.UseVisualStyleBackColor = true;
+            this.btnNine.Click += new System.EventHandler(this.btnNine_Click);
             // 
             // buttonDecimal
             // 
@@ -273,15 +304,16 @@ namespace UILayer
             this.btnZero.TabIndex = 17;
             this.btnZero.Text = "0";
             this.btnZero.UseVisualStyleBackColor = true;
+            this.btnZero.Click += new System.EventHandler(this.btnZero_Click);
             // 
             // grpCustom
             // 
             this.grpCustom.Controls.Add(this.tableLayoutPanel1);
             this.grpCustom.Controls.Add(this.btnCancel);
             this.grpCustom.Controls.Add(this.btnTender);
-            this.grpCustom.Location = new System.Drawing.Point(190, 122);
+            this.grpCustom.Location = new System.Drawing.Point(210, 122);
             this.grpCustom.Name = "grpCustom";
-            this.grpCustom.Size = new System.Drawing.Size(458, 346);
+            this.grpCustom.Size = new System.Drawing.Size(447, 346);
             this.grpCustom.TabIndex = 9;
             this.grpCustom.TabStop = false;
             this.grpCustom.Text = "Custom";
@@ -296,32 +328,22 @@ namespace UILayer
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // lblTotalCost
+            // txtTotalCostValue
             // 
-            this.lblTotalCost.AutoSize = true;
-            this.lblTotalCost.Location = new System.Drawing.Point(6, 57);
-            this.lblTotalCost.Name = "lblTotalCost";
-            this.lblTotalCost.Size = new System.Drawing.Size(58, 13);
-            this.lblTotalCost.TabIndex = 9;
-            this.lblTotalCost.Text = "Total Cost:";
+            this.txtTotalCostValue.Location = new System.Drawing.Point(86, 54);
+            this.txtTotalCostValue.Name = "txtTotalCostValue";
+            this.txtTotalCostValue.ReadOnly = true;
+            this.txtTotalCostValue.Size = new System.Drawing.Size(100, 20);
+            this.txtTotalCostValue.TabIndex = 11;
+            this.txtTotalCostValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // lblUserCashPayment
+            // txtUserCashPaymentValue
             // 
-            this.lblUserCashPayment.AutoSize = true;
-            this.lblUserCashPayment.Location = new System.Drawing.Point(6, 108);
-            this.lblUserCashPayment.Name = "lblUserCashPayment";
-            this.lblUserCashPayment.Size = new System.Drawing.Size(78, 13);
-            this.lblUserCashPayment.TabIndex = 10;
-            this.lblUserCashPayment.Text = "Cash Payment:";
-            // 
-            // lblChange
-            // 
-            this.lblChange.AutoSize = true;
-            this.lblChange.Location = new System.Drawing.Point(6, 162);
-            this.lblChange.Name = "lblChange";
-            this.lblChange.Size = new System.Drawing.Size(47, 13);
-            this.lblChange.TabIndex = 11;
-            this.lblChange.Text = "Change:";
+            this.txtUserCashPaymentValue.Location = new System.Drawing.Point(86, 105);
+            this.txtUserCashPaymentValue.Name = "txtUserCashPaymentValue";
+            this.txtUserCashPaymentValue.Size = new System.Drawing.Size(100, 20);
+            this.txtUserCashPaymentValue.TabIndex = 12;
+            this.txtUserCashPaymentValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // frmCashPayment
             // 
@@ -371,8 +393,9 @@ namespace UILayer
         private System.Windows.Forms.Button btnZero;
         private System.Windows.Forms.GroupBox grpCustom;
         private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.Label lblChange;
         private System.Windows.Forms.Label lblUserCashPayment;
         private System.Windows.Forms.Label lblTotalCost;
+        private System.Windows.Forms.TextBox txtUserCashPaymentValue;
+        private System.Windows.Forms.TextBox txtTotalCostValue;
     }
 }
