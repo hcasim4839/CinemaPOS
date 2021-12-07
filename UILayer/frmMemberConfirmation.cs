@@ -32,12 +32,16 @@ namespace UILayer
             this.Hide();
             string phoneNum = txtPhoneNum.Text;
 
-
-            frmPurchaseOptions frmObj = new frmPurchaseOptions(phoneNum);
-
-            
+            frmPurchaseOptions frmObj;
+            if (txtPhoneNum.Text.Trim().Length > 1)
+            {
+                frmObj = new frmPurchaseOptions(phoneNum);                
+            }
+            else
+            {              
+                frmObj = new frmPurchaseOptions();               
+            }
             frmObj.ShowDialog();
-            
         }
 
         private void btnRegist_Click(object sender, EventArgs e)

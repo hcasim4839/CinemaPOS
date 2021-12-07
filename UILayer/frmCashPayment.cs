@@ -14,9 +14,7 @@ namespace UILayer
     public partial class frmCashPayment : Form
     {
         string cashPaymentValue = "";
-        readonly int maxNumCashPaymentValues = 4;
-        readonly int cashPaymentDecimalIndex = 2;
-        
+             
         public frmCashPayment(decimal ticketsCost)
         {
             InitializeComponent();
@@ -42,7 +40,7 @@ namespace UILayer
             MessageBox.Show("Change: " + lblChange.Text.Substring(ChangeNumIndex));
             */
 
-            findChangeAmt(txtTotalCostValue.Text, txtUserCashPaymentValue.Text);
+            findChangeAmt(txtUserCashPaymentValue.Text, txtTotalCostValue.Text);
            
         }
 
@@ -55,9 +53,14 @@ namespace UILayer
 
             if (difference > 0)
             {
-                MessageBox.Show("Change: $" + difference);
+                DialogResult result = MessageBox.Show("Change: $" + difference, "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (result == DialogResult.OK)
+                {
+                    cashPaymentValue = "";
+                    txtUserCashPaymentValue.Text = String.Format("{0:#.00}", 0);
+                }                           
             }
-            else
+            else if(difference < 0)
                 MessageBox.Show("Error! Change Amount returns negative number");
         }
 
@@ -108,7 +111,8 @@ namespace UILayer
 
         private void btnZero_Click(object sender, EventArgs e)
         {
-            addCashPaymentValues("0");
+            if(cashPaymentValue.Length > 0)
+                addCashPaymentValues("0");
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -127,7 +131,7 @@ namespace UILayer
                 cashPaymentValue = cashPaymentValue.Substring(0, cashPaymentValue.Length - 1);
                 decimal newValue;
                 if (cashPaymentValue == "")
-                    newValue = 0;
+                    newValue = 0;        
                 else
                 {
                     decimal decimalCashPayment = Convert.ToDecimal(cashPaymentValue);
@@ -152,17 +156,13 @@ namespace UILayer
         }
 
         private void lblUserCashPayment_TextChanged(object sender, EventArgs e)
+        {         
+        }
+
+        private void buttonDecimal_Click(object sender, EventArgs e)
         {
-            /*
-            int subtrahendLblLength = lblUserCashPayment.Text.Length;
-            int minuendLblLength = lblTotalCost.Text.Length;
-
-            decimal minuend = Convert.ToDecimal(lblTotalCost.Text.Substring(12, minuendLblLength ));
-            decimal subtrahend = Convert.ToDecimal(lblUserCashPayment.Text.Substring(13, subtrahendLblLength));
-
-            decimal change = minuend - subtrahend;
-            lblChange.Text += change;
-            */
+            cashPaymentValue = "";
+            txtUserCashPaymentValue.Text = String.Format("{0:#.00}", 0);
         }
     }
 }

@@ -34,10 +34,11 @@ namespace UILayer
             this.lblPoints = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
             this.grpTotal = new System.Windows.Forms.GroupBox();
+            this.txtUserCashPaymentValue = new System.Windows.Forms.TextBox();
+            this.txtTotalCostValue = new System.Windows.Forms.TextBox();
             this.lblUserCashPayment = new System.Windows.Forms.Label();
             this.lblTotalCost = new System.Windows.Forms.Label();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
             this.btnTender = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnOne = new System.Windows.Forms.Button();
@@ -49,12 +50,10 @@ namespace UILayer
             this.btnSeven = new System.Windows.Forms.Button();
             this.btnEight = new System.Windows.Forms.Button();
             this.btnNine = new System.Windows.Forms.Button();
-            this.buttonDecimal = new System.Windows.Forms.Button();
+            this.btnReset = new System.Windows.Forms.Button();
             this.btnZero = new System.Windows.Forms.Button();
             this.grpCustom = new System.Windows.Forms.GroupBox();
             this.btnExit = new System.Windows.Forms.Button();
-            this.txtTotalCostValue = new System.Windows.Forms.TextBox();
-            this.txtUserCashPaymentValue = new System.Windows.Forms.TextBox();
             this.grpTotal.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.grpCustom.SuspendLayout();
@@ -107,7 +106,25 @@ namespace UILayer
             this.grpTotal.Size = new System.Drawing.Size(192, 346);
             this.grpTotal.TabIndex = 6;
             this.grpTotal.TabStop = false;
-            this.grpTotal.Text = "fc rvcrgvrg";
+            this.grpTotal.Text = "Total Cost";
+            // 
+            // txtUserCashPaymentValue
+            // 
+            this.txtUserCashPaymentValue.Location = new System.Drawing.Point(86, 105);
+            this.txtUserCashPaymentValue.Name = "txtUserCashPaymentValue";
+            this.txtUserCashPaymentValue.ReadOnly = true;
+            this.txtUserCashPaymentValue.Size = new System.Drawing.Size(100, 20);
+            this.txtUserCashPaymentValue.TabIndex = 12;
+            this.txtUserCashPaymentValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtTotalCostValue
+            // 
+            this.txtTotalCostValue.Location = new System.Drawing.Point(86, 54);
+            this.txtTotalCostValue.Name = "txtTotalCostValue";
+            this.txtTotalCostValue.ReadOnly = true;
+            this.txtTotalCostValue.Size = new System.Drawing.Size(100, 20);
+            this.txtTotalCostValue.TabIndex = 11;
+            this.txtTotalCostValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblUserCashPayment
             // 
@@ -139,15 +156,6 @@ namespace UILayer
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // btnCancel
-            // 
-            this.btnCancel.Location = new System.Drawing.Point(367, 273);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 6;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            // 
             // btnTender
             // 
             this.btnTender.Location = new System.Drawing.Point(160, 273);
@@ -174,7 +182,7 @@ namespace UILayer
             this.tableLayoutPanel1.Controls.Add(this.btnSeven, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.btnEight, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.btnNine, 2, 2);
-            this.tableLayoutPanel1.Controls.Add(this.buttonDecimal, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.btnReset, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.btnZero, 1, 3);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(160, 51);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -285,15 +293,16 @@ namespace UILayer
             this.btnNine.UseVisualStyleBackColor = true;
             this.btnNine.Click += new System.EventHandler(this.btnNine_Click);
             // 
-            // buttonDecimal
+            // btnReset
             // 
-            this.buttonDecimal.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonDecimal.Location = new System.Drawing.Point(3, 165);
-            this.buttonDecimal.Name = "buttonDecimal";
-            this.buttonDecimal.Size = new System.Drawing.Size(87, 48);
-            this.buttonDecimal.TabIndex = 16;
-            this.buttonDecimal.Text = ",";
-            this.buttonDecimal.UseVisualStyleBackColor = true;
+            this.btnReset.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnReset.Location = new System.Drawing.Point(3, 165);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(87, 48);
+            this.btnReset.TabIndex = 16;
+            this.btnReset.Text = "RESET";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.buttonDecimal_Click);
             // 
             // btnZero
             // 
@@ -309,7 +318,6 @@ namespace UILayer
             // grpCustom
             // 
             this.grpCustom.Controls.Add(this.tableLayoutPanel1);
-            this.grpCustom.Controls.Add(this.btnCancel);
             this.grpCustom.Controls.Add(this.btnTender);
             this.grpCustom.Location = new System.Drawing.Point(210, 122);
             this.grpCustom.Name = "grpCustom";
@@ -327,23 +335,6 @@ namespace UILayer
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
-            // txtTotalCostValue
-            // 
-            this.txtTotalCostValue.Location = new System.Drawing.Point(86, 54);
-            this.txtTotalCostValue.Name = "txtTotalCostValue";
-            this.txtTotalCostValue.ReadOnly = true;
-            this.txtTotalCostValue.Size = new System.Drawing.Size(100, 20);
-            this.txtTotalCostValue.TabIndex = 11;
-            this.txtTotalCostValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtUserCashPaymentValue
-            // 
-            this.txtUserCashPaymentValue.Location = new System.Drawing.Point(86, 105);
-            this.txtUserCashPaymentValue.Name = "txtUserCashPaymentValue";
-            this.txtUserCashPaymentValue.Size = new System.Drawing.Size(100, 20);
-            this.txtUserCashPaymentValue.TabIndex = 12;
-            this.txtUserCashPaymentValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // frmCashPayment
             // 
@@ -377,7 +368,6 @@ namespace UILayer
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.GroupBox grpTotal;
         private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnTender;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button btnOne;
@@ -389,7 +379,7 @@ namespace UILayer
         private System.Windows.Forms.Button btnSeven;
         private System.Windows.Forms.Button btnEight;
         private System.Windows.Forms.Button btnNine;
-        private System.Windows.Forms.Button buttonDecimal;
+        private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Button btnZero;
         private System.Windows.Forms.GroupBox grpCustom;
         private System.Windows.Forms.Button btnExit;
