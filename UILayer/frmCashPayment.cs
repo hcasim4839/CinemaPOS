@@ -20,28 +20,60 @@ namespace UILayer
             InitializeComponent();
             lblTotal.Text += ticketsCost;
             txtTotalCostValue.Text += ticketsCost;
+            
+            List<decimal> listOfBills = new List<decimal>();          
+            listOfBills.Add(1);
+            listOfBills.Add(5);
+            listOfBills.Add(10);
+            listOfBills.Add(20);
+            listOfBills.Add(50);
+            listOfBills.Add(100);
+             
+            List<decimal> listOfPossiblePayments = new List<decimal>();
+            listOfPossiblePayments.Add(ticketsCost);
 
-        }
+            foreach (decimal bill in listOfBills)
+            {
+                if (bill > ticketsCost)
+                    listOfPossiblePayments.Add(bill);
+            }
+            
+            bool firstItem = true;
+            foreach (decimal paymentOption in listOfPossiblePayments)
+            {
+                Button paymentOptionButton = new Button();
+                paymentOptionButton.Text = String.Format("{0:#.00}", paymentOption);
 
-        public frmCashPayment()
-        {
-            InitializeComponent();
-        }
+                
+                paymentOptionButton.Click += (sender, e) =>
+                {
+                    cashPaymentValue = "";
+                    txtUserCashPaymentValue.Text = "";
+                    if (firstItem)
+                    {
+                        int deciIndex = paymentOptionButton.Text.IndexOf(".");
+                        string UserPaymentValue = paymentOptionButton.Text.Substring(0, deciIndex);
+                        UserPaymentValue += paymentOptionButton.Text.Substring(++deciIndex, 2);
+                        addCashPaymentValues(UserPaymentValue);
+                        firstItem = false;
+                    }else
+                        addCashPaymentValues(Convert.ToString(paymentOption) + "00");
 
+
+
+
+                };
+                flwlyoutQuickBtns.Controls.Add(paymentOptionButton);
+            }                        
+        }        
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
         private void btnTender_Click(object sender, EventArgs e)
-        {
-            /*
-            int ChangeNumIndex = lblChange.Text.IndexOf("Change:");
-            MessageBox.Show("Change: " + lblChange.Text.Substring(ChangeNumIndex));
-            */
-
-            findChangeAmt(txtUserCashPaymentValue.Text, txtTotalCostValue.Text);
-           
+        {       
+            findChangeAmt(txtUserCashPaymentValue.Text, txtTotalCostValue.Text);           
         }
 
         private void findChangeAmt(string minuend, string subtrahend)
@@ -53,7 +85,7 @@ namespace UILayer
 
             if (difference > 0)
             {
-                DialogResult result = MessageBox.Show("Change: $" + difference, "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DialogResult result = MessageBox.Show( "Change: " + String.Format("{0:$.00}", difference), "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 if (result == DialogResult.OK)
                 {
                     cashPaymentValue = "";
@@ -116,16 +148,7 @@ namespace UILayer
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
-        {
-            /*
-            if (txtUserCashPaymentValue.Text.Length < 5)
-            {
-                decimal newValue = Convert.ToDecimal(txtUserCashPaymentValue.Text.Substring(0, txtUserCashPaymentValue.Text.Length - 1);
-                String.Format("{0:#.00}", newValue / 100);
-            }else
-                SystemSounds.Beep.Play();
-            */
-        
+        {        
             if(cashPaymentValue.Length > 0)
             {
                 cashPaymentValue = cashPaymentValue.Substring(0, cashPaymentValue.Length - 1);

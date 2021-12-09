@@ -54,6 +54,7 @@ namespace UILayer
             this.btnZero = new System.Windows.Forms.Button();
             this.grpCustom = new System.Windows.Forms.GroupBox();
             this.btnExit = new System.Windows.Forms.Button();
+            this.flwlyoutQuickBtns = new System.Windows.Forms.FlowLayoutPanel();
             this.grpTotal.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.grpCustom.SuspendLayout();
@@ -160,7 +161,7 @@ namespace UILayer
             // 
             this.btnTender.Location = new System.Drawing.Point(160, 273);
             this.btnTender.Name = "btnTender";
-            this.btnTender.Size = new System.Drawing.Size(75, 23);
+            this.btnTender.Size = new System.Drawing.Size(282, 40);
             this.btnTender.TabIndex = 5;
             this.btnTender.Text = "Tender";
             this.btnTender.UseVisualStyleBackColor = true;
@@ -317,6 +318,7 @@ namespace UILayer
             // 
             // grpCustom
             // 
+            this.grpCustom.Controls.Add(this.flwlyoutQuickBtns);
             this.grpCustom.Controls.Add(this.tableLayoutPanel1);
             this.grpCustom.Controls.Add(this.btnTender);
             this.grpCustom.Location = new System.Drawing.Point(210, 122);
@@ -335,6 +337,13 @@ namespace UILayer
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // flwlyoutQuickBtns
+            // 
+            this.flwlyoutQuickBtns.Location = new System.Drawing.Point(6, 51);
+            this.flwlyoutQuickBtns.Name = "flwlyoutQuickBtns";
+            this.flwlyoutQuickBtns.Size = new System.Drawing.Size(148, 262);
+            this.flwlyoutQuickBtns.TabIndex = 9;
             // 
             // frmCashPayment
             // 
@@ -387,5 +396,6 @@ namespace UILayer
         private System.Windows.Forms.Label lblTotalCost;
         private System.Windows.Forms.TextBox txtUserCashPaymentValue;
         private System.Windows.Forms.TextBox txtTotalCostValue;
+        private System.Windows.Forms.FlowLayoutPanel flwlyoutQuickBtns;
     }
 }
