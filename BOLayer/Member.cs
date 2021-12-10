@@ -23,14 +23,21 @@ namespace BOLayer
         {
             _phoneNum = phoneNum;
         }
-        public bool AddPoints()
+        public bool AddPoints(int points)
         {
-            return DALayer_AddPoints();
+            return DALayer_AddPoints(points);
         }
 
-        private bool DALayer_AddPoints()
+        private bool DALayer_AddPoints(int points)
         {
-           return false;
+            MemberDAO mDAO = new MemberDAO();
+            MemberDTO mDTO = new MemberDTO();
+
+            mDTO.Points = points;
+            mDTO.PhoneNumber = _phoneNum;
+            bool pointsAdded = mDAO.addPoints(mDTO);
+
+            return pointsAdded; 
         }
 
         public override bool Delete()
@@ -61,7 +68,7 @@ namespace BOLayer
 
             mDTO.PhoneNumber = _phoneNum;
             mDTO.Name = base.Name;
-            mDTO.Points = "0";
+            mDTO.Points = 0;
             bool isInserted = mDAO.Insert(mDTO);
 
             return isInserted;

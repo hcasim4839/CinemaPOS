@@ -22,7 +22,7 @@ namespace UILayer
             MemberDTO memberDTO = member.Select();
 
             lblName.Text = memberDTO.Name;
-            lblPoints.Text = memberDTO.Points;
+            lblPoints.Text = Convert.ToString(memberDTO.Points);
 
             cmbDrinks.Items.AddRange(categories);
             cmbSnacks.Items.AddRange(categories);

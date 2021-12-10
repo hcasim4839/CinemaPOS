@@ -25,7 +25,7 @@ namespace UILayer
             MemberDTO memberDTO = member.Select();
 
             lblName.Text = memberDTO.Name;
-            lblPoints.Text = memberDTO.Points;
+            lblPoints.Text = Convert.ToString(memberDTO.Points);
         }
         public frmPurchaseOptions()
         {

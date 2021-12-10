@@ -10,6 +10,6 @@ namespace DALayer
     {
        
         public string PhoneNumber;
-        public string Points;
+        public int Points;
     }
 }

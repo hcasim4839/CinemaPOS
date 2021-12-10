@@ -10,6 +10,57 @@ namespace DALayer
 {
     public class MemberDAO : IDAOCRUDCommands<MemberDTO>
     {
+        public bool addPoints(MemberDTO objDTO)
+        {
+
+            AWSMySQL db = (AWSMySQL)SQLFactory.GetSQLInstance(SQLFactory.AwsMySQL);
+
+            MySqlConnection objConn = new MySqlConnection(db.ConnString);
+            try
+            {
+                objConn.Open();
+
+                int points = 0;
+
+                string query = "Select Points from Member WHERE PhoneNumber = @PhoneNumber";
+                MySqlCommand objCmd = new MySqlCommand(query, objConn);
+                objCmd.CommandType = CommandType.Text;
+
+                objCmd.Parameters.AddWithValue("@PhoneNumber", objDTO.PhoneNumber);
+
+                MySqlDataReader dataReader = objCmd.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    points = Convert.ToInt32(dataReader.GetString("Points"));
+                }
+                points += objDTO.Points;
+                dataReader.Close();
+                dataReader.Dispose();
+                query = "UPDATE Member SET Points =@Points WHERE PhoneNumber =@PhoneNumber";
+                
+                
+
+                objCmd.Parameters.AddWithValue("@Points",points);
+                
+
+                int numRowsAffected = objCmd.ExecuteNonQuery();
+
+                bool isRowUpdated = numRowsAffected > 0 ? true : false;
+
+                return isRowUpdated;
+            }catch(Exception e)
+            {
+                throw new Exception("Error in the MemberDAO class method addPoints: " + e.Message);
+            }
+            finally
+            {
+                objConn.Close();
+                objConn.Dispose();
+            }
+
+            
+        }
         public bool Delete(MemberDTO objDTO)
         {
             AWSMySQL db = (AWSMySQL)SQLFactory.GetSQLInstance(SQLFactory.AwsMySQL);
@@ -34,6 +85,11 @@ namespace DALayer
             }catch(Exception e)
             {
                 throw new Exception("Error in the MemberDAO class method Delete: " + e.Message);
+            }
+            finally
+            {
+                objConn.Close();
+                objConn.Dispose();
             }
         }
 
@@ -88,7 +144,7 @@ namespace DALayer
                 MySqlCommand objCmd = new MySqlCommand(query, objConn);
                 objCmd.CommandType = CommandType.Text;
 
-                Console.WriteLine("the phone num is " + objDTO.PhoneNumber);
+                
                 objCmd.Parameters.AddWithValue("@PhoneNumber", objDTO.PhoneNumber);
 
                 MySqlDataReader reader = objCmd.ExecuteReader();
@@ -96,7 +152,7 @@ namespace DALayer
                 while (reader.Read())
                 {
                     objDTO.Name = reader.GetString("Name"); ;
-                    objDTO.Points = reader.GetString("Points");
+                    objDTO.Points = Convert.ToInt32(reader.GetString("Points"));
                 }
                 return objDTO;
             }

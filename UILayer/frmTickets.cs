@@ -14,6 +14,7 @@ namespace UILayer
 {
     public partial class frmTickets : Form
     {
+        private string _phoneNum;
         public frmTickets(string phoneNum)
         {
             InitializeComponent();
@@ -21,16 +22,20 @@ namespace UILayer
             Member member = new Member(phoneNum);
             MemberDTO memberDTO = member.Select();
 
+            _phoneNum = phoneNum;
             lblName.Text = memberDTO.Name;
-            lblPoints.Text = memberDTO.Points;
+            lblPoints.Text = Convert.ToString(memberDTO.Points);
 
             //fill the genre in the combobox
             Genre genreObj = new Genre();
             List<GenreDTO> listOfGenre = genreObj.SelectAll();
 
-            listOfGenre.ForEach(entry => cmbMovieGenre.Items.Add(entry.Category));
-            //Default for comboBox control
+            cmbMovieGenre.Items.Add("All");
+            listOfGenre.ForEach(entry => cmbMovieGenre.Items.Add(entry.Category));            
+            cmbMovieGenre.SelectedIndex = 0;
             
+            //Default for comboBox control
+
 
 
         }
@@ -43,7 +48,11 @@ namespace UILayer
         private void btnEnter_Click(object sender, EventArgs e)
         {
             lstViewMovies.Items.Clear();
-            fillListView(true);
+            if (cmbMovieGenre.SelectedItem.ToString() != "All")
+                fillListView(true);
+            else
+                fillListView(false);
+
         }
         private void fillListView(bool hasSpecificGenre)
         {
@@ -75,9 +84,12 @@ namespace UILayer
                 totalCost += ticketCost;
             }
 
-            
-
-            frmCashPayment frmObj = new frmCashPayment(totalCost);
+            frmCashPayment frmObj;
+            if (_phoneNum.Length > 0)
+                frmObj = new frmCashPayment(totalCost, _phoneNum);            
+            else
+                frmObj = new frmCashPayment(totalCost);
+             
             this.Hide();
             frmObj.ShowDialog();
             this.Show();

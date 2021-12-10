@@ -92,6 +92,7 @@
     <Compile Include="Genre.cs" />
     <Compile Include="MemberCreditCard.cs" />
     <Compile Include="MovieTicket.cs" />
+    <Compile Include="PointsCalculator.cs" />
     <Compile Include="SQLCRUDCommands.cs" />
     <Compile Include="Member.cs" />
     <Compile Include="NonMember.cs" />
