@@ -13,5 +13,5 @@ namespace BOLayer
             int points = (int)(amtPaid / 100);
             return points;
         }
-    }
+    }  
 }

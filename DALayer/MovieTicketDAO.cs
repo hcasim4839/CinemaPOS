@@ -81,11 +81,12 @@ namespace DALayer
                 MySqlDataReader reader = objCmd.ExecuteReader();
 
                 List<MovieTicketDTO> listOfMovies = new List<MovieTicketDTO>();
-                MovieTicketDTO movieTicketDTO = new MovieTicketDTO();
+                
                 while (reader.Read())
                 {
-                    movieTicketDTO.Name = reader.GetString("Name");
+                    MovieTicketDTO movieTicketDTO = new MovieTicketDTO();
                     movieTicketDTO.Category = reader.GetString("Category");
+                    movieTicketDTO.Name = reader.GetString("Name");                    
                     movieTicketDTO.Price = reader.GetString("Price");
 
                     listOfMovies.Add(movieTicketDTO);

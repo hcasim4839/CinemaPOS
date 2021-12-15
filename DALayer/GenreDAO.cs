@@ -25,13 +25,15 @@ namespace DALayer
                 MySqlDataReader reader = cmdObj.ExecuteReader();
 
                 List<GenreDTO> listOfGenre = new List<GenreDTO>();
-                GenreDTO genreDTO = new GenreDTO();
-
+                
                 while (reader.Read())
                 {
+                    GenreDTO genreDTO = new GenreDTO();
                     genreDTO.Category = reader.GetString("Category").Trim();
                     listOfGenre.Add(genreDTO);
+                    
                 }
+              
                 return listOfGenre;
             }catch(Exception e)
             {
