@@ -142,9 +142,11 @@ namespace UILayer
             if(_phoneNumber.Length > 0)
             {
                 Member mAccount = new Member(_phoneNumber);
-                int points = PointsCalculator.PointsGained(changeAmt);             
+                int points = PointsCalculator.PointsGained(Convert.ToDecimal(txtTotalCostValue.Text));
+                Console.WriteLine("Points in frmCashPayment in btnTender_Click method is: " + points);
                 mAccount.AddPoints(points);
             }
+            this.Close();
            
         }
 

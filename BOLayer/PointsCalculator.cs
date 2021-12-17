@@ -10,7 +10,9 @@ namespace BOLayer
     {
         public static int PointsGained(decimal amtPaid)
         {
-            int points = (int)(amtPaid / 100);
+            Console.WriteLine("In points calc the decimal amtPaid is: " + amtPaid);
+            int points = (int)(amtPaid / 1);
+            Console.WriteLine("The points are: " + points);
             return points;
         }
     }  

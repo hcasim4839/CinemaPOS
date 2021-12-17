@@ -37,12 +37,17 @@ namespace DALayer
                 points += objDTO.Points;
                 dataReader.Close();
                 dataReader.Dispose();
+
+
+                
                 query = "UPDATE Member SET Points =@Points WHERE PhoneNumber =@PhoneNumber";
-                
-                
+
+                objCmd = new MySqlCommand(query, objConn);
+                objCmd.CommandType = CommandType.Text;
 
                 objCmd.Parameters.AddWithValue("@Points",points);
-                
+                Console.WriteLine("The amount of points in the MemberDAO are: " + points);
+                objCmd.Parameters.AddWithValue("@PhoneNumber", objDTO.PhoneNumber);
 
                 int numRowsAffected = objCmd.ExecuteNonQuery();
 
