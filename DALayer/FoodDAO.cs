@@ -25,7 +25,7 @@ namespace DALayer
             throw new NotImplementedException();
         }
 
-        public List<FoodDTO> SelectAll(string category, bool isLimited)
+        public List<FoodDTO> SelectAll(FoodDTO objDTO)
         {
             AWSMySQL db = (AWSMySQL)SQLFactory.GetSQLInstance(SQLFactory.AwsMySQL);
             MySqlConnection connObj = new MySqlConnection(db.ConnString);
@@ -33,26 +33,35 @@ namespace DALayer
             try
             {
                 connObj.Open();
+                //Grab the category and limited status
 
-
-                string query = String.Format("SELECT * FROM FOOD WHERE Category = {0} AND IsLimited = {1}", category,
-                    isLimited ? "Y" : "N");
+                string query = "SELECT * FROM Food WHERE CATEGORY = @Category AND IsLimited = @IsLimited";
 
                 MySqlCommand cmdObj = new MySqlCommand(query, connObj);
                 cmdObj.CommandType = CommandType.Text;
 
+                cmdObj.Parameters.AddWithValue("@Category", objDTO.Category);
+                cmdObj.Parameters.AddWithValue("@IsLimited", objDTO.IsLimited ? "Y": "N" );
+
+
+                string resp = objDTO.IsLimited ? "Y" : "N";
+                Console.WriteLine("The islimited is: " + resp);
+
                 MySqlDataReader reader = cmdObj.ExecuteReader();
 
                 List<FoodDTO> listOfFood = new List<FoodDTO>();
-                FoodDTO foodDTO = new FoodDTO();
+                
 
                 while (reader.Read())
                 {
+                    FoodDTO foodDTO = new FoodDTO();
                     foodDTO.Name = reader.GetString("Name");
                     foodDTO.Price = reader.GetString("Price");
 
                     listOfFood.Add(foodDTO);
                 }
+
+                listOfFood.ForEach(entry => Console.WriteLine(entry.Name));
                 return listOfFood;
             }
             catch(Exception e)

@@ -120,6 +120,8 @@ namespace UILayer
             this.lstViewPaymentNeeded.Size = new System.Drawing.Size(219, 210);
             this.lstViewPaymentNeeded.TabIndex = 0;
             this.lstViewPaymentNeeded.UseCompatibleStateImageBehavior = false;
+            this.lstViewPaymentNeeded.SelectedIndexChanged += new System.EventHandler(this.lstViewPaymentNeeded_SelectedIndexChanged);
+            this.lstViewPaymentNeeded.Click += new System.EventHandler(this.lstViewPaymentNeeded_Click);
             // 
             // grpSnacks
             // 
@@ -151,6 +153,7 @@ namespace UILayer
             this.lstViewSnacks.Size = new System.Drawing.Size(165, 210);
             this.lstViewSnacks.TabIndex = 1;
             this.lstViewSnacks.UseCompatibleStateImageBehavior = false;
+            this.lstViewSnacks.View = System.Windows.Forms.View.List;
             // 
             // cmbSnacks
             // 
@@ -190,6 +193,7 @@ namespace UILayer
             this.lstViewDrinks.Size = new System.Drawing.Size(170, 210);
             this.lstViewDrinks.TabIndex = 1;
             this.lstViewDrinks.UseCompatibleStateImageBehavior = false;
+            this.lstViewDrinks.View = System.Windows.Forms.View.List;
             // 
             // cmbDrinks
             // 

@@ -14,7 +14,7 @@ namespace UILayer
 {
     public partial class frmSnacksDrinks : Form
     {
-        string[] categories = new string[] { "Limited", "Non-limited"};
+        string[] categories = new string[] { "Limited", "Non-limited", "All"};
         public frmSnacksDrinks(string phoneNum)
         {
             InitializeComponent();
@@ -32,8 +32,13 @@ namespace UILayer
             cmbDrinks.SelectedItem = categories[1];
             cmbSnacks.SelectedItem = categories[1];
 
-            fillLstViewFood("Snacks", false);
-            fillLstViewFood("Drinks", false);
+            List<FoodDTO> snackList = fillLstViewFood("Snack", false);
+            List<FoodDTO> drinkList = fillLstViewFood("Drink", false);
+
+
+            
+            snackList.ForEach(snackEntry => lstViewSnacks.Items.Add(snackEntry.Name + " Price: " + snackEntry.Price));
+            drinkList.ForEach(drinkEntry => lstViewDrinks.Items.Add(drinkEntry.Name + " Price: " + drinkEntry.Price));
         }
 
         private void lblPoints_Click(object sender, EventArgs e)
@@ -80,7 +85,17 @@ namespace UILayer
         private void btnSnacksEnter_Click(object sender, EventArgs e)
         {
             bool isLimited = cmbSnacks.SelectedIndex.Equals("Limited") ? true : false;
-            fillLstViewFood("Snacks", isLimited);
+            List<FoodDTO> snackList = fillLstViewFood("Snack", isLimited);
+            snackList.ForEach(snackEntry => lstViewSnacks.Items.Add(snackEntry.Name + " Price: " + snackEntry.Price));
+        }
+        private void btnDrinksEnter_Click(object sender, EventArgs e)
+        {
+            bool isLimited = cmbSnacks.SelectedIndex.Equals("Limited") ? true : false;
+            List<FoodDTO> drinkList = fillLstViewFood("Drink", isLimited);
+            drinkList.ForEach(entry => Console.WriteLine(entry));
+            drinkList.ForEach(drinkEntry => lstViewDrinks.Items.Add(drinkEntry.Name + " Price: " + drinkEntry.Price));
+
+            
         }
         private List<FoodDTO> fillLstViewFood(string category, bool isLimited)
         {
@@ -92,10 +107,19 @@ namespace UILayer
             return listOfFood;
         }
 
-        private void btnDrinksEnter_Click(object sender, EventArgs e)
+        private void lstViewPaymentNeeded_SelectedIndexChanged(object sender, EventArgs e)
         {
-            bool isLimited = cmbSnacks.SelectedIndex.Equals("Limited") ? true : false;
-            fillLstViewFood("Drinks", isLimited);
+
+        }
+
+        private void lstViewPaymentNeeded_Click(object sender, EventArgs e)
+        {
+            /*
+            int itemToRemoveIndex = lstViewPaymentNeeded.SelectedItems
+            lstBoxPaymentNeeded.Items.RemoveAt(itemToRemoveIndex);
+
+            lstViewPaymentNeeded.Items.Remove();
+            */
         }
     }
 }

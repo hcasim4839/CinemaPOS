@@ -33,7 +33,10 @@ namespace BOLayer
             FoodDTO foodDTO = new FoodDTO();
             FoodDAO foodDAO = new FoodDAO();
 
-            List<FoodDTO> listOfFood = foodDAO.SelectAll(_category, _isLimited);
+            foodDTO.Category = _category;
+            foodDTO.IsLimited = _isLimited;
+
+            List<FoodDTO> listOfFood = foodDAO.SelectAll(foodDTO);
             return listOfFood;
         }
 
