@@ -35,7 +35,6 @@ namespace UILayer
             this.btnPoints = new System.Windows.Forms.Button();
             this.btnCC = new System.Windows.Forms.Button();
             this.btnPayCash = new System.Windows.Forms.Button();
-            this.lstViewPaymentNeeded = new System.Windows.Forms.ListView();
             this.grpSnacks = new System.Windows.Forms.GroupBox();
             this.btnSnacksEnter = new System.Windows.Forms.Button();
             this.lstViewSnacks = new System.Windows.Forms.ListView();
@@ -45,6 +44,7 @@ namespace UILayer
             this.lstViewDrinks = new System.Windows.Forms.ListView();
             this.cmbDrinks = new System.Windows.Forms.ComboBox();
             this.btnExit = new System.Windows.Forms.Button();
+            this.lstBoxPaymentNeeded = new System.Windows.Forms.ListBox();
             this.grpPaymentNeeded.SuspendLayout();
             this.grpSnacks.SuspendLayout();
             this.grpDrinks.SuspendLayout();
@@ -72,10 +72,10 @@ namespace UILayer
             // 
             // grpPaymentNeeded
             // 
+            this.grpPaymentNeeded.Controls.Add(this.lstBoxPaymentNeeded);
             this.grpPaymentNeeded.Controls.Add(this.btnPoints);
             this.grpPaymentNeeded.Controls.Add(this.btnCC);
             this.grpPaymentNeeded.Controls.Add(this.btnPayCash);
-            this.grpPaymentNeeded.Controls.Add(this.lstViewPaymentNeeded);
             this.grpPaymentNeeded.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpPaymentNeeded.Location = new System.Drawing.Point(12, 98);
             this.grpPaymentNeeded.Name = "grpPaymentNeeded";
@@ -112,17 +112,6 @@ namespace UILayer
             this.btnPayCash.UseVisualStyleBackColor = true;
             this.btnPayCash.Click += new System.EventHandler(this.btnPayCash_Click);
             // 
-            // lstViewPaymentNeeded
-            // 
-            this.lstViewPaymentNeeded.HideSelection = false;
-            this.lstViewPaymentNeeded.Location = new System.Drawing.Point(16, 72);
-            this.lstViewPaymentNeeded.Name = "lstViewPaymentNeeded";
-            this.lstViewPaymentNeeded.Size = new System.Drawing.Size(219, 210);
-            this.lstViewPaymentNeeded.TabIndex = 0;
-            this.lstViewPaymentNeeded.UseCompatibleStateImageBehavior = false;
-            this.lstViewPaymentNeeded.SelectedIndexChanged += new System.EventHandler(this.lstViewPaymentNeeded_SelectedIndexChanged);
-            this.lstViewPaymentNeeded.Click += new System.EventHandler(this.lstViewPaymentNeeded_Click);
-            // 
             // grpSnacks
             // 
             this.grpSnacks.Controls.Add(this.btnSnacksEnter);
@@ -154,6 +143,8 @@ namespace UILayer
             this.lstViewSnacks.TabIndex = 1;
             this.lstViewSnacks.UseCompatibleStateImageBehavior = false;
             this.lstViewSnacks.View = System.Windows.Forms.View.List;
+            this.lstViewSnacks.DrawItem += new System.Windows.Forms.DrawListViewItemEventHandler(this.lstViewSnacks_DrawItem);
+            this.lstViewSnacks.Click += new System.EventHandler(this.lstViewSnacks_Click);
             // 
             // cmbSnacks
             // 
@@ -194,6 +185,8 @@ namespace UILayer
             this.lstViewDrinks.TabIndex = 1;
             this.lstViewDrinks.UseCompatibleStateImageBehavior = false;
             this.lstViewDrinks.View = System.Windows.Forms.View.List;
+            this.lstViewDrinks.DrawItem += new System.Windows.Forms.DrawListViewItemEventHandler(this.lstViewDrinks_DrawItem);
+            this.lstViewDrinks.Click += new System.EventHandler(this.lstViewDrinks_Click);
             // 
             // cmbDrinks
             // 
@@ -212,6 +205,15 @@ namespace UILayer
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // lstBoxPaymentNeeded
+            // 
+            this.lstBoxPaymentNeeded.FormattingEnabled = true;
+            this.lstBoxPaymentNeeded.Location = new System.Drawing.Point(6, 72);
+            this.lstBoxPaymentNeeded.Name = "lstBoxPaymentNeeded";
+            this.lstBoxPaymentNeeded.Size = new System.Drawing.Size(229, 212);
+            this.lstBoxPaymentNeeded.TabIndex = 7;
+            this.lstBoxPaymentNeeded.Click += new System.EventHandler(this.lstBoxPaymentNeeded_Click);
             // 
             // frmSnacksDrinks
             // 
@@ -246,12 +248,12 @@ namespace UILayer
         private System.Windows.Forms.ComboBox cmbDrinks;
         private System.Windows.Forms.ListView lstViewSnacks;
         private System.Windows.Forms.ListView lstViewDrinks;
-        private System.Windows.Forms.ListView lstViewPaymentNeeded;
         private System.Windows.Forms.Button btnPoints;
         private System.Windows.Forms.Button btnCC;
         private System.Windows.Forms.Button btnPayCash;
         private System.Windows.Forms.Button btnSnacksEnter;
         private System.Windows.Forms.Button btnDrinksEnter;
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.ListBox lstBoxPaymentNeeded;
     }
 }

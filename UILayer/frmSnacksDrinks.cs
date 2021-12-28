@@ -60,7 +60,7 @@ namespace UILayer
         {
             decimal totalCost = 0.00m;
 
-            foreach (var currentItem in lstViewPaymentNeeded.Items)
+            foreach (var currentItem in lstBoxPaymentNeeded.Items)
             {
 
                 string currentItemString = currentItem.ToString();
@@ -84,13 +84,17 @@ namespace UILayer
 
         private void btnSnacksEnter_Click(object sender, EventArgs e)
         {
-            bool isLimited = cmbSnacks.SelectedIndex.Equals("Limited") ? true : false;
+            bool isLimited = cmbSnacks.SelectedItem.Equals("Limited") ? true : false;
+                        
+            lstViewSnacks.Items.Clear();
             List<FoodDTO> snackList = fillLstViewFood("Snack", isLimited);
             snackList.ForEach(snackEntry => lstViewSnacks.Items.Add(snackEntry.Name + " Price: " + snackEntry.Price));
         }
         private void btnDrinksEnter_Click(object sender, EventArgs e)
         {
-            bool isLimited = cmbSnacks.SelectedIndex.Equals("Limited") ? true : false;
+            bool isLimited = cmbSnacks.SelectedItem.Equals("Limited") ? true : false;
+            
+            lstViewDrinks.Items.Clear();
             List<FoodDTO> drinkList = fillLstViewFood("Drink", isLimited);
             drinkList.ForEach(entry => Console.WriteLine(entry));
             drinkList.ForEach(drinkEntry => lstViewDrinks.Items.Add(drinkEntry.Name + " Price: " + drinkEntry.Price));
@@ -120,6 +124,46 @@ namespace UILayer
 
             lstViewPaymentNeeded.Items.Remove();
             */
+        }
+
+        private void lstBoxPaymentNeeded_Click(object sender, EventArgs e)
+        {
+            int itemToRemoveIndex = lstBoxPaymentNeeded.SelectedIndex;
+            lstBoxPaymentNeeded.Items.RemoveAt(itemToRemoveIndex);
+        }
+
+        private string grabItemProperty(ListView lstViewControl)
+        {
+            
+            var firstSelectedItem = lstViewControl.SelectedItems[0];
+            
+            return firstSelectedItem.Text;
+        }
+
+        private void lstViewSnacks_Click(object sender, EventArgs e)
+        {
+            string itemProperty = grabItemProperty(lstViewSnacks);
+
+            lstBoxPaymentNeeded.Items.Add(itemProperty);
+        }
+
+        private void lstViewDrinks_Click(object sender, EventArgs e)
+        {
+            string itemProperty = grabItemProperty(lstViewDrinks);
+
+            lstBoxPaymentNeeded.Items.Add(itemProperty);
+        }
+
+        private void lstViewDrinks_DrawItem(object sender, DrawListViewItemEventArgs e)
+        {
+            e.DrawDefault = true;
+            e.Graphics.DrawRectangle(Pens.Black, e.Bounds);
+        }
+
+        private void lstViewSnacks_DrawItem(object sender, DrawListViewItemEventArgs e)
+        {
+            e.DrawDefault = true;
+            e.Graphics.DrawRectangle(Pens.Black, e.Bounds);
         }
     }
 }
