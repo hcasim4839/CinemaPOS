@@ -32,6 +32,7 @@ namespace UILayer
             this.lblName = new System.Windows.Forms.Label();
             this.lblPoints = new System.Windows.Forms.Label();
             this.grpPaymentNeeded = new System.Windows.Forms.GroupBox();
+            this.lstBoxPaymentNeeded = new System.Windows.Forms.ListBox();
             this.btnPoints = new System.Windows.Forms.Button();
             this.btnCC = new System.Windows.Forms.Button();
             this.btnPayCash = new System.Windows.Forms.Button();
@@ -44,7 +45,6 @@ namespace UILayer
             this.lstViewDrinks = new System.Windows.Forms.ListView();
             this.cmbDrinks = new System.Windows.Forms.ComboBox();
             this.btnExit = new System.Windows.Forms.Button();
-            this.lstBoxPaymentNeeded = new System.Windows.Forms.ListBox();
             this.grpPaymentNeeded.SuspendLayout();
             this.grpSnacks.SuspendLayout();
             this.grpDrinks.SuspendLayout();
@@ -84,6 +84,15 @@ namespace UILayer
             this.grpPaymentNeeded.TabStop = false;
             this.grpPaymentNeeded.Text = "Total Cost";
             // 
+            // lstBoxPaymentNeeded
+            // 
+            this.lstBoxPaymentNeeded.FormattingEnabled = true;
+            this.lstBoxPaymentNeeded.Location = new System.Drawing.Point(6, 72);
+            this.lstBoxPaymentNeeded.Name = "lstBoxPaymentNeeded";
+            this.lstBoxPaymentNeeded.Size = new System.Drawing.Size(241, 212);
+            this.lstBoxPaymentNeeded.TabIndex = 7;
+            this.lstBoxPaymentNeeded.Click += new System.EventHandler(this.lstBoxPaymentNeeded_Click);
+            // 
             // btnPoints
             // 
             this.btnPoints.Location = new System.Drawing.Point(16, 332);
@@ -101,6 +110,7 @@ namespace UILayer
             this.btnCC.TabIndex = 2;
             this.btnCC.Text = "Credit Card Payment";
             this.btnCC.UseVisualStyleBackColor = true;
+            this.btnCC.Click += new System.EventHandler(this.btnCC_Click);
             // 
             // btnPayCash
             // 
@@ -205,15 +215,6 @@ namespace UILayer
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
-            // lstBoxPaymentNeeded
-            // 
-            this.lstBoxPaymentNeeded.FormattingEnabled = true;
-            this.lstBoxPaymentNeeded.Location = new System.Drawing.Point(6, 72);
-            this.lstBoxPaymentNeeded.Name = "lstBoxPaymentNeeded";
-            this.lstBoxPaymentNeeded.Size = new System.Drawing.Size(229, 212);
-            this.lstBoxPaymentNeeded.TabIndex = 7;
-            this.lstBoxPaymentNeeded.Click += new System.EventHandler(this.lstBoxPaymentNeeded_Click);
             // 
             // frmSnacksDrinks
             // 

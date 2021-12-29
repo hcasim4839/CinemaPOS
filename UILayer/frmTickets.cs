@@ -33,9 +33,10 @@ namespace UILayer
             cmbMovieGenre.Items.Add("All");
             listOfGenre.ForEach(entry => cmbMovieGenre.Items.Add(entry.Category));            
             cmbMovieGenre.SelectedIndex = 0;
-            
+
             //Default for comboBox control
 
+            lstBoxPaymentNeeded.HorizontalScrollbar = true;
 
 
         }

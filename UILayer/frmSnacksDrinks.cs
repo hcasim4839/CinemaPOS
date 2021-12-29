@@ -15,10 +15,13 @@ namespace UILayer
     public partial class frmSnacksDrinks : Form
     {
         string[] categories = new string[] { "Limited", "Non-limited", "All"};
+        private string _phoneNum;
         public frmSnacksDrinks(string phoneNum)
         {
             InitializeComponent();
             Member member = new Member(phoneNum);
+            _phoneNum = phoneNum;
+
             MemberDTO memberDTO = member.Select();
 
             lblName.Text = memberDTO.Name;
@@ -39,6 +42,8 @@ namespace UILayer
             
             snackList.ForEach(snackEntry => lstViewSnacks.Items.Add(snackEntry.Name + " Price: " + snackEntry.Price));
             drinkList.ForEach(drinkEntry => lstViewDrinks.Items.Add(drinkEntry.Name + " Price: " + drinkEntry.Price));
+
+            lstBoxPaymentNeeded.HorizontalScrollbar = true;
         }
 
         private void lblPoints_Click(object sender, EventArgs e)
@@ -59,7 +64,16 @@ namespace UILayer
         private void btnPayCash_Click(object sender, EventArgs e)
         {
             decimal totalCost = 0.00m;
+            totalCost = totalCostCal(totalCost);
+            
 
+            frmCashPayment frmObj = new frmCashPayment(totalCost);
+            this.Hide();
+            frmObj.ShowDialog();
+            this.Show();
+        }
+        private decimal totalCostCal(decimal sumVar)
+        {
             foreach (var currentItem in lstBoxPaymentNeeded.Items)
             {
 
@@ -68,15 +82,10 @@ namespace UILayer
                 newEntryIndex += 7;
                 decimal ticketCost = Convert.ToDecimal(currentItemString.Substring(newEntryIndex));
 
-                totalCost += ticketCost;
+                sumVar += ticketCost;
             }
-
-            frmCashPayment frmObj = new frmCashPayment(totalCost);
-            this.Hide();
-            frmObj.ShowDialog();
-            this.Show();
+            return sumVar;
         }
-
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -164,6 +173,23 @@ namespace UILayer
         {
             e.DrawDefault = true;
             e.Graphics.DrawRectangle(Pens.Black, e.Bounds);
+        }
+
+        private void btnCC_Click(object sender, EventArgs e)
+        {
+            bool isMember = _phoneNum.Length > 0 ? true : false;
+
+
+            decimal totalCost = 0.00m;
+            totalCost = totalCostCal(totalCost);
+
+            if (isMember)
+            {
+                this.Hide();
+                frmCreditCardPayment frmObj = new frmCreditCardPayment(_phoneNum, totalCost);
+                frmObj.ShowDialog();
+                this.Show();
+            }
         }
     }
 }

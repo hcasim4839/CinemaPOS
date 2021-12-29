@@ -61,9 +61,9 @@ namespace UILayer
             // 
             // btnPayPoints
             // 
-            this.btnPayPoints.Location = new System.Drawing.Point(168, 333);
+            this.btnPayPoints.Location = new System.Drawing.Point(138, 302);
             this.btnPayPoints.Name = "btnPayPoints";
-            this.btnPayPoints.Size = new System.Drawing.Size(75, 23);
+            this.btnPayPoints.Size = new System.Drawing.Size(106, 23);
             this.btnPayPoints.TabIndex = 4;
             this.btnPayPoints.Text = "Points Payment";
             this.btnPayPoints.UseVisualStyleBackColor = true;
@@ -71,18 +71,18 @@ namespace UILayer
             // 
             // btnPayCreditCard
             // 
-            this.btnPayCreditCard.Location = new System.Drawing.Point(87, 333);
+            this.btnPayCreditCard.Location = new System.Drawing.Point(6, 333);
             this.btnPayCreditCard.Name = "btnPayCreditCard";
-            this.btnPayCreditCard.Size = new System.Drawing.Size(75, 23);
+            this.btnPayCreditCard.Size = new System.Drawing.Size(238, 23);
             this.btnPayCreditCard.TabIndex = 3;
             this.btnPayCreditCard.Text = "Credit Card Payment";
             this.btnPayCreditCard.UseVisualStyleBackColor = true;
             // 
             // btnPayCash
             // 
-            this.btnPayCash.Location = new System.Drawing.Point(6, 333);
+            this.btnPayCash.Location = new System.Drawing.Point(6, 302);
             this.btnPayCash.Name = "btnPayCash";
-            this.btnPayCash.Size = new System.Drawing.Size(75, 23);
+            this.btnPayCash.Size = new System.Drawing.Size(107, 23);
             this.btnPayCash.TabIndex = 2;
             this.btnPayCash.Text = "Cash Payment";
             this.btnPayCash.UseVisualStyleBackColor = true;
@@ -91,9 +91,9 @@ namespace UILayer
             // lstBoxPaymentNeeded
             // 
             this.lstBoxPaymentNeeded.FormattingEnabled = true;
-            this.lstBoxPaymentNeeded.Location = new System.Drawing.Point(49, 32);
+            this.lstBoxPaymentNeeded.Location = new System.Drawing.Point(6, 32);
             this.lstBoxPaymentNeeded.Name = "lstBoxPaymentNeeded";
-            this.lstBoxPaymentNeeded.Size = new System.Drawing.Size(144, 264);
+            this.lstBoxPaymentNeeded.Size = new System.Drawing.Size(238, 264);
             this.lstBoxPaymentNeeded.TabIndex = 1;
             this.lstBoxPaymentNeeded.Click += new System.EventHandler(this.lstBoxPaymentNeeded_Click);
             // 
