@@ -99,6 +99,12 @@
     <Compile Include="frmPaymentOptions.Designer.cs">
       <DependentUpon>frmPaymentOptions.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmPointsPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPointsPayment.Designer.cs">
+      <DependentUpon>frmPointsPayment.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPurchaseOptions.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,6 +162,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmPaymentOptions.resx">
       <DependentUpon>frmPaymentOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPointsPayment.resx">
+      <DependentUpon>frmPointsPayment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPurchaseOptions.resx">
       <DependentUpon>frmPurchaseOptions.cs</DependentUpon>
