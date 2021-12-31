@@ -77,6 +77,7 @@ namespace UILayer
             this.btnPayCreditCard.TabIndex = 3;
             this.btnPayCreditCard.Text = "Credit Card Payment";
             this.btnPayCreditCard.UseVisualStyleBackColor = true;
+            this.btnPayCreditCard.Click += new System.EventHandler(this.btnPayCreditCard_Click);
             // 
             // btnPayCash
             // 

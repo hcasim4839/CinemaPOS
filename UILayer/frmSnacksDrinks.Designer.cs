@@ -101,6 +101,7 @@ namespace UILayer
             this.btnPoints.TabIndex = 3;
             this.btnPoints.Text = "Points Payment";
             this.btnPoints.UseVisualStyleBackColor = true;
+            this.btnPoints.Click += new System.EventHandler(this.btnPoints_Click);
             // 
             // btnCC
             // 

@@ -15,14 +15,20 @@ namespace UILayer
     public partial class frmPointsPayment : Form
     {
         private string _phoneNum;
-        public frmPointsPayment(decimal cost,string phoneNum)
+        private decimal _cost;
+        public frmPointsPayment(string phoneNum, decimal cost)
         {
             InitializeComponent();
-            Member member = new Member(_phoneNum);
+            _cost = cost;
 
+
+            lblTotalCost.Text += cost;
+            Member member = new Member(phoneNum);
+            _phoneNum = phoneNum;
             MemberDTO memberDTO = member.Select();
-            lblMember.Text += " " + memberDTO.Name;
-            lblPoints.Text = Convert.ToString(memberDTO.Points);
+            lblMember.Text +=" " + memberDTO.Name;
+            Console.WriteLine("The points for " + memberDTO.Name + " is: " + memberDTO.Points);
+            lblPoints.Text += " " + Convert.ToString(memberDTO.Points);
 
 
 
@@ -56,7 +62,24 @@ namespace UILayer
 
         private void btnConfirmation_Click(object sender, EventArgs e)
         {
-            
+            Member member = new Member(_phoneNum);
+
+            int points = (int)(Convert.ToDecimal(cmbDiscounts.SelectedItem.ToString()) * 100);
+            member.removePoints(points);
+
+        }
+
+        private void cmbDiscounts_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Member member = new Member(_phoneNum);
+            MemberDTO memberDTO = member.Select();
+            int points = memberDTO.Points;
+
+            Console.WriteLine(Convert.ToInt32(cmbDiscounts.SelectedItem));
+            int pointsDeduction = Convert.ToInt32(cmbDiscounts.SelectedItem) * 100;
+            lblPointsReduction.Text += " " + pointsDeduction;
+            lblLeftoverPoints.Text += " " + (points - pointsDeduction);
+            lblNewPrice.Text += _cost - Convert.ToDecimal(cmbDiscounts.SelectedItem); 
 
         }
     }

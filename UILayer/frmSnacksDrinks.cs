@@ -45,7 +45,32 @@ namespace UILayer
 
             lstBoxPaymentNeeded.HorizontalScrollbar = true;
         }
+        public frmSnacksDrinks()
+        {
+            InitializeComponent();
 
+            lblPoints.Text = "";
+            lblName.Text = "";
+
+
+            cmbDrinks.Items.AddRange(categories);
+            cmbSnacks.Items.AddRange(categories);
+            cmbDrinks.SelectedItem = categories[1];
+            cmbSnacks.SelectedItem = categories[1];
+
+            cmbDrinks.SelectedItem = categories[1];
+            cmbSnacks.SelectedItem = categories[1];
+
+            List<FoodDTO> snackList = fillLstViewFood("Snack", false);
+            List<FoodDTO> drinkList = fillLstViewFood("Drink", false);
+
+
+
+            snackList.ForEach(snackEntry => lstViewSnacks.Items.Add(snackEntry.Name + " Price: " + snackEntry.Price));
+            drinkList.ForEach(drinkEntry => lstViewDrinks.Items.Add(drinkEntry.Name + " Price: " + drinkEntry.Price));
+
+            lstBoxPaymentNeeded.HorizontalScrollbar = true;
+        }
         private void lblPoints_Click(object sender, EventArgs e)
         {
 
@@ -177,7 +202,7 @@ namespace UILayer
 
         private void btnCC_Click(object sender, EventArgs e)
         {
-            bool isMember = _phoneNum.Length > 0 ? true : false;
+            bool isMember = _phoneNum != null ? true : false;
 
 
             decimal totalCost = 0.00m;
@@ -190,6 +215,29 @@ namespace UILayer
                 frmObj.ShowDialog();
                 this.Show();
             }
+            else
+                MessageBox.Show("For this option Customer must be a member");
         }
+
+        private void btnPoints_Click(object sender, EventArgs e)
+        {
+            bool isMember = _phoneNum != null ? true : false;
+
+
+            decimal totalCost = 0.00m;
+            totalCost = totalCostCal(totalCost);
+
+            if (isMember)
+            {
+                this.Hide();
+                frmPointsPayment frmObj = new frmPointsPayment(_phoneNum, totalCost);
+                frmObj.ShowDialog();
+                this.Show();
+            }
+            else
+                MessageBox.Show("For this option Customer must be a member");
+        }
+
+       
     }
 }

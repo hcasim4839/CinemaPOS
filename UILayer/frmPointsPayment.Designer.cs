@@ -39,8 +39,9 @@ namespace UILayer
             this.lblLeftoverPoints = new System.Windows.Forms.Label();
             this.grpExit = new System.Windows.Forms.GroupBox();
             this.grpPointsInfo = new System.Windows.Forms.GroupBox();
-            this.grpMemberInfo = new System.Windows.Forms.GroupBox();
             this.lblTotalCost = new System.Windows.Forms.Label();
+            this.grpMemberInfo = new System.Windows.Forms.GroupBox();
+            this.lblNewPrice = new System.Windows.Forms.Label();
             this.grpExit.SuspendLayout();
             this.grpPointsInfo.SuspendLayout();
             this.grpMemberInfo.SuspendLayout();
@@ -72,6 +73,7 @@ namespace UILayer
             this.cmbDiscounts.Name = "cmbDiscounts";
             this.cmbDiscounts.Size = new System.Drawing.Size(121, 21);
             this.cmbDiscounts.TabIndex = 2;
+            this.cmbDiscounts.SelectedIndexChanged += new System.EventHandler(this.cmbDiscounts_SelectedIndexChanged);
             // 
             // lblMember
             // 
@@ -94,7 +96,7 @@ namespace UILayer
             // 
             // btnConfirmation
             // 
-            this.btnConfirmation.Location = new System.Drawing.Point(281, 187);
+            this.btnConfirmation.Location = new System.Drawing.Point(281, 214);
             this.btnConfirmation.Name = "btnConfirmation";
             this.btnConfirmation.Size = new System.Drawing.Size(75, 23);
             this.btnConfirmation.TabIndex = 5;
@@ -123,7 +125,7 @@ namespace UILayer
             // grpExit
             // 
             this.grpExit.Controls.Add(this.btnExit);
-            this.grpExit.Location = new System.Drawing.Point(73, 366);
+            this.grpExit.Location = new System.Drawing.Point(73, 393);
             this.grpExit.Name = "grpExit";
             this.grpExit.Size = new System.Drawing.Size(331, 91);
             this.grpExit.TabIndex = 8;
@@ -131,6 +133,7 @@ namespace UILayer
             // 
             // grpPointsInfo
             // 
+            this.grpPointsInfo.Controls.Add(this.lblNewPrice);
             this.grpPointsInfo.Controls.Add(this.lblTotalCost);
             this.grpPointsInfo.Controls.Add(this.lblDiscount);
             this.grpPointsInfo.Controls.Add(this.cmbDiscounts);
@@ -139,9 +142,18 @@ namespace UILayer
             this.grpPointsInfo.Controls.Add(this.lblPointsReduction);
             this.grpPointsInfo.Location = new System.Drawing.Point(42, 135);
             this.grpPointsInfo.Name = "grpPointsInfo";
-            this.grpPointsInfo.Size = new System.Drawing.Size(383, 225);
+            this.grpPointsInfo.Size = new System.Drawing.Size(383, 252);
             this.grpPointsInfo.TabIndex = 9;
             this.grpPointsInfo.TabStop = false;
+            // 
+            // lblTotalCost
+            // 
+            this.lblTotalCost.AutoSize = true;
+            this.lblTotalCost.Location = new System.Drawing.Point(52, 29);
+            this.lblTotalCost.Name = "lblTotalCost";
+            this.lblTotalCost.Size = new System.Drawing.Size(58, 13);
+            this.lblTotalCost.TabIndex = 8;
+            this.lblTotalCost.Text = "Total Cost:";
             // 
             // grpMemberInfo
             // 
@@ -154,14 +166,14 @@ namespace UILayer
             this.grpMemberInfo.TabStop = false;
             this.grpMemberInfo.Text = "Member Information: ";
             // 
-            // lblTotalCost
+            // lblNewPrice
             // 
-            this.lblTotalCost.AutoSize = true;
-            this.lblTotalCost.Location = new System.Drawing.Point(52, 29);
-            this.lblTotalCost.Name = "lblTotalCost";
-            this.lblTotalCost.Size = new System.Drawing.Size(58, 13);
-            this.lblTotalCost.TabIndex = 8;
-            this.lblTotalCost.Text = "Total Cost:";
+            this.lblNewPrice.AutoSize = true;
+            this.lblNewPrice.Location = new System.Drawing.Point(52, 183);
+            this.lblNewPrice.Name = "lblNewPrice";
+            this.lblNewPrice.Size = new System.Drawing.Size(83, 13);
+            this.lblNewPrice.TabIndex = 9;
+            this.lblNewPrice.Text = "New Total Cost:";
             // 
             // frmPointsPayment
             // 
@@ -197,5 +209,6 @@ namespace UILayer
         private System.Windows.Forms.GroupBox grpPointsInfo;
         private System.Windows.Forms.GroupBox grpMemberInfo;
         private System.Windows.Forms.Label lblTotalCost;
+        private System.Windows.Forms.Label lblNewPrice;
     }
 }

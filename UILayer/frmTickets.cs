@@ -41,6 +41,27 @@ namespace UILayer
 
         }
 
+        public frmTickets()
+        {
+            InitializeComponent();
+            fillListView(false);
+
+            lblName.Text ="";
+            lblPoints.Text = "";
+
+            //fill the genre in the combobox
+            Genre genreObj = new Genre();
+            List<GenreDTO> listOfGenre = genreObj.SelectAll();
+
+            cmbMovieGenre.Items.Add("All");
+            listOfGenre.ForEach(entry => cmbMovieGenre.Items.Add(entry.Category));
+            cmbMovieGenre.SelectedIndex = 0;
+
+            //Default for comboBox control
+
+            lstBoxPaymentNeeded.HorizontalScrollbar = true;
+        }
+
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -73,17 +94,7 @@ namespace UILayer
         private void btnPayCash_Click(object sender, EventArgs e)
         {
             decimal totalCost = 0.00m;
-
-            foreach(var currentItem in lstBoxPaymentNeeded.Items)
-            {
-
-                string currentItemString = currentItem.ToString();
-                int newEntryIndex = currentItemString.LastIndexOf("Price: ");
-                newEntryIndex += 7;
-                decimal ticketCost = Convert.ToDecimal(currentItemString.Substring(newEntryIndex));
-
-                totalCost += ticketCost;
-            }
+            totalCost = totalCostCal(totalCost);
 
             frmCashPayment frmObj;
             if (_phoneNum.Length > 0)
@@ -136,13 +147,61 @@ namespace UILayer
 
         private void btnPayPoints_Click(object sender, EventArgs e)
         {
+            bool isMember = _phoneNum != null ? true : false;
 
+
+            decimal totalCost = 0.00m;
+            totalCost = totalCostCal(totalCost);
+
+            if (isMember)
+            {
+                this.Hide();
+                frmPointsPayment frmObj = new frmPointsPayment(_phoneNum, totalCost);
+                frmObj.ShowDialog();
+                this.Show();
+            }
+            else
+                MessageBox.Show("For this option Customer must be a member");
+        }
+
+        private decimal totalCostCal(decimal sumVar)
+        {
+            foreach (var currentItem in lstBoxPaymentNeeded.Items)
+            {
+
+                string currentItemString = currentItem.ToString();
+                int newEntryIndex = currentItemString.LastIndexOf("Price: ");
+                newEntryIndex += 7;
+                decimal ticketCost = Convert.ToDecimal(currentItemString.Substring(newEntryIndex));
+
+                sumVar += ticketCost;
+            }
+            return sumVar;
         }
 
         private void lstBoxPaymentNeeded_Click(object sender, EventArgs e)
         {
             int itemToRemoveIndex = lstBoxPaymentNeeded.SelectedIndex;
             lstBoxPaymentNeeded.Items.RemoveAt(itemToRemoveIndex);
+        }
+
+        private void btnPayCreditCard_Click(object sender, EventArgs e)
+        {
+            bool isMember = _phoneNum != null? true : false;
+
+
+            decimal totalCost = 0.00m;
+            totalCost = totalCostCal(totalCost);
+
+            if (isMember)
+            {
+                this.Hide();
+                frmCreditCardPayment frmObj = new frmCreditCardPayment(_phoneNum, totalCost);
+                frmObj.ShowDialog();
+                this.Show();
+            }
+            else
+                MessageBox.Show("For this option Customer must be a member");
         }
     }
 }

@@ -30,6 +30,10 @@ namespace UILayer
         public frmPurchaseOptions()
         {
             InitializeComponent();
+            lblMember.Text = "";
+            lblName.Text = "";
+            lblPoints.Text = "";
+
             
         }
         public frmPurchaseOptions(string name, string points)
@@ -41,9 +45,22 @@ namespace UILayer
 
         private void btnTickets_Click(object sender, EventArgs e)
         {
-            frmTickets frmObj = new frmTickets(_phoneNum);
-            this.Hide();
-            frmObj.ShowDialog();
+            bool isMember = _phoneNum.Length > 0 ? true : false;
+            frmTickets frmObj;
+
+            if (isMember)
+            {
+                frmObj = new frmTickets(_phoneNum);
+                this.Hide();
+                frmObj.ShowDialog();
+            }
+            else
+            {
+                frmObj = new frmTickets();
+                this.Hide();
+                frmObj.ShowDialog();
+            }
+
             this.Show();
         }
 
@@ -58,9 +75,22 @@ namespace UILayer
 
         private void btnSnacksDrinks_Click(object sender, EventArgs e)
         {
-            frmSnacksDrinks frmObj = new frmSnacksDrinks(_phoneNum);
-            this.Hide();
-            frmObj.ShowDialog();
+            bool isMember = _phoneNum.Length > 0 ? true : false;
+            frmSnacksDrinks frmObj;
+
+            if (isMember)
+            {
+                frmObj = new frmSnacksDrinks(_phoneNum);
+                this.Hide();
+                frmObj.ShowDialog();
+            }
+            else
+            {
+                frmObj = new frmSnacksDrinks();
+                this.Hide();
+                frmObj.ShowDialog();
+            }
+            
             this.Show();
             
         }

@@ -30,9 +30,10 @@ namespace UILayer
             Member member = new Member(phoneNum);
             MemberDTO memberDTO = member.Select();
 
-            lblMemberName.Text = memberDTO.Name;
-            lblPoints.Text = Convert.ToString(memberDTO.Points);
-            lblCost.Text = Convert.ToString(cost);
+            lblMemberName.Text += " " + memberDTO.Name;
+            Console.WriteLine("The points for " + memberDTO.Name + " is: " + memberDTO.Points);
+            lblPoints.Text += " " + Convert.ToString(memberDTO.Points);
+            lblCost.Text += " " + Convert.ToString(cost);
 
             MemberCreditCard mCreditCards = new MemberCreditCard(phoneNum);
             List<CreditCardDTO> creditCardList = mCreditCards.SelectAll();

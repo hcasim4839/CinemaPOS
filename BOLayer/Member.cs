@@ -39,6 +39,22 @@ namespace BOLayer
 
             return pointsAdded; 
         }
+        public bool removePoints(int points)
+        {
+            return DALayer_RemovePoints(points);
+        }
+
+        private bool DALayer_RemovePoints(int points)
+        {
+            MemberDAO mDAO = new MemberDAO();
+            MemberDTO mDTO = new MemberDTO();
+
+            mDTO.Points = points;
+            mDTO.PhoneNumber = _phoneNum;
+            bool pointsAdded = mDAO.removePoints(mDTO);
+
+            return pointsAdded;
+        }
 
         public override bool Delete()
         {

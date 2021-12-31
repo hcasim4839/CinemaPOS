@@ -33,12 +33,15 @@ namespace UILayer
             string phoneNum = txtPhoneNum.Text;
 
             frmPurchaseOptions frmObj;
-            if (txtPhoneNum.Text.Trim().Length > 1)
+
+            Member member = new Member(phoneNum);
+            MemberDTO memberDTO = member.Select();
+            if (memberDTO.Name != null)
             {
                 frmObj = new frmPurchaseOptions(phoneNum);                
             }
             else
-            {              
+            {
                 frmObj = new frmPurchaseOptions();               
             }
             frmObj.ShowDialog();
