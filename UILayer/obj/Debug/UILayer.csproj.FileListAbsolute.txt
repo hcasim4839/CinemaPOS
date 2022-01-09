@@ -49,3 +49,4 @@ C:\Users\Horacio\coding\C#Projects\CinemaPOS\UILayer\bin\Debug\DALayer.pdb
 C:\Users\Horacio\coding\C#Projects\CinemaPOS\UILayer\bin\Debug\DALayer.dll.config
 C:\Users\Horacio\coding\C#Projects\CinemaPOS\UILayer\obj\Debug\UILayer.frmCreditCardPayment.resources
 C:\Users\Horacio\coding\C#Projects\CinemaPOS\UILayer\obj\Debug\UILayer.frmPointsPayment.resources
+C:\Users\Horacio\coding\C#Projects\CinemaPOS\UILayer\obj\Debug\UILayer.PointsMessageBox.resources

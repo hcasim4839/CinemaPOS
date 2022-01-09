@@ -1,4 +1,5 @@
 ﻿using BOLayer;
+using DALayer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,7 +24,15 @@ namespace UILayer
             _phoneNumber = phoneNum;
             lblTotal.Text += ticketsCost;
             txtTotalCostValue.Text += ticketsCost;
-            
+
+
+            Member member = new Member(phoneNum);
+            MemberDTO memberDTO = member.Select();
+
+            lblName.Text = memberDTO.Name;
+            lblPoints.Text = Convert.ToString(memberDTO.Points);
+
+
             List<decimal> listOfBills = new List<decimal>();          
             listOfBills.Add(1);
             listOfBills.Add(5);

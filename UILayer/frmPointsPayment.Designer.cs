@@ -39,9 +39,12 @@ namespace UILayer
             this.lblLeftoverPoints = new System.Windows.Forms.Label();
             this.grpExit = new System.Windows.Forms.GroupBox();
             this.grpPointsInfo = new System.Windows.Forms.GroupBox();
+            this.lblNewPrice = new System.Windows.Forms.Label();
             this.lblTotalCost = new System.Windows.Forms.Label();
             this.grpMemberInfo = new System.Windows.Forms.GroupBox();
-            this.lblNewPrice = new System.Windows.Forms.Label();
+            this.lblUserPoints = new System.Windows.Forms.Label();
+            this.lblUserLeftoverPoints = new System.Windows.Forms.Label();
+            this.lblCost = new System.Windows.Forms.Label();
             this.grpExit.SuspendLayout();
             this.grpPointsInfo.SuspendLayout();
             this.grpMemberInfo.SuspendLayout();
@@ -133,6 +136,9 @@ namespace UILayer
             // 
             // grpPointsInfo
             // 
+            this.grpPointsInfo.Controls.Add(this.lblCost);
+            this.grpPointsInfo.Controls.Add(this.lblUserLeftoverPoints);
+            this.grpPointsInfo.Controls.Add(this.lblUserPoints);
             this.grpPointsInfo.Controls.Add(this.lblNewPrice);
             this.grpPointsInfo.Controls.Add(this.lblTotalCost);
             this.grpPointsInfo.Controls.Add(this.lblDiscount);
@@ -145,6 +151,15 @@ namespace UILayer
             this.grpPointsInfo.Size = new System.Drawing.Size(383, 252);
             this.grpPointsInfo.TabIndex = 9;
             this.grpPointsInfo.TabStop = false;
+            // 
+            // lblNewPrice
+            // 
+            this.lblNewPrice.AutoSize = true;
+            this.lblNewPrice.Location = new System.Drawing.Point(52, 183);
+            this.lblNewPrice.Name = "lblNewPrice";
+            this.lblNewPrice.Size = new System.Drawing.Size(83, 13);
+            this.lblNewPrice.TabIndex = 9;
+            this.lblNewPrice.Text = "New Total Cost:";
             // 
             // lblTotalCost
             // 
@@ -166,14 +181,29 @@ namespace UILayer
             this.grpMemberInfo.TabStop = false;
             this.grpMemberInfo.Text = "Member Information: ";
             // 
-            // lblNewPrice
+            // lblUserPoints
             // 
-            this.lblNewPrice.AutoSize = true;
-            this.lblNewPrice.Location = new System.Drawing.Point(52, 183);
-            this.lblNewPrice.Name = "lblNewPrice";
-            this.lblNewPrice.Size = new System.Drawing.Size(83, 13);
-            this.lblNewPrice.TabIndex = 9;
-            this.lblNewPrice.Text = "New Total Cost:";
+            this.lblUserPoints.AutoSize = true;
+            this.lblUserPoints.Location = new System.Drawing.Point(171, 111);
+            this.lblUserPoints.Name = "lblUserPoints";
+            this.lblUserPoints.Size = new System.Drawing.Size(0, 13);
+            this.lblUserPoints.TabIndex = 10;
+            // 
+            // lblUserLeftoverPoints
+            // 
+            this.lblUserLeftoverPoints.AutoSize = true;
+            this.lblUserLeftoverPoints.Location = new System.Drawing.Point(171, 150);
+            this.lblUserLeftoverPoints.Name = "lblUserLeftoverPoints";
+            this.lblUserLeftoverPoints.Size = new System.Drawing.Size(0, 13);
+            this.lblUserLeftoverPoints.TabIndex = 11;
+            // 
+            // lblCost
+            // 
+            this.lblCost.AutoSize = true;
+            this.lblCost.Location = new System.Drawing.Point(171, 183);
+            this.lblCost.Name = "lblCost";
+            this.lblCost.Size = new System.Drawing.Size(0, 13);
+            this.lblCost.TabIndex = 12;
             // 
             // frmPointsPayment
             // 
@@ -210,5 +240,8 @@ namespace UILayer
         private System.Windows.Forms.GroupBox grpMemberInfo;
         private System.Windows.Forms.Label lblTotalCost;
         private System.Windows.Forms.Label lblNewPrice;
+        private System.Windows.Forms.Label lblCost;
+        private System.Windows.Forms.Label lblUserLeftoverPoints;
+        private System.Windows.Forms.Label lblUserPoints;
     }
 }

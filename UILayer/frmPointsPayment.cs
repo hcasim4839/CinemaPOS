@@ -20,7 +20,7 @@ namespace UILayer
         {
             InitializeComponent();
             _cost = cost;
-
+            
 
             lblTotalCost.Text += cost;
             Member member = new Member(phoneNum);
@@ -67,19 +67,28 @@ namespace UILayer
             int points = (int)(Convert.ToDecimal(cmbDiscounts.SelectedItem.ToString()) * 100);
             member.removePoints(points);
 
+
+            PointsMessageBox frmObj = new PointsMessageBox(_phoneNum, Convert.ToDecimal(lblCost.Text));
+            frmObj.ShowDialog();
+
         }
 
         private void cmbDiscounts_SelectedIndexChanged(object sender, EventArgs e)
         {
+            lblUserPoints.Text = "";
+            lblUserLeftoverPoints.Text = "";            
+            lblCost.Text = "";
+
+
             Member member = new Member(_phoneNum);
             MemberDTO memberDTO = member.Select();
             int points = memberDTO.Points;
 
             Console.WriteLine(Convert.ToInt32(cmbDiscounts.SelectedItem));
             int pointsDeduction = Convert.ToInt32(cmbDiscounts.SelectedItem) * 100;
-            lblPointsReduction.Text += " " + pointsDeduction;
-            lblLeftoverPoints.Text += " " + (points - pointsDeduction);
-            lblNewPrice.Text += _cost - Convert.ToDecimal(cmbDiscounts.SelectedItem); 
+            lblUserPoints.Text = Convert.ToString(pointsDeduction);
+            lblUserLeftoverPoints.Text =Convert.ToString((points - pointsDeduction));
+            lblCost.Text = Convert.ToString(_cost - Convert.ToDecimal(cmbDiscounts.SelectedItem)); 
 
         }
     }

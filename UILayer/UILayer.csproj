@@ -129,6 +129,12 @@
     <Compile Include="frmTickets.Designer.cs">
       <DependentUpon>frmTickets.cs</DependentUpon>
     </Compile>
+    <Compile Include="PointsMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PointsMessageBox.Designer.cs">
+      <DependentUpon>PointsMessageBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -177,6 +183,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmTickets.resx">
       <DependentUpon>frmTickets.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PointsMessageBox.resx">
+      <DependentUpon>PointsMessageBox.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

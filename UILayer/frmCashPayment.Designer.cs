@@ -29,8 +29,7 @@ namespace UILayer
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblFirstName = new System.Windows.Forms.Label();
-            this.lblLastName = new System.Windows.Forms.Label();
+            this.lblName = new System.Windows.Forms.Label();
             this.lblPoints = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
             this.grpTotal = new System.Windows.Forms.GroupBox();
@@ -53,30 +52,21 @@ namespace UILayer
             this.btnReset = new System.Windows.Forms.Button();
             this.btnZero = new System.Windows.Forms.Button();
             this.grpCustom = new System.Windows.Forms.GroupBox();
-            this.btnExit = new System.Windows.Forms.Button();
             this.flwlyoutQuickBtns = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnExit = new System.Windows.Forms.Button();
             this.grpTotal.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.grpCustom.SuspendLayout();
             this.SuspendLayout();
             // 
-            // lblFirstName
+            // lblName
             // 
-            this.lblFirstName.AutoSize = true;
-            this.lblFirstName.Location = new System.Drawing.Point(55, 23);
-            this.lblFirstName.Name = "lblFirstName";
-            this.lblFirstName.Size = new System.Drawing.Size(57, 13);
-            this.lblFirstName.TabIndex = 0;
-            this.lblFirstName.Text = "First Name";
-            // 
-            // lblLastName
-            // 
-            this.lblLastName.AutoSize = true;
-            this.lblLastName.Location = new System.Drawing.Point(152, 23);
-            this.lblLastName.Name = "lblLastName";
-            this.lblLastName.Size = new System.Drawing.Size(58, 13);
-            this.lblLastName.TabIndex = 1;
-            this.lblLastName.Text = "Last Name";
+            this.lblName.AutoSize = true;
+            this.lblName.Location = new System.Drawing.Point(55, 23);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(35, 13);
+            this.lblName.TabIndex = 0;
+            this.lblName.Text = "Name";
             // 
             // lblPoints
             // 
@@ -328,6 +318,13 @@ namespace UILayer
             this.grpCustom.TabStop = false;
             this.grpCustom.Text = "Custom";
             // 
+            // flwlyoutQuickBtns
+            // 
+            this.flwlyoutQuickBtns.Location = new System.Drawing.Point(6, 51);
+            this.flwlyoutQuickBtns.Name = "flwlyoutQuickBtns";
+            this.flwlyoutQuickBtns.Size = new System.Drawing.Size(148, 262);
+            this.flwlyoutQuickBtns.TabIndex = 9;
+            // 
             // btnExit
             // 
             this.btnExit.Location = new System.Drawing.Point(573, 491);
@@ -337,13 +334,6 @@ namespace UILayer
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
-            // flwlyoutQuickBtns
-            // 
-            this.flwlyoutQuickBtns.Location = new System.Drawing.Point(6, 51);
-            this.flwlyoutQuickBtns.Name = "flwlyoutQuickBtns";
-            this.flwlyoutQuickBtns.Size = new System.Drawing.Size(148, 262);
-            this.flwlyoutQuickBtns.TabIndex = 9;
             // 
             // frmCashPayment
             // 
@@ -355,8 +345,7 @@ namespace UILayer
             this.Controls.Add(this.grpTotal);
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.lblPoints);
-            this.Controls.Add(this.lblLastName);
-            this.Controls.Add(this.lblFirstName);
+            this.Controls.Add(this.lblName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "frmCashPayment";
             this.Text = "Cash Payment";
@@ -371,8 +360,7 @@ namespace UILayer
 
         #endregion
 
-        private System.Windows.Forms.Label lblFirstName;
-        private System.Windows.Forms.Label lblLastName;
+        private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblPoints;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.GroupBox grpTotal;
