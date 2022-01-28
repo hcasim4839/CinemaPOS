@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+using BOLayer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,11 +16,18 @@ namespace UILayer
     {
         private string _phoneNum;
         private decimal _cost;
-        public PointsMessageBox(string phoneNum, decimal cost)
+        private int _points;
+
+        public PointsMessageBox(string phoneNum, decimal cost, int points)
         {
+            
             InitializeComponent();
+            
+            
             _phoneNum = phoneNum;
             _cost = cost;
+            _points = points;
+            btnCancel.DialogResult = DialogResult.Cancel;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -28,23 +37,34 @@ namespace UILayer
 
         private void btnCash_Click(object sender, EventArgs e)
         {
+            setDialogResult();
+            removeMemberPoints();
+            
             frmCashPayment frmObj = new frmCashPayment(_cost, _phoneNum);
             frmObj.ShowDialog();
             this.Close();
         }
 
+
         private void btnCreditCard_Click(object sender, EventArgs e)
         {
+            setDialogResult();
+            removeMemberPoints();
+            
             frmCreditCardPayment frmObj = new frmCreditCardPayment(_phoneNum, _cost);
             frmObj.ShowDialog();
             this.Close();
         }
 
-        private void btnPoints_Click(object sender, EventArgs e)
+        private void setDialogResult()
         {
-            frmPointsPayment frmObj = new frmPointsPayment(_phoneNum, _cost);
-            frmObj.ShowDialog();
-            this.Close();
+            this.DialogResult = DialogResult.OK;
+        }
+
+        private void removeMemberPoints()
+        {
+            Member member = new Member(_phoneNum);
+            member.removePoints(_points);
         }
     }
 }

@@ -61,15 +61,24 @@ namespace UILayer
         }
 
         private void btnConfirmation_Click(object sender, EventArgs e)
-        {
-            Member member = new Member(_phoneNum);
+        {            
+            int points = (int)(Convert.ToDecimal(cmbDiscounts.SelectedItem.ToString()) * 100);        
+            PointsMessageBox frmObj = new PointsMessageBox(_phoneNum, Convert.ToDecimal(lblCost.Text), points);
 
-            int points = (int)(Convert.ToDecimal(cmbDiscounts.SelectedItem.ToString()) * 100);
-            member.removePoints(points);
-
-
-            PointsMessageBox frmObj = new PointsMessageBox(_phoneNum, Convert.ToDecimal(lblCost.Text));
+            this.Hide();
             frmObj.ShowDialog();
+
+            
+            Console.WriteLine("The data is from the pointsmessageBox is: " + frmObj.DialogResult);
+            if (frmObj.DialogResult == DialogResult.OK)
+            {
+                this.Close();
+            }
+            else
+                this.Show();
+                
+
+            
 
         }
 

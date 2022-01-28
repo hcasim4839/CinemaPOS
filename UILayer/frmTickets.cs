@@ -104,7 +104,18 @@ namespace UILayer
              
             this.Hide();
             frmObj.ShowDialog();
+
+            setMemberPoints();
             this.Show();
+        }
+
+        private void setMemberPoints()
+        {
+            Member member = new Member(_phoneNum);
+            MemberDTO memberDTO = member.Select();
+
+            lblName.Text = memberDTO.Name;
+            lblPoints.Text = Convert.ToString(memberDTO.Points);
         }
 
         private void cmbMovieGenre_SelectedIndexChanged(object sender, EventArgs e)
@@ -158,6 +169,8 @@ namespace UILayer
                 this.Hide();
                 frmPointsPayment frmObj = new frmPointsPayment(_phoneNum, totalCost);
                 frmObj.ShowDialog();
+
+                setMemberPoints();
                 this.Show();
             }
             else
@@ -182,7 +195,9 @@ namespace UILayer
         private void lstBoxPaymentNeeded_Click(object sender, EventArgs e)
         {
             int itemToRemoveIndex = lstBoxPaymentNeeded.SelectedIndex;
-            lstBoxPaymentNeeded.Items.RemoveAt(itemToRemoveIndex);
+            if(itemToRemoveIndex >= 0)
+                lstBoxPaymentNeeded.Items.RemoveAt(itemToRemoveIndex);
+
         }
 
         private void btnPayCreditCard_Click(object sender, EventArgs e)
@@ -198,6 +213,8 @@ namespace UILayer
                 this.Hide();
                 frmCreditCardPayment frmObj = new frmCreditCardPayment(_phoneNum, totalCost);
                 frmObj.ShowDialog();
+
+                setMemberPoints();
                 this.Show();
             }
             else

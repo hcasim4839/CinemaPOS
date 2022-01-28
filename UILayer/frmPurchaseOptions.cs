@@ -21,12 +21,9 @@ namespace UILayer
             InitializeComponent();
             _phoneNum = phoneNum;
 
-            Member member = new Member(phoneNum);
-            MemberDTO memberDTO = member.Select();
-
-            lblName.Text = memberDTO.Name;
-            lblPoints.Text = Convert.ToString(memberDTO.Points);
+            setMemberPoints();           
         }
+
         public frmPurchaseOptions()
         {
             InitializeComponent();
@@ -52,25 +49,21 @@ namespace UILayer
             {
                 frmObj = new frmTickets(_phoneNum);
                 this.Hide();
-                frmObj.ShowDialog();
+                frmObj.ShowDialog();                
             }
             else
             {
                 frmObj = new frmTickets();
                 this.Hide();
-                frmObj.ShowDialog();
+                frmObj.ShowDialog();  
             }
-
+            setMemberPoints();
             this.Show();
         }
 
         private void btnExit_Click(object sender, EventArgs e)
-        {
-            
-            this.Close();
-            
-            
-           
+        {            
+            this.Close();        
         }
 
         private void btnSnacksDrinks_Click(object sender, EventArgs e)
@@ -90,9 +83,17 @@ namespace UILayer
                 this.Hide();
                 frmObj.ShowDialog();
             }
-            
+            setMemberPoints();
             this.Show();
             
+        }
+        private void setMemberPoints()
+        {
+            Member member = new Member(_phoneNum);
+            MemberDTO memberDTO = member.Select();
+
+            lblName.Text = memberDTO.Name;
+            lblPoints.Text = Convert.ToString(memberDTO.Points);
         }
     }
 }

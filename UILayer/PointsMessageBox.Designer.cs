@@ -33,7 +33,6 @@ namespace UILayer
             this.btnCash = new System.Windows.Forms.Button();
             this.btnCreditCard = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.btnPoints = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblMessage
@@ -48,7 +47,7 @@ namespace UILayer
             // 
             // btnCash
             // 
-            this.btnCash.Location = new System.Drawing.Point(12, 75);
+            this.btnCash.Location = new System.Drawing.Point(45, 75);
             this.btnCash.Name = "btnCash";
             this.btnCash.Size = new System.Drawing.Size(75, 23);
             this.btnCash.TabIndex = 1;
@@ -58,7 +57,7 @@ namespace UILayer
             // 
             // btnCreditCard
             // 
-            this.btnCreditCard.Location = new System.Drawing.Point(106, 75);
+            this.btnCreditCard.Location = new System.Drawing.Point(146, 75);
             this.btnCreditCard.Name = "btnCreditCard";
             this.btnCreditCard.Size = new System.Drawing.Size(75, 23);
             this.btnCreditCard.TabIndex = 2;
@@ -68,7 +67,7 @@ namespace UILayer
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(296, 75);
+            this.btnCancel.Location = new System.Drawing.Point(255, 75);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 3;
@@ -76,22 +75,11 @@ namespace UILayer
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // btnPoints
-            // 
-            this.btnPoints.Location = new System.Drawing.Point(202, 75);
-            this.btnPoints.Name = "btnPoints";
-            this.btnPoints.Size = new System.Drawing.Size(75, 23);
-            this.btnPoints.TabIndex = 4;
-            this.btnPoints.Text = "Points";
-            this.btnPoints.UseVisualStyleBackColor = true;
-            this.btnPoints.Click += new System.EventHandler(this.btnPoints_Click);
-            // 
             // PointsMessageBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(383, 151);
-            this.Controls.Add(this.btnPoints);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnCreditCard);
             this.Controls.Add(this.btnCash);
