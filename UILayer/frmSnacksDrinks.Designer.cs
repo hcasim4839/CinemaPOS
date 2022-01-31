@@ -45,6 +45,7 @@ namespace UILayer
             this.lstViewDrinks = new System.Windows.Forms.ListView();
             this.cmbDrinks = new System.Windows.Forms.ComboBox();
             this.btnExit = new System.Windows.Forms.Button();
+            this.btnReset = new System.Windows.Forms.Button();
             this.grpPaymentNeeded.SuspendLayout();
             this.grpSnacks.SuspendLayout();
             this.grpDrinks.SuspendLayout();
@@ -72,6 +73,7 @@ namespace UILayer
             // 
             // grpPaymentNeeded
             // 
+            this.grpPaymentNeeded.Controls.Add(this.btnReset);
             this.grpPaymentNeeded.Controls.Add(this.lstBoxPaymentNeeded);
             this.grpPaymentNeeded.Controls.Add(this.btnPoints);
             this.grpPaymentNeeded.Controls.Add(this.btnCC);
@@ -79,7 +81,7 @@ namespace UILayer
             this.grpPaymentNeeded.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpPaymentNeeded.Location = new System.Drawing.Point(12, 98);
             this.grpPaymentNeeded.Name = "grpPaymentNeeded";
-            this.grpPaymentNeeded.Size = new System.Drawing.Size(253, 361);
+            this.grpPaymentNeeded.Size = new System.Drawing.Size(253, 368);
             this.grpPaymentNeeded.TabIndex = 3;
             this.grpPaymentNeeded.TabStop = false;
             this.grpPaymentNeeded.Text = "Total Cost";
@@ -87,7 +89,7 @@ namespace UILayer
             // lstBoxPaymentNeeded
             // 
             this.lstBoxPaymentNeeded.FormattingEnabled = true;
-            this.lstBoxPaymentNeeded.Location = new System.Drawing.Point(6, 72);
+            this.lstBoxPaymentNeeded.Location = new System.Drawing.Point(6, 19);
             this.lstBoxPaymentNeeded.Name = "lstBoxPaymentNeeded";
             this.lstBoxPaymentNeeded.Size = new System.Drawing.Size(241, 212);
             this.lstBoxPaymentNeeded.TabIndex = 7;
@@ -95,9 +97,9 @@ namespace UILayer
             // 
             // btnPoints
             // 
-            this.btnPoints.Location = new System.Drawing.Point(16, 332);
+            this.btnPoints.Location = new System.Drawing.Point(135, 285);
             this.btnPoints.Name = "btnPoints";
-            this.btnPoints.Size = new System.Drawing.Size(107, 23);
+            this.btnPoints.Size = new System.Drawing.Size(112, 23);
             this.btnPoints.TabIndex = 3;
             this.btnPoints.Text = "Points Payment";
             this.btnPoints.UseVisualStyleBackColor = true;
@@ -105,9 +107,9 @@ namespace UILayer
             // 
             // btnCC
             // 
-            this.btnCC.Location = new System.Drawing.Point(119, 304);
+            this.btnCC.Location = new System.Drawing.Point(6, 314);
             this.btnCC.Name = "btnCC";
-            this.btnCC.Size = new System.Drawing.Size(134, 23);
+            this.btnCC.Size = new System.Drawing.Size(241, 23);
             this.btnCC.TabIndex = 2;
             this.btnCC.Text = "Credit Card Payment";
             this.btnCC.UseVisualStyleBackColor = true;
@@ -115,9 +117,9 @@ namespace UILayer
             // 
             // btnPayCash
             // 
-            this.btnPayCash.Location = new System.Drawing.Point(16, 303);
+            this.btnPayCash.Location = new System.Drawing.Point(6, 285);
             this.btnPayCash.Name = "btnPayCash";
-            this.btnPayCash.Size = new System.Drawing.Size(97, 23);
+            this.btnPayCash.Size = new System.Drawing.Size(105, 23);
             this.btnPayCash.TabIndex = 1;
             this.btnPayCash.Text = "Cash Payment";
             this.btnPayCash.UseVisualStyleBackColor = true;
@@ -217,6 +219,16 @@ namespace UILayer
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // btnReset
+            // 
+            this.btnReset.Location = new System.Drawing.Point(6, 237);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(241, 23);
+            this.btnReset.TabIndex = 7;
+            this.btnReset.Text = "Remove Items";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
             // frmSnacksDrinks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -257,5 +269,6 @@ namespace UILayer
         private System.Windows.Forms.Button btnDrinksEnter;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.ListBox lstBoxPaymentNeeded;
+        private System.Windows.Forms.Button btnReset;
     }
 }

@@ -41,12 +41,14 @@ namespace UILayer
             this.btnExit = new System.Windows.Forms.Button();
             this.lblName = new System.Windows.Forms.Label();
             this.lblPoints = new System.Windows.Forms.Label();
+            this.btnReset = new System.Windows.Forms.Button();
             this.grpPaymentNeeded.SuspendLayout();
             this.grpMovies.SuspendLayout();
             this.SuspendLayout();
             // 
             // grpPaymentNeeded
             // 
+            this.grpPaymentNeeded.Controls.Add(this.btnReset);
             this.grpPaymentNeeded.Controls.Add(this.btnPayPoints);
             this.grpPaymentNeeded.Controls.Add(this.btnPayCreditCard);
             this.grpPaymentNeeded.Controls.Add(this.btnPayCash);
@@ -54,14 +56,14 @@ namespace UILayer
             this.grpPaymentNeeded.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpPaymentNeeded.Location = new System.Drawing.Point(11, 77);
             this.grpPaymentNeeded.Name = "grpPaymentNeeded";
-            this.grpPaymentNeeded.Size = new System.Drawing.Size(250, 382);
+            this.grpPaymentNeeded.Size = new System.Drawing.Size(250, 385);
             this.grpPaymentNeeded.TabIndex = 0;
             this.grpPaymentNeeded.TabStop = false;
             this.grpPaymentNeeded.Text = "  ";
             // 
             // btnPayPoints
             // 
-            this.btnPayPoints.Location = new System.Drawing.Point(138, 302);
+            this.btnPayPoints.Location = new System.Drawing.Point(138, 328);
             this.btnPayPoints.Name = "btnPayPoints";
             this.btnPayPoints.Size = new System.Drawing.Size(106, 23);
             this.btnPayPoints.TabIndex = 4;
@@ -71,7 +73,7 @@ namespace UILayer
             // 
             // btnPayCreditCard
             // 
-            this.btnPayCreditCard.Location = new System.Drawing.Point(6, 333);
+            this.btnPayCreditCard.Location = new System.Drawing.Point(6, 359);
             this.btnPayCreditCard.Name = "btnPayCreditCard";
             this.btnPayCreditCard.Size = new System.Drawing.Size(238, 23);
             this.btnPayCreditCard.TabIndex = 3;
@@ -81,7 +83,7 @@ namespace UILayer
             // 
             // btnPayCash
             // 
-            this.btnPayCash.Location = new System.Drawing.Point(6, 302);
+            this.btnPayCash.Location = new System.Drawing.Point(6, 328);
             this.btnPayCash.Name = "btnPayCash";
             this.btnPayCash.Size = new System.Drawing.Size(107, 23);
             this.btnPayCash.TabIndex = 2;
@@ -92,7 +94,7 @@ namespace UILayer
             // lstBoxPaymentNeeded
             // 
             this.lstBoxPaymentNeeded.FormattingEnabled = true;
-            this.lstBoxPaymentNeeded.Location = new System.Drawing.Point(6, 32);
+            this.lstBoxPaymentNeeded.Location = new System.Drawing.Point(6, 19);
             this.lstBoxPaymentNeeded.Name = "lstBoxPaymentNeeded";
             this.lstBoxPaymentNeeded.Size = new System.Drawing.Size(238, 264);
             this.lstBoxPaymentNeeded.TabIndex = 1;
@@ -171,6 +173,16 @@ namespace UILayer
             this.lblPoints.TabIndex = 5;
             this.lblPoints.Text = "Points";
             // 
+            // btnReset
+            // 
+            this.btnReset.Location = new System.Drawing.Point(6, 289);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(238, 23);
+            this.btnReset.TabIndex = 5;
+            this.btnReset.Text = "Remove Items";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
             // frmTickets
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -206,5 +218,6 @@ namespace UILayer
         private System.Windows.Forms.Button btnPayCash;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblPoints;
+        private System.Windows.Forms.Button btnReset;
     }
 }

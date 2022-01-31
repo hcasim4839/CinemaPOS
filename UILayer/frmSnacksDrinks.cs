@@ -90,11 +90,21 @@ namespace UILayer
         {
             decimal totalCost = 0.00m;
             totalCost = totalCostCal(totalCost);
-            
 
-            frmCashPayment frmObj = new frmCashPayment(totalCost);
+            frmCashPayment frmObj;
+            bool isMember = _phoneNum != null && _phoneNum.Length > 0;
+
+            if (isMember)
+            {
+                frmObj = new frmCashPayment(totalCost, _phoneNum);
+            }
+            else
+                frmObj = new frmCashPayment(totalCost);
+
             this.Hide();
             frmObj.ShowDialog();
+
+            setMemberPoints();
             this.Show();
         }
         private decimal totalCostCal(decimal sumVar)
@@ -204,7 +214,6 @@ namespace UILayer
         {
             bool isMember = _phoneNum != null ? true : false;
 
-
             decimal totalCost = 0.00m;
             totalCost = totalCostCal(totalCost);
 
@@ -213,6 +222,8 @@ namespace UILayer
                 this.Hide();
                 frmCreditCardPayment frmObj = new frmCreditCardPayment(_phoneNum, totalCost);
                 frmObj.ShowDialog();
+
+                setMemberPoints();
                 this.Show();
             }
             else
@@ -227,17 +238,30 @@ namespace UILayer
             decimal totalCost = 0.00m;
             totalCost = totalCostCal(totalCost);
 
-            if (isMember)
+            if (isMember && lstBoxPaymentNeeded.Items.Count > 0)
             {
                 this.Hide();
                 frmPointsPayment frmObj = new frmPointsPayment(_phoneNum, totalCost);
                 frmObj.ShowDialog();
+
+                setMemberPoints();
                 this.Show();
             }
             else
-                MessageBox.Show("For this option Customer must be a member");
+                MessageBox.Show("For this option Customer must be a member and an item must be getting purchased");
+        }
+        private void setMemberPoints()
+        {
+            Member member = new Member(_phoneNum);
+            MemberDTO memberDTO = member.Select();
+
+            lblName.Text = memberDTO.Name;
+            lblPoints.Text = Convert.ToString(memberDTO.Points);
         }
 
-       
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            lstBoxPaymentNeeded.Items.Clear();
+        }
     }
 }

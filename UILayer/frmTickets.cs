@@ -97,8 +97,13 @@ namespace UILayer
             totalCost = totalCostCal(totalCost);
 
             frmCashPayment frmObj;
-            if (_phoneNum.Length > 0)
-                frmObj = new frmCashPayment(totalCost, _phoneNum);            
+            bool isMember = _phoneNum != null && _phoneNum.Length > 0;
+
+            if (isMember)
+            {
+
+                frmObj = new frmCashPayment(totalCost, _phoneNum);
+            }
             else
                 frmObj = new frmCashPayment(totalCost);
              
@@ -164,7 +169,7 @@ namespace UILayer
             decimal totalCost = 0.00m;
             totalCost = totalCostCal(totalCost);
 
-            if (isMember)
+            if (isMember && lstBoxPaymentNeeded.Items.Count > 0)
             {
                 this.Hide();
                 frmPointsPayment frmObj = new frmPointsPayment(_phoneNum, totalCost);
@@ -174,7 +179,7 @@ namespace UILayer
                 this.Show();
             }
             else
-                MessageBox.Show("For this option Customer must be a member");
+                MessageBox.Show("For this option Customer must be a member and an item must be getting purchased");
         }
 
         private decimal totalCostCal(decimal sumVar)
@@ -219,6 +224,11 @@ namespace UILayer
             }
             else
                 MessageBox.Show("For this option Customer must be a member");
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            lstBoxPaymentNeeded.Items.Clear();
         }
     }
 }
