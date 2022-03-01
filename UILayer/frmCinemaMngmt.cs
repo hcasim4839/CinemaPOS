@@ -42,5 +42,14 @@ namespace UILayer
             frmObj.ShowDialog();
             this.Show();
         }
+
+        private void btnNewProducts_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmCredential frmObj = new frmCredential();
+            frmObj.ShowDialog();
+
+            this.Show();
+        }
     }
 }

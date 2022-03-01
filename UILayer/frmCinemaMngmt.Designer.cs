@@ -33,6 +33,7 @@ namespace UILayer
             this.btnExit = new System.Windows.Forms.Button();
             this.btnMembership = new System.Windows.Forms.Button();
             this.btnPurchases = new System.Windows.Forms.Button();
+            this.btnNewProducts = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -47,7 +48,7 @@ namespace UILayer
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(241, 198);
+            this.btnExit.Location = new System.Drawing.Point(242, 211);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(75, 23);
             this.btnExit.TabIndex = 3;
@@ -57,7 +58,7 @@ namespace UILayer
             // 
             // btnMembership
             // 
-            this.btnMembership.Location = new System.Drawing.Point(198, 142);
+            this.btnMembership.Location = new System.Drawing.Point(198, 104);
             this.btnMembership.Name = "btnMembership";
             this.btnMembership.Size = new System.Drawing.Size(165, 23);
             this.btnMembership.TabIndex = 4;
@@ -67,7 +68,7 @@ namespace UILayer
             // 
             // btnPurchases
             // 
-            this.btnPurchases.Location = new System.Drawing.Point(198, 82);
+            this.btnPurchases.Location = new System.Drawing.Point(198, 55);
             this.btnPurchases.Name = "btnPurchases";
             this.btnPurchases.Size = new System.Drawing.Size(165, 23);
             this.btnPurchases.TabIndex = 5;
@@ -75,11 +76,22 @@ namespace UILayer
             this.btnPurchases.UseVisualStyleBackColor = true;
             this.btnPurchases.Click += new System.EventHandler(this.btnPurchases_Click);
             // 
+            // btnNewProducts
+            // 
+            this.btnNewProducts.Location = new System.Drawing.Point(198, 154);
+            this.btnNewProducts.Name = "btnNewProducts";
+            this.btnNewProducts.Size = new System.Drawing.Size(165, 23);
+            this.btnNewProducts.TabIndex = 6;
+            this.btnNewProducts.Text = "Insert New Products";
+            this.btnNewProducts.UseVisualStyleBackColor = true;
+            this.btnNewProducts.Click += new System.EventHandler(this.btnNewProducts_Click);
+            // 
             // frmCinemaMngmt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(574, 304);
+            this.Controls.Add(this.btnNewProducts);
             this.Controls.Add(this.btnPurchases);
             this.Controls.Add(this.btnMembership);
             this.Controls.Add(this.btnExit);
@@ -98,5 +110,6 @@ namespace UILayer
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnMembership;
         private System.Windows.Forms.Button btnPurchases;
+        private System.Windows.Forms.Button btnNewProducts;
     }
 }

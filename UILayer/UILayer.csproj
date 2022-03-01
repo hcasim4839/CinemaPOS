@@ -69,6 +69,12 @@
     <Compile Include="frmConfirmation.Designer.cs">
       <DependentUpon>frmConfirmation.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCredential.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCredential.Designer.cs">
+      <DependentUpon>frmCredential.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCreditCardPayment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +98,12 @@
     </Compile>
     <Compile Include="frmMembership.Designer.cs">
       <DependentUpon>frmMembership.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmNewProductsInsertion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNewProductsInsertion.Designer.cs">
+      <DependentUpon>frmNewProductsInsertion.cs</DependentUpon>
     </Compile>
     <Compile Include="frmPaymentOptions.cs">
       <SubType>Form</SubType>
@@ -154,6 +166,9 @@
     <EmbeddedResource Include="frmConfirmation.resx">
       <DependentUpon>frmConfirmation.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmCredential.resx">
+      <DependentUpon>frmCredential.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCreditCardPayment.resx">
       <DependentUpon>frmCreditCardPayment.cs</DependentUpon>
     </EmbeddedResource>
@@ -165,6 +180,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMembership.resx">
       <DependentUpon>frmMembership.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNewProductsInsertion.resx">
+      <DependentUpon>frmNewProductsInsertion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPaymentOptions.resx">
       <DependentUpon>frmPaymentOptions.cs</DependentUpon>
