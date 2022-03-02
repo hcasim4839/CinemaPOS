@@ -21,5 +21,22 @@ namespace UILayer
         {
             this.Close();
         }
+
+        private void btnConsumable_Click(object sender, EventArgs e)
+        {
+            frmConsumable_s_ frmObj = new frmConsumable_s_();
+            this.Hide();
+            frmObj.ShowDialog();
+            this.Show();
+        }
+
+        private void btnMovie_Click(object sender, EventArgs e)
+        {
+            frmNewMovies frmObj = new frmNewMovies();
+
+            this.Hide();
+            frmObj.ShowDialog();
+            this.Show();
+        }
     }
 }

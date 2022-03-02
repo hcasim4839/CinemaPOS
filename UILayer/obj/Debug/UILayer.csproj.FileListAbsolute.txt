@@ -52,3 +52,5 @@ C:\Users\Horacio\coding\C#Projects\CinemaPOS\UILayer\obj\Debug\UILayer.frmPoints
 C:\Users\Horacio\coding\C#Projects\CinemaPOS\UILayer\obj\Debug\UILayer.PointsMessageBox.resources
 C:\Users\Horacio\coding\C#Projects\CinemaPOS\UILayer\obj\Debug\UILayer.frmCredential.resources
 C:\Users\Horacio\coding\C#Projects\CinemaPOS\UILayer\obj\Debug\UILayer.frmNewProductsInsertion.resources
+C:\Users\Horacio\coding\C#Projects\CinemaPOS\UILayer\obj\Debug\UILayer.frmConsumable_s_.resources
+C:\Users\Horacio\coding\C#Projects\CinemaPOS\UILayer\obj\Debug\UILayer.frmNewMovies.resources

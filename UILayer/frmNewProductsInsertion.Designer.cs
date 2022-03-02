@@ -30,8 +30,7 @@ namespace UILayer
         private void InitializeComponent()
         {
             this.btnMovie = new System.Windows.Forms.Button();
-            this.btnFood = new System.Windows.Forms.Button();
-            this.btnDrink = new System.Windows.Forms.Button();
+            this.btnConsumable = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -44,28 +43,21 @@ namespace UILayer
             this.btnMovie.TabIndex = 0;
             this.btnMovie.Text = "Insert New Movie(s)";
             this.btnMovie.UseVisualStyleBackColor = true;
+            this.btnMovie.Click += new System.EventHandler(this.btnMovie_Click);
             // 
-            // btnFood
+            // btnConsumable
             // 
-            this.btnFood.Location = new System.Drawing.Point(167, 123);
-            this.btnFood.Name = "btnFood";
-            this.btnFood.Size = new System.Drawing.Size(176, 23);
-            this.btnFood.TabIndex = 1;
-            this.btnFood.Text = "Insert New Food(s)";
-            this.btnFood.UseVisualStyleBackColor = true;
-            // 
-            // btnDrink
-            // 
-            this.btnDrink.Location = new System.Drawing.Point(167, 170);
-            this.btnDrink.Name = "btnDrink";
-            this.btnDrink.Size = new System.Drawing.Size(176, 23);
-            this.btnDrink.TabIndex = 2;
-            this.btnDrink.Text = "Insert New Drink(s)";
-            this.btnDrink.UseVisualStyleBackColor = true;
+            this.btnConsumable.Location = new System.Drawing.Point(167, 123);
+            this.btnConsumable.Name = "btnConsumable";
+            this.btnConsumable.Size = new System.Drawing.Size(176, 23);
+            this.btnConsumable.TabIndex = 1;
+            this.btnConsumable.Text = "Insert New Consumable(s)";
+            this.btnConsumable.UseVisualStyleBackColor = true;
+            this.btnConsumable.Click += new System.EventHandler(this.btnConsumable_Click);
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(219, 237);
+            this.btnExit.Location = new System.Drawing.Point(217, 183);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(75, 23);
             this.btnExit.TabIndex = 3;
@@ -90,8 +82,7 @@ namespace UILayer
             this.ClientSize = new System.Drawing.Size(525, 348);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.btnExit);
-            this.Controls.Add(this.btnDrink);
-            this.Controls.Add(this.btnFood);
+            this.Controls.Add(this.btnConsumable);
             this.Controls.Add(this.btnMovie);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "frmNewProductsInsertion";
@@ -104,8 +95,7 @@ namespace UILayer
         #endregion
 
         private System.Windows.Forms.Button btnMovie;
-        private System.Windows.Forms.Button btnFood;
-        private System.Windows.Forms.Button btnDrink;
+        private System.Windows.Forms.Button btnConsumable;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Label lblTitle;
     }
