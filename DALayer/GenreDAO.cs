@@ -52,7 +52,33 @@ namespace DALayer
 
         public bool Insert(GenreDTO objDTO)
         {
-            throw new NotImplementedException();
+            AWSMySQL db = (AWSMySQL) SQLFactory.GetSQLInstance(SQLFactory.AwsMySQL);
+            MySqlConnection connObj = new MySqlConnection(db.ConnString);
+
+            try
+            {
+                connObj.Open();
+                string query = "INSERT into Genre(Category) VALUES(@Category)";
+
+                MySqlCommand cmbObj = new MySqlCommand(query, connObj);
+                cmbObj.CommandType = CommandType.Text;
+
+                cmbObj.Parameters.AddWithValue("@Category", objDTO.Category);
+
+                int numRowsAffected = cmbObj.ExecuteNonQuery();
+
+                bool isDataInserted = numRowsAffected > 0 ? true : false;
+                return isDataInserted;
+            } catch (Exception e)
+            {
+                throw new Exception("Error in the GenreDAO class within the method Insert: " + e.Message);
+            }
+            finally
+            {
+                connObj.Close();
+                connObj.Dispose();
+            }
+
         }
 
         public GenreDTO Select(GenreDTO objDTO)

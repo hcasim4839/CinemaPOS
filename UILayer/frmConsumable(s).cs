@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DALayer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,19 +17,20 @@ namespace UILayer
         {
             InitializeComponent();
 
-            List<string> listR = new List<string>();
-            listR.Add("Car");
-            listR.Add("Bus");
+            List<string> consumableCategory = new List<string>();
+            consumableCategory.Add("Snack");
+            consumableCategory.Add("Drink");
 
 
-            listR.ForEach((element) => cmbCategory.Items.Add(element));
+            consumableCategory.ForEach((element) => cmbCategory.Items.Add(element));
+
+            cmbLimited.Items.AddRange(new string[] { "Limited", "Non-Limited"});
+
+      
         }
 
         private void btnSecondarySubmit_Click(object sender, EventArgs e)
-        {
-            string NewCategory = txtNewCategory.Text.Trim();
-
-
+        {            
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -38,12 +40,26 @@ namespace UILayer
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            string name = txtName.Text.Trim();
-            string price = txtPrice.Text.Trim();
-            string category = cmbCategory.SelectedItem.ToString();
+            FoodDAO foodDAO = new FoodDAO();
+            FoodDTO foodDTO = new FoodDTO();
 
-            MessageBox.Show(String.Format("The name is: {0},\nThe price is: {1}, \nThe category is: {2}", name, price, category));
+            foodDTO.Category = cmbCategory.SelectedItem.ToString();
+            foodDTO.Name = txtName.Text;
+            foodDTO.Price = txtPrice.Text;
+            foodDTO.IsLimited = cmbLimited.SelectedItem.ToString() == "Limited" ? true : false;
 
+            bool isFoodInserted = foodDAO.Insert(foodDTO);
+
+            string msg = isFoodInserted ? "The Consumable has been inserted" : "The Consumable was not inserted";
+
+            MessageBox.Show(msg);
+            clearForm();
+        }
+
+        private void clearForm()
+        {
+            txtName.Text = "";
+            txtPrice.Text = "";
         }
     }
 }

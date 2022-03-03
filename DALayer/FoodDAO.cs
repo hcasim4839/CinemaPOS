@@ -17,7 +17,57 @@ namespace DALayer
 
         public bool Insert(FoodDTO objDTO)
         {
-            throw new NotImplementedException();
+            AWSMySQL db = (AWSMySQL) SQLFactory.GetSQLInstance(SQLFactory.AwsMySQL);
+            MySqlConnection connObj = new MySqlConnection(db.ConnString);
+
+            try
+            {
+                connObj.Open();
+                string query = "Insert into Product(Name,isLimitied,Category,Price)" +
+                    "VALUES(@Name,@isLimited,@Category,@Price)";
+
+                MySqlCommand cmdObj = new MySqlCommand(query, connObj);
+                cmdObj.CommandType = CommandType.Text;
+
+                cmdObj.Parameters.AddWithValue("@Name", objDTO.Name);
+                cmdObj.Parameters.AddWithValue("@isLimited", objDTO.IsLimited ? "T": "F");
+                cmdObj.Parameters.AddWithValue("@Category", objDTO.Category);
+                cmdObj.Parameters.AddWithValue("@Price", objDTO.Price);
+
+                bool isProductInsert = cmdObj.ExecuteNonQuery() > 0 ? true : false ;
+
+                connObj.Close();
+                connObj.Dispose();
+
+                connObj.Open();
+
+                query = "Insert into Food (Name,isLimited,Category,Price)" +
+                    "VALUES(@Name,@isLimited,@Category,@Price)";
+
+                cmdObj = new MySqlCommand(query, connObj);
+                cmdObj.CommandType = CommandType.Text;
+
+                cmdObj.Parameters.AddWithValue("@Name", objDTO.Name);
+                cmdObj.Parameters.AddWithValue("@isLimited", objDTO.IsLimited ? "T" : "F");
+                cmdObj.Parameters.AddWithValue("@Category", objDTO.Category);
+                cmdObj.Parameters.AddWithValue("@Price", objDTO.Price);
+
+                bool isFoodInsert = cmdObj.ExecuteNonQuery() > 0 ? true : false;
+
+                if (isFoodInsert && isProductInsert)
+                    return true;
+                else
+                    return false;
+            }
+            catch(Exception e)
+            {
+                throw new Exception("Error in the FoodDAO class, method Insert(): " + e.Message);
+            }
+            finally
+            {
+                connObj.Close();
+                connObj.Dispose();
+            }
         }
 
         public FoodDTO Select(FoodDTO objDTO)
@@ -70,7 +120,8 @@ namespace DALayer
             }
             finally
             {
-
+                connObj.Close();
+                connObj.Dispose();
             }
         }
     }

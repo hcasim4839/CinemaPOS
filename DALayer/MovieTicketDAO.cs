@@ -17,7 +17,69 @@ namespace DALayer
 
         public bool Insert(MovieTicketDTO objDTO)
         {
-            throw new NotImplementedException();
+            AWSMySQL db = (AWSMySQL) SQLFactory.GetSQLInstance(SQLFactory.AwsMySQL);
+            MySqlConnection objConn = new MySqlConnection(db.ConnString);
+
+            try
+            {
+                objConn.Open();
+
+
+                string query = "Insert into Product(Name,isLimitied,Category,Price)" +
+                    "VALUES(@Name,@isLimited,@Category,@Price)";
+
+
+                
+                 
+                MySqlCommand objCmd = new MySqlCommand(query, objConn);
+                objCmd.CommandType = CommandType.Text;
+
+
+                objCmd.Parameters.AddWithValue("@Name", objDTO.Name);
+                objCmd.Parameters.AddWithValue("@Price", objDTO.Price);
+                objCmd.Parameters.AddWithValue("@Category", objDTO.Category);
+                objCmd.Parameters.AddWithValue("@isLimited", "F");
+
+                
+                
+                
+
+                int rowsAffectedProduct = objCmd.ExecuteNonQuery();
+
+                objConn.Close();
+                objConn.Dispose();
+
+                objConn.Open();
+                query = "Insert into MovieTicket(Name,Price,Category) VALUES(@Name, @Price, @Category)";
+
+                objCmd = new MySqlCommand(query, objConn);
+                objCmd.CommandType = CommandType.Text;
+
+                objCmd.Parameters.AddWithValue("@Name", objDTO.Name);
+                objCmd.Parameters.AddWithValue("@Price", objDTO.Price);
+                objCmd.Parameters.AddWithValue("@Category", objDTO.Category);
+
+                int rowsAffectedMovie = objCmd.ExecuteNonQuery();
+
+                if (rowsAffectedMovie > 0 && rowsAffectedProduct > 0)
+                    return true;
+                else
+                    return false;
+
+
+            }
+            catch (Exception e)
+            {
+                throw new Exception("There is an error in the MovieTicketDAO method Insert(MovieTicketDTO objDTO): " + e.Message);
+            }
+            finally
+            {
+                objConn.Close();
+                objConn.Dispose();
+            }
+            
+            
+
         }
 
         public MovieTicketDTO Select(MovieTicketDTO objDTO)

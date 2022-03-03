@@ -30,27 +30,26 @@ namespace UILayer
         private void InitializeComponent()
         {
             this.grpMain = new System.Windows.Forms.GroupBox();
-            this.grpExit = new System.Windows.Forms.GroupBox();
-            this.grpCatgory = new System.Windows.Forms.GroupBox();
-            this.lblTitle = new System.Windows.Forms.Label();
-            this.lblName = new System.Windows.Forms.Label();
-            this.lblPrice = new System.Windows.Forms.Label();
-            this.lblCategory = new System.Windows.Forms.Label();
-            this.lblNewCategory = new System.Windows.Forms.Label();
-            this.txtName = new System.Windows.Forms.TextBox();
-            this.txtPrice = new System.Windows.Forms.TextBox();
-            this.txtNewCategory = new System.Windows.Forms.TextBox();
-            this.cmbCategory = new System.Windows.Forms.ComboBox();
+            this.cmbLimited = new System.Windows.Forms.ComboBox();
+            this.lblLimited = new System.Windows.Forms.Label();
             this.btnSubmit = new System.Windows.Forms.Button();
-            this.btnSecondarySubmit = new System.Windows.Forms.Button();
+            this.cmbCategory = new System.Windows.Forms.ComboBox();
+            this.txtPrice = new System.Windows.Forms.TextBox();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.lblCategory = new System.Windows.Forms.Label();
+            this.lblPrice = new System.Windows.Forms.Label();
+            this.lblName = new System.Windows.Forms.Label();
+            this.grpExit = new System.Windows.Forms.GroupBox();
             this.btnExit = new System.Windows.Forms.Button();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.grpMain.SuspendLayout();
             this.grpExit.SuspendLayout();
-            this.grpCatgory.SuspendLayout();
             this.SuspendLayout();
             // 
             // grpMain
             // 
+            this.grpMain.Controls.Add(this.cmbLimited);
+            this.grpMain.Controls.Add(this.lblLimited);
             this.grpMain.Controls.Add(this.btnSubmit);
             this.grpMain.Controls.Add(this.cmbCategory);
             this.grpMain.Controls.Add(this.txtPrice);
@@ -64,54 +63,54 @@ namespace UILayer
             this.grpMain.TabIndex = 0;
             this.grpMain.TabStop = false;
             // 
-            // grpExit
+            // cmbLimited
             // 
-            this.grpExit.Controls.Add(this.btnExit);
-            this.grpExit.Location = new System.Drawing.Point(397, 207);
-            this.grpExit.Name = "grpExit";
-            this.grpExit.Size = new System.Drawing.Size(354, 105);
-            this.grpExit.TabIndex = 1;
-            this.grpExit.TabStop = false;
+            this.cmbLimited.FormattingEnabled = true;
+            this.cmbLimited.Location = new System.Drawing.Point(123, 142);
+            this.cmbLimited.Name = "cmbLimited";
+            this.cmbLimited.Size = new System.Drawing.Size(132, 21);
+            this.cmbLimited.TabIndex = 8;
             // 
-            // grpCatgory
+            // lblLimited
             // 
-            this.grpCatgory.Controls.Add(this.btnSecondarySubmit);
-            this.grpCatgory.Controls.Add(this.txtNewCategory);
-            this.grpCatgory.Controls.Add(this.lblNewCategory);
-            this.grpCatgory.Location = new System.Drawing.Point(397, 63);
-            this.grpCatgory.Name = "grpCatgory";
-            this.grpCatgory.Size = new System.Drawing.Size(354, 107);
-            this.grpCatgory.TabIndex = 2;
-            this.grpCatgory.TabStop = false;
-            this.grpCatgory.Text = "Enter New Movie Category";
+            this.lblLimited.AutoSize = true;
+            this.lblLimited.Location = new System.Drawing.Point(28, 145);
+            this.lblLimited.Name = "lblLimited";
+            this.lblLimited.Size = new System.Drawing.Size(76, 13);
+            this.lblLimited.TabIndex = 7;
+            this.lblLimited.Text = "Limited Status:";
             // 
-            // lblTitle
+            // btnSubmit
             // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(376, 13);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(154, 13);
-            this.lblTitle.TabIndex = 3;
-            this.lblTitle.Text = "Insert New Consumable(s)";
+            this.btnSubmit.Location = new System.Drawing.Point(180, 192);
+            this.btnSubmit.Name = "btnSubmit";
+            this.btnSubmit.Size = new System.Drawing.Size(75, 23);
+            this.btnSubmit.TabIndex = 5;
+            this.btnSubmit.Text = "Submit";
+            this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
-            // lblName
+            // cmbCategory
             // 
-            this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(28, 27);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(38, 13);
-            this.lblName.TabIndex = 0;
-            this.lblName.Text = "Name:";
+            this.cmbCategory.FormattingEnabled = true;
+            this.cmbCategory.Location = new System.Drawing.Point(123, 106);
+            this.cmbCategory.Name = "cmbCategory";
+            this.cmbCategory.Size = new System.Drawing.Size(132, 21);
+            this.cmbCategory.TabIndex = 4;
             // 
-            // lblPrice
+            // txtPrice
             // 
-            this.lblPrice.AutoSize = true;
-            this.lblPrice.Location = new System.Drawing.Point(28, 70);
-            this.lblPrice.Name = "lblPrice";
-            this.lblPrice.Size = new System.Drawing.Size(34, 13);
-            this.lblPrice.TabIndex = 1;
-            this.lblPrice.Text = "Price:";
+            this.txtPrice.Location = new System.Drawing.Point(123, 67);
+            this.txtPrice.Name = "txtPrice";
+            this.txtPrice.Size = new System.Drawing.Size(132, 20);
+            this.txtPrice.TabIndex = 3;
+            // 
+            // txtName
+            // 
+            this.txtName.Location = new System.Drawing.Point(123, 24);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(132, 20);
+            this.txtName.TabIndex = 0;
             // 
             // lblCategory
             // 
@@ -122,63 +121,32 @@ namespace UILayer
             this.lblCategory.TabIndex = 2;
             this.lblCategory.Text = "Category:";
             // 
-            // lblNewCategory
+            // lblPrice
             // 
-            this.lblNewCategory.AutoSize = true;
-            this.lblNewCategory.Location = new System.Drawing.Point(29, 48);
-            this.lblNewCategory.Name = "lblNewCategory";
-            this.lblNewCategory.Size = new System.Drawing.Size(52, 13);
-            this.lblNewCategory.TabIndex = 3;
-            this.lblNewCategory.Text = "Category:";
+            this.lblPrice.AutoSize = true;
+            this.lblPrice.Location = new System.Drawing.Point(28, 70);
+            this.lblPrice.Name = "lblPrice";
+            this.lblPrice.Size = new System.Drawing.Size(34, 13);
+            this.lblPrice.TabIndex = 1;
+            this.lblPrice.Text = "Price:";
             // 
-            // txtName
+            // lblName
             // 
-            this.txtName.Location = new System.Drawing.Point(123, 24);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(132, 20);
-            this.txtName.TabIndex = 0;
+            this.lblName.AutoSize = true;
+            this.lblName.Location = new System.Drawing.Point(28, 27);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(38, 13);
+            this.lblName.TabIndex = 0;
+            this.lblName.Text = "Name:";
             // 
-            // txtPrice
+            // grpExit
             // 
-            this.txtPrice.Location = new System.Drawing.Point(123, 67);
-            this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(132, 20);
-            this.txtPrice.TabIndex = 3;
-            // 
-            // txtNewCategory
-            // 
-            this.txtNewCategory.Location = new System.Drawing.Point(107, 45);
-            this.txtNewCategory.Name = "txtNewCategory";
-            this.txtNewCategory.Size = new System.Drawing.Size(132, 20);
-            this.txtNewCategory.TabIndex = 4;
-            // 
-            // cmbCategory
-            // 
-            this.cmbCategory.FormattingEnabled = true;
-            this.cmbCategory.Location = new System.Drawing.Point(123, 106);
-            this.cmbCategory.Name = "cmbCategory";
-            this.cmbCategory.Size = new System.Drawing.Size(132, 21);
-            this.cmbCategory.TabIndex = 4;
-            // 
-            // btnSubmit
-            // 
-            this.btnSubmit.Location = new System.Drawing.Point(180, 168);
-            this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(75, 23);
-            this.btnSubmit.TabIndex = 5;
-            this.btnSubmit.Text = "Submit";
-            this.btnSubmit.UseVisualStyleBackColor = true;
-            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
-            // 
-            // btnSecondarySubmit
-            // 
-            this.btnSecondarySubmit.Location = new System.Drawing.Point(261, 43);
-            this.btnSecondarySubmit.Name = "btnSecondarySubmit";
-            this.btnSecondarySubmit.Size = new System.Drawing.Size(75, 23);
-            this.btnSecondarySubmit.TabIndex = 5;
-            this.btnSecondarySubmit.Text = "Submit";
-            this.btnSecondarySubmit.UseVisualStyleBackColor = true;
-            this.btnSecondarySubmit.Click += new System.EventHandler(this.btnSecondarySubmit_Click);
+            this.grpExit.Controls.Add(this.btnExit);
+            this.grpExit.Location = new System.Drawing.Point(397, 207);
+            this.grpExit.Name = "grpExit";
+            this.grpExit.Size = new System.Drawing.Size(354, 105);
+            this.grpExit.TabIndex = 1;
+            this.grpExit.TabStop = false;
             // 
             // btnExit
             // 
@@ -190,13 +158,22 @@ namespace UILayer
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Location = new System.Drawing.Point(309, 22);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(154, 13);
+            this.lblTitle.TabIndex = 3;
+            this.lblTitle.Text = "Insert New Consumable(s)";
+            // 
             // frmConsumable_s_
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(773, 349);
             this.Controls.Add(this.lblTitle);
-            this.Controls.Add(this.grpCatgory);
             this.Controls.Add(this.grpExit);
             this.Controls.Add(this.grpMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -205,8 +182,6 @@ namespace UILayer
             this.grpMain.ResumeLayout(false);
             this.grpMain.PerformLayout();
             this.grpExit.ResumeLayout(false);
-            this.grpCatgory.ResumeLayout(false);
-            this.grpCatgory.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -216,7 +191,6 @@ namespace UILayer
 
         private System.Windows.Forms.GroupBox grpMain;
         private System.Windows.Forms.GroupBox grpExit;
-        private System.Windows.Forms.GroupBox grpCatgory;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.ComboBox cmbCategory;
@@ -226,8 +200,7 @@ namespace UILayer
         private System.Windows.Forms.Label lblPrice;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.Button btnSecondarySubmit;
-        private System.Windows.Forms.TextBox txtNewCategory;
-        private System.Windows.Forms.Label lblNewCategory;
+        private System.Windows.Forms.ComboBox cmbLimited;
+        private System.Windows.Forms.Label lblLimited;
     }
 }
