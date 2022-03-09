@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace UILayer
 {
-    public partial class frmNewProductsInsertion : Form
+    public partial class frmProductChanges : Form
     {
-        public frmNewProductsInsertion()
+        public frmProductChanges()
         {
             InitializeComponent();
         }
@@ -33,6 +33,15 @@ namespace UILayer
         private void btnMovie_Click(object sender, EventArgs e)
         {
             frmNewMovies frmObj = new frmNewMovies();
+
+            this.Hide();
+            frmObj.ShowDialog();
+            this.Show();
+        }
+
+        private void btnDeleteMovie_Click(object sender, EventArgs e)
+        {
+            frmDeleteMovie frmObj = new frmDeleteMovie();
 
             this.Hide();
             frmObj.ShowDialog();

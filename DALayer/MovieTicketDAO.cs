@@ -12,7 +12,31 @@ namespace DALayer
     {
         public bool Delete(MovieTicketDTO objDTO)
         {
-            throw new NotImplementedException();
+            AWSMySQL db = (AWSMySQL)SQLFactory.GetSQLInstance(SQLFactory.AwsMySQL);
+            MySqlConnection objConn = new MySqlConnection(db.ConnString);
+            try
+            {
+                objConn.Open();
+
+                string query = "DELETE FROM Product WHERE Name = {@Name}";
+
+                MySqlCommand objCmd = new MySqlCommand(query,objConn);
+
+                objCmd.Parameters.AddWithValue("@Name", objDTO.Name);
+
+                bool areRowsAffected = objCmd.ExecuteNonQuery() > 0 ? true : false;
+
+                return areRowsAffected;
+
+            }catch(Exception e)
+            {
+                throw new Exception("There is an error in the MovieTicketDAO method Delete(MovieTicketDTO objDTO): " + e.Message);
+            }
+            finally
+            {
+                objConn.Close();
+                objConn.Dispose();
+            }
         }
 
         public bool Insert(MovieTicketDTO objDTO)

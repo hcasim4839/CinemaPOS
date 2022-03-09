@@ -33,7 +33,7 @@ namespace UILayer
             this.btnExit = new System.Windows.Forms.Button();
             this.btnMembership = new System.Windows.Forms.Button();
             this.btnPurchases = new System.Windows.Forms.Button();
-            this.btnNewProducts = new System.Windows.Forms.Button();
+            this.btnProductChanges = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -76,22 +76,22 @@ namespace UILayer
             this.btnPurchases.UseVisualStyleBackColor = true;
             this.btnPurchases.Click += new System.EventHandler(this.btnPurchases_Click);
             // 
-            // btnNewProducts
+            // btnProductChanges
             // 
-            this.btnNewProducts.Location = new System.Drawing.Point(198, 154);
-            this.btnNewProducts.Name = "btnNewProducts";
-            this.btnNewProducts.Size = new System.Drawing.Size(165, 23);
-            this.btnNewProducts.TabIndex = 6;
-            this.btnNewProducts.Text = "Insert New Products";
-            this.btnNewProducts.UseVisualStyleBackColor = true;
-            this.btnNewProducts.Click += new System.EventHandler(this.btnNewProducts_Click);
+            this.btnProductChanges.Location = new System.Drawing.Point(198, 154);
+            this.btnProductChanges.Name = "btnProductChanges";
+            this.btnProductChanges.Size = new System.Drawing.Size(165, 23);
+            this.btnProductChanges.TabIndex = 6;
+            this.btnProductChanges.Text = "Product Changes";
+            this.btnProductChanges.UseVisualStyleBackColor = true;
+            this.btnProductChanges.Click += new System.EventHandler(this.btnNewProducts_Click);
             // 
             // frmCinemaMngmt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(574, 304);
-            this.Controls.Add(this.btnNewProducts);
+            this.Controls.Add(this.btnProductChanges);
             this.Controls.Add(this.btnPurchases);
             this.Controls.Add(this.btnMembership);
             this.Controls.Add(this.btnExit);
@@ -110,6 +110,6 @@ namespace UILayer
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnMembership;
         private System.Windows.Forms.Button btnPurchases;
-        private System.Windows.Forms.Button btnNewProducts;
+        private System.Windows.Forms.Button btnProductChanges;
     }
 }

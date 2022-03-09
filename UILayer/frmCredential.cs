@@ -22,7 +22,7 @@ namespace UILayer
             if (true)
             {
                 this.Hide();
-                frmNewProductsInsertion frmObj = new frmNewProductsInsertion();
+                frmProductChanges frmObj = new frmProductChanges();
                 frmObj.ShowDialog();
 
                 
