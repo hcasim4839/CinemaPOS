@@ -44,15 +44,28 @@ namespace UILayer
         {
             List<MovieTicketDTO> movieListToRemove = new List<MovieTicketDTO>();
 
-            MovieTicketDTO movieDTO = new MovieTicketDTO();
+            MovieTicketDTO movieDTO;
             MovieTicketDAO movieDAO = new MovieTicketDAO();
 
             foreach (var movie in CListBoxMovie.CheckedItems)
             {
+                movieDTO = new MovieTicketDTO();
                 movieDTO.Name = movie.ToString();
+               
                 movieListToRemove.Add(movieDTO);
             }
-            movieListToRemove.ForEach(entry => movieDAO.Delete() )
+
+            bool areMoviesDeleted = false;
+
+            if (CListBoxMovie.CheckedItems.Count > 0)
+            {
+                areMoviesDeleted = movieDAO.Delete(movieListToRemove);
+            }
+            
+
+            string msg = areMoviesDeleted ? "Movies were deleted" : "Movies were not deleted";
+
+            MessageBox.Show(msg);
         }
 
         private void cmbGenre_SelectedIndexChanged(object sender, EventArgs e)

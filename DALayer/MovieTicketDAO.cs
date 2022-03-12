@@ -10,24 +10,47 @@ namespace DALayer
 {
     public class MovieTicketDAO : IDAOCRUDCommands<MovieTicketDTO>
     {
-        public bool Delete(MovieTicketDTO objDTO)
-        {
+        public bool Delete(List<MovieTicketDTO> objDTO)
+        {            
             AWSMySQL db = (AWSMySQL)SQLFactory.GetSQLInstance(SQLFactory.AwsMySQL);
             MySqlConnection objConn = new MySqlConnection(db.ConnString);
             try
             {
                 objConn.Open();
+                int numOfEntries = objDTO.Count;
+                
+                string query = "DELETE FROM Product WHERE Name IN (";
 
-                string query = "DELETE FROM Product WHERE Name = {@Name}";
+                for (int i = 0; i < numOfEntries; i++)
+                {
+                    if (i < numOfEntries - 1)
+                    {
+                        query += "@Name" + i + ",";                       
+                    }                        
+                    else
+                    {
+                        query += "@Name" + i;
+                    }
+                        
+                }
 
-                MySqlCommand objCmd = new MySqlCommand(query,objConn);
+                query += ")";
+                                
 
-                objCmd.Parameters.AddWithValue("@Name", objDTO.Name);
-
-                bool areRowsAffected = objCmd.ExecuteNonQuery() > 0 ? true : false;
-
+                MySqlCommand objCmd = new MySqlCommand(query, objConn);
+                                             
+                for (int i = 0; i < objDTO.Count; i++)
+                {
+                    string value = objDTO[i].Name;
+                    objCmd.Parameters.AddWithValue("@Name" + i, value);
+                    Console.WriteLine("In the parameter.addWithValue loop: " + value);
+                }
+           
+                int numRows = objCmd.ExecuteNonQuery();
+                
+                bool areRowsAffected =  numRows > 0 ? true : false;
+                                
                 return areRowsAffected;
-
             }catch(Exception e)
             {
                 throw new Exception("There is an error in the MovieTicketDAO method Delete(MovieTicketDTO objDTO): " + e.Message);
@@ -37,6 +60,11 @@ namespace DALayer
                 objConn.Close();
                 objConn.Dispose();
             }
+        }
+
+        public bool Delete(MovieTicketDTO objDTO)
+        {
+            throw new NotImplementedException();
         }
 
         public bool Insert(MovieTicketDTO objDTO)

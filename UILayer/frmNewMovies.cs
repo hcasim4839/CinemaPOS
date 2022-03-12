@@ -13,17 +13,17 @@ namespace UILayer
 {
     public partial class frmNewMovies : Form
     {
+        private string defaultComboBoxOption = "All";
         public frmNewMovies()
         {
             InitializeComponent();
-
             inializeCmbControl();
         }
 
         private void inializeCmbControl()
         {
             GenreDAO genreDAO = new GenreDAO();
-
+            cmbGenre.Items.Add(defaultComboBoxOption);
             genreDAO.SelectAll().ForEach(movieGenre => cmbGenre.Items.Add(movieGenre.Category));
         }
 
@@ -35,27 +35,38 @@ namespace UILayer
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             MovieTicketDAO movieDAO = new MovieTicketDAO();
-            MovieTicketDTO movieDTO = new MovieTicketDTO();
 
-            movieDTO.Name = txtName.Text.Trim();
-            movieDTO.Price = txtPrice.Text.Trim();
-            movieDTO.Category = cmbGenre.SelectedItem.ToString();
+            bool areTxtControlsFull = txtName.Text.Length > 0 || txtPrice.Text.Length > 0 || cmbGenre.SelectedItem.ToString().Length > 0 ? true : false;
 
-            bool isInserted = movieDAO.Insert(movieDTO);
+            string msg = "One of the required fields is not filled out"; 
 
-            string msg = isInserted ? "The movie was successfully inserted" : "The movie was not inserted";
+            if (areTxtControlsFull)
+            {
+                MovieTicketDTO movieDTO = new MovieTicketDTO();
+
+                movieDTO.Name = txtName.Text.Trim();
+                movieDTO.Price = txtPrice.Text.Trim();
+                movieDTO.Category = cmbGenre.SelectedItem.ToString();
+
+                bool isInserted = movieDAO.Insert(movieDTO);
+
+                msg = isInserted ? "The movie was successfully inserted" : "The movie was not inserted";
+                ClearGrpMain();
+
+            }
+           
 
             MessageBox.Show(msg);
-            ClearGrpMain();
+            
         }
 
         private void ClearGrpMain()
         {
-            txtName.Text = "";
-            txtNewCategory.Text = "";
+            txtName.Text = "";            
             txtPrice.Text = "";
 
-           
+            int indexOfALL = cmbGenre.Items.IndexOf(defaultComboBoxOption);
+            cmbGenre.SelectedIndex = indexOfALL;           
         }
 
         private void btnSubmitCategory_Click(object sender, EventArgs e)

@@ -13,16 +13,41 @@ namespace Test
         static void Main(string[] args)
         {
 
-            Member member = new Member("2");
-            MemberDTO memberDTO = member.Select();
+            List<MovieTicketDTO> objDTO = new List<MovieTicketDTO>();
+
 
             
-            
+
+            for (int i = 0; i < 10; i++)
+            {
+                MovieTicketDTO dto = new MovieTicketDTO();
+                dto.Name = "pokemon" + i;
+                objDTO.Add(dto);
+            }
+
+            objDTO.ForEach(entry => Console.WriteLine(entry.Name));
+            string query = "DELETE FROM Product WHERE Name IN (";
+
+            for (int i = 0; i < objDTO.Count; i++)
+            {
+                if (i < 10 - 1)
+                    query += "@Name" + i + ",";
+                else
+                    query += "@Name" + i;
+
+            }
+
+            query += ")";
 
 
-            Console.WriteLine("dfs");
-            Console.WriteLine("The member info: " +memberDTO.Name + memberDTO.Points);
+            for (int i = 0; i < objDTO.Count; i++)
+            {
 
+                Console.WriteLine("In the parameter.addWithValue loop: " + objDTO[i].Name);
+            }
+            Console.WriteLine(query);
         }
+        
+      
     }
 }
